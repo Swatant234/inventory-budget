@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eConnect | Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+       <link rel="stylesheet" href="../common.css">
+    <link rel="stylesheet" href="../styles.css">
+
+</head>
+
+
+<body>
+    <div id="sidebar-placeholder"></div>
+    <div id="header-placeholder"></div>
+    <main id="main-wrapper">
+        <div class="d-flex justify-content-between align-items-end mb-5">
+            <div>
+                <h2 class="fw-bold text-dark mb-1">Service Master</h2>
+                <p class="text-muted small mb-0">Centralized repository for SAP-integrated service procurement.</p>
+            </div>
+            <button class="btn btn-premium" data-bs-toggle="modal" data-bs-target="#editServiceModal">
+                <i class="bi bi-plus-circle me-2"></i>Create Service
+            </button>
+        </div>
+
+        <div class="row g-4 mb-4">
+            <div class="col-md-4">
+                <div class="stat-card d-flex align-items-center">
+                    <div class="stat-icon bg-primary bg-opacity-10 text-primary me-3"><i class="bi bi-cpu-fill"></i>
+                    </div>
+                    <div>
+                        <div class="text-muted small fw-bold">System Status</div>
+                        <div class="fw-bold text-success">SAP Synced</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="stat-card d-flex align-items-center">
+                    <div class="stat-icon bg-dark bg-opacity-10 text-dark me-3"><i class="bi bi-briefcase"></i></div>
+                    <div>
+                        <div class="text-muted small fw-bold">Active Contracts</div>
+                        <div class="fw-bold">142 Services</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="stat-card d-flex align-items-center">
+                    <div class="stat-icon bg-info bg-opacity-10 text-info me-3"><i class="bi bi-people"></i></div>
+                    <div>
+                        <div class="text-muted small fw-bold">Total Vendors</div>
+                        <div class="fw-bold">28 Approved</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table class="table table-hover mb-0">
+                <thead>
+                    <tr>
+                        <th>Service Code</th>
+                        <th>Description</th>
+                        <th>Purchase Group</th>
+                        <th>Price</th>
+                        <th>Vendors</th>
+                        <th class="text-center">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="fw-bold text-dark">SRV-2024-901</td>
+                        <td>Industrial Calibration - Level 1</td>
+                        <td><span class="badge bg-light text-dark border px-3">TECH-PG</span></td>
+                        <td class="fw-bold text-primary">₹ 12,400.00</td>
+                        <td>
+                            <span
+                                class="badge rounded-pill bg-primary bg-opacity-10 text-primary border border-primary border-opacity-25 px-3">3
+                                Vendors Attached</span>
+                        </td>
+                        <td class="text-center">
+                            <button class="btn btn-sm btn-white border shadow-sm px-3" data-bs-toggle="modal"
+                                data-bs-target="#editServiceModal">
+                                <i class="bi bi-pencil-square me-1 text-primary"></i> Edit
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <div class="modal fade" id="editServiceModal" tabindex="-1">
+        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header border-0 p-4 pb-0">
+                    <div class="d-flex align-items-center">
+                        <div class="bg-primary bg-opacity-10 p-3 rounded-4 me-3">
+                            <i class="bi bi-gear-wide-connected text-primary fs-3"></i>
+                        </div>
+                        <div>
+                            <h4 class="modal-title fw-bold">Modify Service Parameters</h4>
+                            <p class="text-muted small mb-0">Updates here sync with the eConnect Local Database.</p>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body p-4">
+                    <div class="row g-4">
+
+                        <div class="col-12">
+                            <div class="p-4 rounded-4 bg-light border border-dashed">
+                                <div class="mb-3"><span class="section-tag">Section 1: SAP Service Master
+                                        (Locked)</span></div>
+                                <div class="row g-3">
+                                    <div class="col-md-3">
+                                        <label class="form-label small fw-bold">Service Code</label>
+                                        <div class="input-group input-group-sm">
+                                            <span class="input-group-text bg-white border-end-0"><i
+                                                    class="bi bi-lock-fill small"></i></span>
+                                            <input type="text" class="form-control sap-lock border-start-0"
+                                                value="SRV-2024-901" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <label class="form-label small fw-bold">Short Description</label>
+                                        <input type="text" class="form-control form-control-sm sap-lock"
+                                            value="Industrial Calibration - Level 1 Precision Testing" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-8">
+                            <div class="p-4 border rounded-4 bg-white shadow-sm h-100">
+                                <div class="mb-3"><span class="section-tag">Section 2: Detailed Parameters</span></div>
+
+                                <div class="mb-4">
+                                    <label class="form-label small fw-bold">Long Description</label>
+                                    <textarea class="form-control" rows="8"
+                                        placeholder="Enter full technical scope of work, safety requirements, and deliverables..."></textarea>
+                                </div>
+
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label small fw-bold">Purchase Group</label>
+                                        <select class="form-select">
+                                            <option selected>TECH-PG (Technical Services)</option>
+                                            <option>MANT-PG (Maintenance)</option>
+                                            <option>EXT-PG (External Experts)</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label small fw-bold">Estimated Price (Standard)</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text bg-light fw-bold border-end-0">₹</span>
+                                            <input type="number" class="form-control border-start-0 fw-bold"
+                                                value="12400.00">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="row g-4">
+                                <div class="col-12">
+                                    <div class="p-4 border rounded-4 bg-white shadow-sm">
+                                        <div class="mb-3"><span class="section-tag">Section 3: Vendors</span></div>
+                                        <label class="form-label small fw-bold d-block mb-3">Associated
+                                            Suppliers</label>
+
+                                        <div class="d-flex flex-column gap-2 mb-3">
+                                            <div class="vendor-pill">
+                                                <span>TATA Metrology</span>
+                                                <i class="bi bi-x-circle ms-auto text-muted"></i>
+                                            </div>
+                                            <div class="vendor-pill">
+                                                <span>Precision Labs Pvt Ltd</span>
+                                                <i class="bi bi-x-circle ms-auto text-muted"></i>
+                                            </div>
+                                        </div>
+
+                                        <div class="input-group input-group-sm">
+                                            <input type="text" class="form-control" placeholder="Search vendor name...">
+                                            <button class="btn btn-dark"><i class="bi bi-plus-lg"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="p-4 border rounded-4 bg-white shadow-sm">
+                                        <div class="mb-3"><span class="section-tag">Section 4: Attachments</span></div>
+                                        <div class="dropzone-area mb-3">
+                                            <i class="bi bi-cloud-arrow-up text-primary fs-2"></i>
+                                            <div class="small fw-bold mt-2">Upload Files</div>
+                                            <div class="extra-small text-muted" style="font-size: 10px;">PDF, DOCX or
+                                                ZIP</div>
+                                        </div>
+
+                                        <div class="small text-muted">
+                                            <div class="d-flex align-items-center mb-1">
+                                                <i class="bi bi-file-earmark-pdf text-danger me-2"></i>
+                                                calibration_specs.pdf
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="modal-footer border-0 p-4 pt-0 justify-content-between">
+                    <button type="button" class="btn btn-light px-4 fw-bold" data-bs-dismiss="modal">Discard
+                        changes</button>
+                    <button type="button" class="btn btn-premium px-5">Save Service Master</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../sidebar.js"></script>
+    <script src="../header.js"></script>
+</body>
+
+
+</html>

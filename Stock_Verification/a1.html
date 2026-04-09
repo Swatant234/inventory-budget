@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eConnect | Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+       <link rel="stylesheet" href="../common.css">
+    <link rel="stylesheet" href="../styles.css">
+
+</head>
+
+<body>
+    <div id="sidebar-placeholder"></div>
+    <div id="header-placeholder"></div>
+    <main id="main-wrapper">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <div>
+                <h2 class="fw-bold text-dark m-0">Stock Verification (Audit)</h2>
+                <p class="text-muted small">Compare system stock against physical counts for location-based auditing.
+                </p>
+            </div>
+            <div class="text-end">
+                <button class="btn btn-outline-dark fw-bold rounded-pill px-4 me-2"><i
+                        class="bi bi-file-earmark-pdf me-2"></i>Export Report</button>
+                <button class="btn btn-primary fw-bold rounded-pill px-4 shadow">Start New Audit</button>
+            </div>
+        </div>
+
+        <div class="audit-header">
+            <div class="row g-3 align-items-end">
+                <div class="col-md-3">
+                    <label class="small fw-bold text-muted mb-2 d-block">Select Location / Department</label>
+                    <select class="form-select border-0 bg-light fw-bold">
+                        <option>Main Warehouse - Area A</option>
+                        <option>Maintenance Spares Dept</option>
+                        <option>Raw Material Cold Storage</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label class="small fw-bold text-muted mb-2 d-block">Audit Date</label>
+                    <div class="fw-bold bg-light p-2 rounded px-3">08-Apr-2026</div>
+                </div>
+                <div class="col-md-4">
+                    <label class="small fw-bold text-muted mb-2 d-block">Search Material</label>
+                    <div class="input-group">
+                        <span class="input-group-text bg-light border-0"><i class="bi bi-search"></i></span>
+                        <input type="text" class="form-control border-0 bg-light"
+                            placeholder="Material Code or Name...">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <button class="btn btn-dark w-100 fw-bold">Fetch Stock</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="verification-card">
+            <table class="table table-audit m-0">
+                <thead>
+                    <tr>
+                        <th width="25%">Material & Batch</th>
+                        <th width="15%" class="text-center">System Stock</th>
+                        <th width="15%" class="text-center">Physical Stock</th>
+                        <th width="15%" class="text-center">Variance</th>
+                        <th width="15%" class="text-center">Status</th>
+                        <th width="15%">Remarks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="fw-bold">BRG-9021-SKF</div>
+                            <span class="extra-small text-muted">Batch: BT-APR-01 | Bin: A-04</span>
+                        </td>
+                        <td class="text-center fw-bold fs-5 text-muted">150</td>
+                        <td class="text-center">
+                            <input type="number" class="input-physical" value="150">
+                        </td>
+                        <td class="text-center">
+                            <span class="variance-tag variance-matched">0</span>
+                        </td>
+                        <td class="text-center">
+                            <span class="status-pill bg-matched">Matched</span>
+                        </td>
+                        <td><input type="text" class="form-control form-control-sm border-0 bg-light"
+                                placeholder="Optional notes..."></td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div class="fw-bold text-danger">HYD-SEAL-09</div>
+                            <span class="extra-small text-muted">Batch: BT-MAR-99 | Bin: B-12</span>
+                        </td>
+                        <td class="text-center fw-bold fs-5 text-muted">45</td>
+                        <td class="text-center">
+                            <input type="number" class="input-physical border-danger" value="40">
+                        </td>
+                        <td class="text-center">
+                            <span class="variance-tag variance-short">-5</span>
+                        </td>
+                        <td class="text-center">
+                            <span class="status-pill bg-short">Short</span>
+                        </td>
+                        <td><input type="text" class="form-control form-control-sm border-0 bg-light"
+                                value="Missing from rack"></td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div class="fw-bold text-primary">OIL-LUB-G2</div>
+                            <span class="extra-small text-muted">Batch: BT-APR-05 | Bin: C-01</span>
+                        </td>
+                        <td class="text-center fw-bold fs-5 text-muted">200</td>
+                        <td class="text-center">
+                            <input type="number" class="input-physical border-primary" value="212">
+                        </td>
+                        <td class="text-center">
+                            <span class="variance-tag variance-excess">+12</span>
+                        </td>
+                        <td class="text-center">
+                            <span class="status-pill bg-excess">Excess</span>
+                        </td>
+                        <td><input type="text" class="form-control form-control-sm border-0 bg-light"
+                                value="Found extra box"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="p-4 bg-light d-flex justify-content-between align-items-center">
+                <div class="d-flex gap-4">
+                    <div class="small fw-bold text-success"><i class="bi bi-check-circle-fill me-1"></i> Matched: 12
+                        Items</div>
+                    <div class="small fw-bold text-danger"><i class="bi bi-dash-circle-fill me-1"></i> Discrepancies: 2
+                        Items</div>
+                </div>
+                <button class="btn btn-dark px-5 py-2 fw-bold rounded-pill shadow"
+                    onclick="alert('Physical Verification Captured | Stock Adjustments Triggered')">
+                    Submit Verification Report
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../sidebar.js"></script>
+    <script src="../header.js"></script>
+</body>
+
+</html>

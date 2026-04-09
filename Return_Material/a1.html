@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eConnect | Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+       <link rel="stylesheet" href="../common.css">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <div id="sidebar-placeholder"></div>
+    <div id="header-placeholder"></div>
+
+    <div id="main-wrapper">
+        <div class="d-flex justify-content-end gap-2 mb-4">
+            <button class="btn btn-sm btn-outline-dark rounded-pill fw-bold" onclick="showView('userView')">User View
+                (Request)</button>
+            <button class="btn btn-sm btn-outline-dark rounded-pill fw-bold" onclick="showView('storesView')">Stores
+                View (Acceptance)</button>
+        </div>
+
+        <div id="userView">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div>
+                    <h2 class="fw-bold text-dark m-0">Create Return Request</h2>
+                    <p class="text-muted small">Return excess or faulty material to the main stores.</p>
+                </div>
+                <div
+                    class="badge bg-warning bg-opacity-10 text-warning px-3 py-2 border border-warning border-opacity-25">
+                    STATUS: PENDING SUBMISSION</div>
+            </div>
+
+            <div class="glass-header">
+                <div class="row g-4">
+                    <div class="col-md-5">
+                        <label class="form-label-small">Reference Original Issuance (Optional)</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-light border-0"><i class="bi bi-search"></i></span>
+                            <select class="form-select border-0 bg-light fw-bold">
+                                <option selected>Select Previous Request...</option>
+                                <option>ISS-2026-0045 (Ball Bearings)</option>
+                                <option>ISS-2026-0051 (Hydraulic Oil)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label-small">Reason for Return</label>
+                        <select class="form-select border-0 bg-light fw-bold">
+                            <option>Excess Material</option>
+                            <option>Wrong Specification</option>
+                            <option>Damaged / Faulty</option>
+                            <option>Work Order Cancelled</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="return-card d-flex">
+                <div class="side-indicator"></div>
+                <div class="p-4 w-100">
+                    <div class="row g-4 align-items-center">
+                        <div class="col-md-3">
+                            <label class="form-label-small">Material Code</label>
+                            <input type="text" class="form-control form-control-custom" value="BRG-9021-SKF"
+                                placeholder="Scan or Type">
+                        </div>
+                        <div class="col-md-2">
+                            <label class="form-label-small">Batch No.</label>
+                            <input type="text" class="form-control form-control-custom" value="B-2026-APR" readonly>
+                        </div>
+                        <div class="col-md-2">
+                            <label class="form-label-small">Qty to Return</label>
+                            <input type="number" class="form-control form-control-custom text-primary" value="2">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label-small">Additional Remarks</label>
+                            <input type="text" class="form-control form-control-custom"
+                                placeholder="Condition of material...">
+                        </div>
+                        <div class="col-md-1 text-end">
+                            <button class="btn btn-light text-danger mt-3"><i class="bi bi-trash"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-end mt-4">
+                <button class="btn btn-post shadow px-5">Submit Return Request</button>
+            </div>
+        </div>
+
+        <div id="storesView" style="display:none;">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div>
+                    <h2 class="fw-bold text-dark m-0">Material Return Acceptance</h2>
+                    <p class="text-muted small">Verify physical condition and update inventory ledger.</p>
+                </div>
+                <div class="text-end">
+                    <div class="small fw-bold text-muted">PENDING RETURNS</div>
+                    <div class="fw-bold text-primary fs-4">08 Requests</div>
+                </div>
+            </div>
+
+            <div class="return-card">
+                <div class="d-flex">
+                    <div class="side-indicator pending"></div>
+                    <div class="w-100">
+                        <div class="p-3 bg-light d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="fw-bold">RET-REQ-8821</span>
+                                <span class="text-muted small mx-2">|</span>
+                                <span class="small fw-bold text-muted">USER: RAHUL SHARMA (DEPT: MAINTENANCE)</span>
+                            </div>
+                            <span class="badge bg-warning text-dark">AWAITING VERIFICATION</span>
+                        </div>
+
+                        <div class="p-4">
+                            <div class="row g-4">
+                                <div class="col-md-7">
+                                    <h6 class="form-label-small mb-3">System Information</h6>
+                                    <table class="table table-sm table-bordered small">
+                                        <thead class="bg-light">
+                                            <tr>
+                                                <th>Material Code</th>
+                                                <th>Batch</th>
+                                                <th>Qty Sent</th>
+                                                <th>Reason</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="fw-bold">BRG-9021-SKF</td>
+                                                <td>B-2026-APR</td>
+                                                <td class="fw-bold text-primary">2 Units</td>
+                                                <td>Excess Material</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="col-md-5">
+                                    <div class="verification-zone">
+                                        <h6 class="form-label-small mb-3"><i class="bi bi-shield-check me-2"></i>Stores
+                                            Verification</h6>
+
+                                        <div class="d-flex gap-3 mb-3">
+                                            <button class="btn btn-sm btn-outline-success flex-fill fw-bold active"><i
+                                                    class="bi bi-check-circle me-2"></i>Accept</button>
+                                            <button class="btn btn-sm btn-outline-danger flex-fill fw-bold"><i
+                                                    class="bi bi-x-circle me-2"></i>Reject</button>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label class="extra-small fw-bold text-muted mb-1">REMARKS ON
+                                                CONDITION</label>
+                                            <textarea class="form-control form-control-sm" rows="2"
+                                                placeholder="e.g. Seal intact, ready for restock"></textarea>
+                                        </div>
+
+                                        <button class="btn btn-post w-100 shadow-sm"
+                                            onclick="alert('Inventory Updated | Stock Increased by 2 Units')">
+                                            Post & Update Inventory
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-2 bg-light text-center">
+                            <span class="extra-small text-muted fw-bold">POST ACTION: STOCK INCREASED | RETURN LEDGER
+                                UPDATED</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showView(viewId) {
+            document.getElementById('userView').style.display = (viewId === 'userView') ? 'block' : 'none';
+            document.getElementById('storesView').style.display = (viewId === 'storesView') ? 'block' : 'none';
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../sidebar.js"></script>
+    <script src="../header.js"></script>
+</body>
+
+</html>

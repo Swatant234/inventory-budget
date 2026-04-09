@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eConnect | Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+       <link rel="stylesheet" href="../common.css">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+
+    <div id="sidebar-placeholder"></div>
+    <div id="header-placeholder"></div>
+    <main id="main-wrapper">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <div>
+                <h2 class="fw-bold text-dark m-0">Material Issuance Control</h2>
+                <p class="text-muted small">Manage requests, short-supplies, and direct issuance.</p>
+            </div>
+            <div class="d-flex gap-2">
+                <button class="btn btn-outline-primary fw-bold rounded-pill px-4" onclick="toggleView('direct')">
+                    <i class="bi bi-plus-circle me-2"></i>Issue Without Request
+                </button>
+            </div>
+        </div>
+
+        <div class="glass-card p-4 mb-4">
+            <div class="row g-3">
+                <div class="col-md-2">
+                    <label class="small fw-bold text-muted">Date Range</label>
+                    <input type="date" class="form-control form-control-sm border-0 bg-light">
+                </div>
+                <div class="col-md-2">
+                    <label class="small fw-bold text-muted">Department</label>
+                    <select class="form-select form-select-sm border-0 bg-light">
+                        <option>All Departments</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <label class="small fw-bold text-muted">User</label>
+                    <input type="text" class="form-control form-control-sm border-0 bg-light"
+                        placeholder="Search User...">
+                </div>
+                <div class="col-md-2">
+                    <label class="small fw-bold text-muted">Material</label>
+                    <input type="text" class="form-control form-control-sm border-0 bg-light"
+                        placeholder="Material Code">
+                </div>
+                <div class="col-md-2">
+                    <label class="small fw-bold text-muted">Status</label>
+                    <select class="form-select form-select-sm border-0 bg-light">
+                        <option>Pending</option>
+                        <option>Partial</option>
+                    </select>
+                </div>
+                <div class="col-md-2 d-flex align-items-end">
+                    <button class="btn btn-primary btn-sm w-100 rounded-pill fw-bold">Apply Filters</button>
+                </div>
+            </div>
+        </div>
+
+        <ul class="nav nav-pills nav-pills-custom mb-4" id="pills-tab" role="tablist">
+            <li class="nav-item"><button class="nav-link active">Pending Requests (14)</button></li>
+            <li class="nav-item"><button class="nav-link">Partially Issued (5)</button></li>
+            <li class="nav-item"><button class="nav-link">Closed Requests</button></li>
+        </ul>
+
+        <div class="glass-card shadow-sm">
+            <table class="table table-custom m-0">
+                <thead>
+                    <tr>
+                        <th>Req ID</th>
+                        <th>Date</th>
+                        <th>Requesting User</th>
+                        <th>Dept</th>
+                        <th>Material(s)</th>
+                        <th>Qty Req</th>
+                        <th class="text-center">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="fw-bold">REQ-4021</td>
+                        <td>08-Apr-2026</td>
+                        <td>
+                            <div class="fw-bold">Amit Verma</div><span class="extra-small text-muted">ID: 102</span>
+                        </td>
+                        <td><span class="badge bg-light text-dark">Production</span></td>
+                        <td><span class="fw-bold">BRG-9021</span><br><small class="text-muted">Ball Bearing
+                                SKF</small></td>
+                        <td class="fw-bold">10 Units</td>
+                        <td class="text-center">
+                            <button class="btn btn-sm btn-primary rounded-pill px-3 fw-bold" data-bs-toggle="modal"
+                                data-bs-target="#issueModal">Issue Material</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold text-danger">REQ-4022</td>
+                        <td>08-Apr-2026</td>
+                        <td>
+                            <div class="fw-bold">Suresh Das</div><span class="extra-small text-muted">ID: 550</span>
+                        </td>
+                        <td><span class="badge bg-light text-dark">Maintenance</span></td>
+                        <td><span class="fw-bold text-danger">HYD-SEAL-01</span><br><small
+                                class="text-muted text-danger">Zero Stock Available</small></td>
+                        <td class="fw-bold">5 Units</td>
+                        <td class="text-center">
+                            <button class="btn btn-sm btn-pr px-3">Convert to PR</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <div class="modal fade" id="issueModal" tabindex="-1">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content border-0" style="border-radius: 28px; overflow: hidden;">
+                <div class="row g-0">
+                    <div class="col-md-4 issue-sidebar">
+                        <h6 class="fw-bold text-uppercase small text-primary mb-4">Step 1: Physical Validation</h6>
+                        <div class="qr-scanner-box mb-3">
+                            <div class="scanner-line"></div>
+                            <i class="bi bi-upc-scan fs-1 opacity-25"></i>
+                            <span class="position-absolute bottom-0 mb-2 small fw-bold">Camera Ready...</span>
+                        </div>
+                        <div class="alert alert-info py-2 small">
+                            <i class="bi bi-info-circle me-2"></i> Scan QR code on the item to confirm correctness.
+                        </div>
+                        <hr>
+                        <div class="small mb-2 fw-bold text-muted">ITEM DETAILS</div>
+                        <h5 class="fw-bold">BRG-9021</h5>
+                        <p class="text-muted small">Ball Bearing SKF (Large-01)<br>Batch: <strong
+                                class="text-dark">B-APR-26</strong></p>
+                    </div>
+
+                    <div class="col-md-8 p-5">
+                        <div class="d-flex justify-content-between align-items-start mb-5">
+                            <h4 class="fw-bold m-0">Issuance Confirmation</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+
+                        <div class="row g-4 mb-5">
+                            <div class="col-md-4">
+                                <div class="qty-box text-center">
+                                    <label class="small fw-bold text-muted d-block mb-1">Requested Qty</label>
+                                    <div class="fs-4 fw-bold">10.00</div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="qty-box text-center border-primary bg-primary bg-opacity-10">
+                                    <label class="small fw-bold text-primary d-block mb-1">Stock Available</label>
+                                    <div class="fs-4 fw-bold text-primary">142.00</div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="qty-box text-center border-dark shadow-sm">
+                                    <label class="small fw-bold text-dark d-block mb-1">Quantity to Issue</label>
+                                    <input type="number" class="qty-highlight" value="10" max="10">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-4 bg-light rounded-4 mb-5">
+                            <label class="form-label small fw-bold"><i class="bi bi-arrow-split me-2"></i>If Issuing
+                                Less than Requested:</label>
+                            <div class="d-flex gap-4 mt-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="partialLogic" id="keepOpen"
+                                        checked>
+                                    <label class="form-check-label small fw-bold" for="keepOpen">Keep Request
+                                        Open</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="partialLogic" id="closeReq">
+                                    <label class="form-check-label small fw-bold" for="closeReq">Close Request &
+                                        Provide Justification</label>
+                                </div>
+                            </div>
+                            <textarea class="form-control form-control-sm mt-3 border-0 shadow-sm"
+                                placeholder="Enter justification for closing... (Optional)"></textarea>
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="small fw-bold text-muted"><i class="bi bi-database-down me-2"></i>Action:
+                                Stock Reduction & Ledger Update</div>
+                            <button class="btn btn-issue shadow">Complete Issuance</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../sidebar.js"></script>
+    <script src="../header.js"></script>
+</body>
+
+
+</html>

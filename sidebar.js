@@ -1,0 +1,101 @@
+const sidebarHTML = `
+<aside id="sidebar">
+    <div class="sidebar-header">
+        <div class="d-flex align-items-center gap-3">
+            <div class="logo-box">
+                <i class="bi bi-water text-primary fs-4"></i>
+            </div>
+            <div class="brand-text">MICRO LABS</div>
+        </div>
+    </div>
+
+    <div class="section-label">APPLICATIONS</div>
+
+    <nav class="nav flex-column">
+        <div class="nav-item">
+            <a href="#inventoryCollapse" class="nav-link" data-bs-toggle="collapse" aria-expanded="true">
+                <i class="bi bi-box-seam"></i> 
+                <span>INVENTORY</span>
+                <i class="bi bi-chevron-down ms-auto arrow-icon"></i>
+            </a>
+
+            <div class="collapse show" id="inventoryCollapse">
+                <div class="sub-menu-tree">
+                    <div class="nested-item">
+                        <div class="nested-header" data-bs-toggle="collapse" data-bs-target="#masterNested" aria-expanded="true">
+                            <span>Master</span>
+                            <i class="bi bi-chevron-down arrow-icon small"></i>
+                        </div>
+                        
+                        <div class="collapse show tree-line-nested" id="masterNested">
+                            <a href="Material_Master/a1.html" class="tree-link active-tree">Material Master</a>
+                            <a href="Service_Master/a1.html" class="tree-link">Service Master</a>
+                        </div>
+                    </div>
+
+                    <div class="operations-group">
+                        <a href="Inward_Inventory/a1.html" class="tree-link">Inward - Inventory</a>
+                        <a href="Put_Away/a1.html" class="tree-link">Put Away</a>
+                        <a href="Request_for_Issuance/a1.html" class="tree-link">Request for Issuance</a>
+                        <a href="Issuance_of_Material/a1.html" class="tree-link">Issuance of Material</a>
+                        <a href="#" class="tree-link">Return Material</a>
+                   <a href="Stock_Adjustment/a1.html" class="tree-link">Stock Adjustment</a>
+                    <a href="Stock_Verification/a1.html" class="tree-link">Stock Verification</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+       <div class="nav-item">
+    <a href="#budgetCollapse" class="nav-link" data-bs-toggle="collapse" aria-expanded="true">
+        <i class="bi bi-wallet2"></i> 
+        <span>BUDGET</span>
+        <i class="bi bi-chevron-down ms-auto arrow-icon"></i>
+    </a>
+
+    <div class="collapse show" id="budgetCollapse">
+        <div class="sub-menu-tree">
+            <div class="operations-group">
+                <a href="Budget/budget_entry.html" class="tree-link">
+                    Budget Entry
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="nav-item">
+    <a href="#purchaseCollapse" class="nav-link" data-bs-toggle="collapse" aria-expanded="true">
+        <i class="bi bi-cart-plus"></i> 
+        <span>PURCHASE</span>
+        <i class="bi bi-chevron-down ms-auto arrow-icon"></i>
+    </a>
+
+    <div class="collapse show" id="purchaseCollapse">
+        <div class="sub-menu-tree">
+            <div class="operations-group">
+                <a href="Purchase/purchase_request.html" class="tree-link">
+            
+                Purchase Request
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+    </nav>
+</aside>
+`;
+
+document.addEventListener("DOMContentLoaded", function () {
+    const container = document.getElementById('sidebar-placeholder');
+    if (container) {
+        container.innerHTML = sidebarHTML;
+
+        // Re-initialize Bootstrap functionality for the new HTML
+        if (window.bootstrap) {
+            const collapseElementList = container.querySelectorAll('.collapse');
+            collapseElementList.forEach(collapseEl => {
+                new bootstrap.Collapse(collapseEl, { toggle: false });
+            });
+        }
+    }
+});

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eConnect | Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+       <link rel="stylesheet" href="../common.css">
+    <link rel="stylesheet" href="../styles.css">
+
+</head>
+
+<body>
+    <div id="sidebar-placeholder"></div>
+    <div id="header-placeholder"></div>
+    <main id="main-wrapper">
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <div>
+                        <h2 class="fw-bold text-dark m-0">Stock Adjustment</h2>
+                        <p class="text-muted small">Manually correct inventory levels for found discrepancies.</p>
+                    </div>
+                    <div class="text-end">
+                        <span class="badge bg-white text-primary border px-3 py-2 rounded-pill shadow-sm">ADJ-Ref:
+                            2026/902</span>
+                    </div>
+                </div>
+
+                <div class="adjustment-card">
+                    <label class="form-label-small text-center d-block mb-3">Select Adjustment Nature</label>
+                    <div class="adjustment-toggle">
+                        <button class="adj-btn short active" onclick="setAdj('short')"><i
+                                class="bi bi-dash-circle me-2"></i>Short (Inventory Reduction)</button>
+                        <button class="adj-btn excess" onclick="setAdj('excess')"><i
+                                class="bi bi-plus-circle me-2"></i>Excess (Inventory Addition)</button>
+                    </div>
+
+                    <div class="row g-4">
+                        <div class="col-md-8">
+                            <label class="form-label-small">Search Material / Batch</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light border-0"><i class="bi bi-upc-scan"></i></span>
+                                <input type="text" class="form-control border-0 bg-light fw-bold" value="BRG-9021-SKF"
+                                    placeholder="Scan or Type Material...">
+                            </div>
+                            <div class="mt-2 small text-muted">Current System Stock: <strong class="text-dark">150
+                                    Units</strong> | Batch: <strong class="text-dark">BT-APR-01</strong></div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label class="form-label-small">Adjustment Qty</label>
+                            <input type="number" class="form-control form-control-lg fw-bold text-center border-primary"
+                                value="5">
+                        </div>
+
+                        <div class="col-md-12">
+                            <label class="form-label-small">Reason for Adjustment</label>
+                            <select class="form-select border-0 bg-light mb-3">
+                                <option>Theft / Missing</option>
+                                <option>Found during Annual Audit</option>
+                                <option>Damaged during Handling</option>
+                                <option>Correction of previous Inward error</option>
+                                <option selected>Physical Discrepancy (Verification ID: 8821)</option>
+                            </select>
+                            <textarea class="form-control border-0 bg-light" rows="2"
+                                placeholder="Provide detailed justification..."></textarea>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="impact-box">
+                                <div class="row align-items-center">
+                                    <div class="col-md-6">
+                                        <div class="small fw-bold text-muted mb-1">NEW PROJECTED STOCK</div>
+                                        <div class="fs-3 fw-bold text-danger" id="projectedStock">145 Units</div>
+                                    </div>
+                                    <div class="col-md-6 text-end">
+                                        <div class="form-check form-switch d-inline-block text-start">
+                                            <input class="form-check-input" type="checkbox" id="approvalReq" checked>
+                                            <label class="form-check-label small fw-bold" for="approvalReq">Approval
+                                                Workflow Required</label>
+                                        </div>
+                                        <div class="extra-small text-muted">Requests Managerial sign-off before posting
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-5 d-flex justify-content-between align-items-center">
+                        <button class="btn btn-link text-muted text-decoration-none fw-bold"><i
+                                class="bi bi-x-circle me-1"></i> Cancel</button>
+                        <button class="btn btn-post"
+                            onclick="alert('Adjustment Posted! Inventory will be updated upon Approval.')">
+                            Post Stock Adjustment
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mt-4 p-3 bg-white rounded-4 border small shadow-sm">
+                    <i class="bi bi-info-circle-fill me-2 text-primary"></i>
+                    <strong>Post-Action:</strong> Once approved, the <strong>Stock Ledger</strong> will record a "Manual
+                    Adjustment" and the <strong>Physical Location Mapping</strong> will be updated.
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function setAdj(type) {
+            const btnShort = document.querySelector('.adj-btn.short');
+            const btnExcess = document.querySelector('.adj-btn.excess');
+            const proj = document.getElementById('projectedStock');
+
+            if (type === 'short') {
+                btnShort.classList.add('active');
+                btnExcess.classList.remove('active');
+                proj.innerHTML = "145 Units";
+                proj.className = "fs-3 fw-bold text-danger";
+            } else {
+                btnExcess.classList.add('active');
+                btnShort.classList.remove('active');
+                proj.innerHTML = "155 Units";
+                proj.className = "fs-3 fw-bold text-success";
+            }
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../sidebar.js"></script>
+    <script src="../header.js"></script>
+</body>
+
+</html>

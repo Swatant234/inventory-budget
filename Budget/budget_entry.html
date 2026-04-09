@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eConnect | Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+       <link rel="stylesheet" href="../common.css">
+    <link rel="stylesheet" href="../styles.css">
+
+</head>
+
+<body>
+
+    <div id="sidebar-placeholder"></div>
+    <div id="header-placeholder"></div>
+    <main id="main-wrapper">
+        <div class="d-flex justify-content-between align-items-center mb-5">
+            <div>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-1">
+                        <li class="breadcrumb-item ">Budget Planning</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="d-flex gap-3">
+                <button class="btn btn-outline-dark btn-sm"><i class="bi bi-download me-2"></i>Export
+                </button>
+                <button class="btn btn-premium" data-bs-toggle="modal" data-bs-target="#budgetModal">
+                    <i class="bi bi-plus-lg me-2"></i>Initiate Budget
+                </button>
+            </div>
+        </div>
+
+
+
+        <div class="filter-glass mb-4">
+            <div class="row g-3">
+                <div class="col-md-3">
+                    <label class="form-label small fw-bold text-muted">Search Budget Item</label>
+                    <input type="text" class="form-control" placeholder="Description or Ref Code...">
+                </div>
+                <div class="col-md-2">
+                    <label class="form-label small fw-bold text-muted">Type</label>
+                    <select class="form-select">
+                        <option>All Types</option>
+                        <option>OPEX</option>
+                        <option>CAPEX</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <label class="form-label small fw-bold text-muted">Year</label>
+                    <select class="form-select">
+                        <option>2026-2027</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label small fw-bold text-muted">Category</label>
+                    <select class="form-select">
+                        <option>Material</option>
+                        <option>Service</option>
+                        <option>Manpower</option>
+                    </select>
+                </div>
+                <div class="col-md-2 d-flex align-items-end">
+                    <button class="btn btn-dark w-100 py-2 fw-bold">Filter View</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table class="table table-hover mb-0">
+                <thead class="bg-light">
+                    <tr>
+                        <th class="ps-4">Code</th>
+                        <th>Description</th>
+                        <th>Type</th>
+                        <th>Category</th>
+                        <th>Annual Total</th>
+                        <th>Status</th>
+                        <th class="text-center">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="ps-4 fw-bold">BGT-2026-001</td>
+                        <td>
+                            <div class="fw-bold">Spares Maintenance - Plant 01</div>
+                            <div class="text-muted extra-small" style="font-size: 11px;">Justification: Routine machine
+                                upkeep</div>
+                        </td>
+                        <td><span class="badge bg-info-subtle text-info border border-info-subtle">OPEX</span></td>
+                        <td>Material</td>
+                        <td class="fw-bold text-primary">₹ 1,50,000</td>
+                        <td><span
+                                class="badge rounded-pill bg-success-subtle text-success px-3 border border-success-subtle">Approved</span>
+                        </td>
+                        <td class="text-center">
+                            <button class="btn btn-sm btn-light border"><i class="bi bi-pencil"></i></button>
+                            <button class="btn btn-sm btn-light border text-info"><i class="bi bi-eye"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <div class="modal fade" id="budgetModal" tabindex="-1">
+        <div class="modal-dialog modal-xl modal-dialog-scrollable">
+            <div class="modal-content border-0 shadow-lg" style="border-radius: 24px;">
+                <div class="modal-header border-0 p-4">
+                    <div class="d-flex align-items-center">
+
+                        <h4 class="modal-title fw-bold">Budget Initiation Form</h4>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body p-4 bg-light bg-opacity-50">
+                    <div class="row g-4">
+                        <div class="col-12">
+                            <div class="sap-sync-card p-4 rounded-4">
+                                <h6 class="fw-bold text-primary mb-3 small"><i
+                                        class="bi bi-hdd-network-fill me-2"></i>SECTION A: DEPARTMENT CONTEXT</h6>
+                                <div class="row g-3">
+                                    <div class="col-md-4">
+                                        <label class="form-label small">Plant / Unit</label>
+                                        <input type="text" class="form-control sap-input" value="MICRO LABS - PLANT 01"
+                                            readonly>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label small">Sub Department</label>
+                                        <input type="text" class="form-control sap-input" value="UTILITY MAINTENANCE"
+                                            readonly>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label small">Budget Currency</label>
+                                        <input type="text" class="form-control sap-input" value="INR (₹)" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="config-card">
+                                <div class="d-flex align-items-center mb-4">
+                                    <div class="section-icon"><i class="bi bi-pencil-square"></i></div>
+                                    <h6 class="fw-bold mb-0 text-dark">Section B: Allocation Details</h6>
+                                </div>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label small">Expenditure Category</label>
+                                        <select class="form-select">
+                                            <option>Material</option>
+                                            <option>Service / AMC</option>
+                                            <option>Manpower</option>
+                                            <option>Consumables</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label small">Budget Type</label>
+                                        <div class="btn-group w-100" role="group">
+                                            <input type="radio" class="btn-check" name="bgtype" id="opex" checked>
+                                            <label class="btn btn-outline-primary" for="opex">OPEX</label>
+                                            <input type="radio" class="btn-check" name="bgtype" id="capex">
+                                            <label class="btn btn-outline-primary" for="capex">CAPEX</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label class="form-label small">Budget Description & Justification</label>
+                                        <textarea class="form-control" rows="3"
+                                            placeholder="Explain the business need..."></textarea>
+                                    </div>
+
+
+                                    <div class="col-12 mt-4">
+                                        <h6 class="fw-800 border-bottom pb-2">Line Item Entry</h6>
+                                        <table class="table table-sm">
+                                            <thead>
+                                                <tr class="small text-muted">
+                                                    <th>Category</th>
+                                                    <th>Justification</th>
+                                                    <th>Amt (₹)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><input type="text" class="form-control form-control-sm"
+                                                            placeholder="e.g. Spares"></td>
+                                                    <td><input type="text" class="form-control form-control-sm"
+                                                            placeholder="Reason..."></td>
+                                                    <td><input type="number" class="form-control form-control-sm"
+                                                            placeholder="0.00"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <button class="btn btn-sm btn-link text-primary p-0"><i
+                                                class="bi bi-plus-circle me-1"></i>Add Row</button>
+                                    </div>
+                                </div>
+                            </div>
+                          
+
+                        </div>
+                    </div>
+                </div>
+
+<div class="modal-footer border-0 p-4">
+            <button type="button" class="btn btn-light px-4 py-2 fw-bold text-secondary" data-bs-dismiss="modal">Save as
+                Draft</button>
+            <button type="button" class="btn btn-premium px-5">Submit for Approval <i
+                    class="bi bi-send ms-2"></i></button>
+        </div>
+
+            </div>
+        </div>
+
+        
+    </div>
+  
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../sidebar.js"></script>
+    <script src="../header.js"></script>
+</body>
+
+
+</html>
