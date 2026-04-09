@@ -28,19 +28,19 @@ const sidebarHTML = `
                         </div>
                         
                         <div class="collapse show tree-line-nested" id="masterNested">
-                            <a href="Material_Master/a1.html" class="tree-link active-tree">Material Master</a>
-                            <a href="Service_Master/a1.html" class="tree-link">Service Master</a>
+                            <a href="/inventory-budget/Material_Master/a1.html" class="tree-link active-tree">Material Master</a>
+                            <a href="/inventory-budget/Service_Master/a1.html" class="tree-link">Service Master</a>
                         </div>
                     </div>
 
                     <div class="operations-group">
-                        <a href="Inward_Inventory/a1.html" class="tree-link">Inward - Inventory</a>
-                        <a href="Put_Away/a1.html" class="tree-link">Put Away</a>
-                        <a href="Request_for_Issuance/a1.html" class="tree-link">Request for Issuance</a>
-                        <a href="Issuance_of_Material/a1.html" class="tree-link">Issuance of Material</a>
+                        <a href="/inventory-budget/Inward_Inventory/a1.html" class="tree-link">Inward - Inventory</a>
+                        <a href="/inventory-budget/Put_Away/a1.html" class="tree-link">Put Away</a>
+                        <a href="/inventory-budget/Request_for_Issuance/a1.html" class="tree-link">Request for Issuance</a>
+                        <a href="/inventory-budget/Issuance_of_Material/a1.html" class="tree-link">Issuance of Material</a>
                         <a href="#" class="tree-link">Return Material</a>
-                   <a href="Stock_Adjustment/a1.html" class="tree-link">Stock Adjustment</a>
-                    <a href="Stock_Verification/a1.html" class="tree-link">Stock Verification</a>
+                   <a href="/inventory-budget/Stock_Adjustment/a1.html" class="tree-link">Stock Adjustment</a>
+                    <a href="/inventory-budget/Stock_Verification/a1.html" class="tree-link">Stock Verification</a>
                     </div>
                 </div>
             </div>
@@ -55,7 +55,7 @@ const sidebarHTML = `
     <div class="collapse show" id="budgetCollapse">
         <div class="sub-menu-tree">
             <div class="operations-group">
-                <a href="Budget/budget_entry.html" class="tree-link">
+                <a href="/inventory-budget/Budget/budget_entry.html" class="tree-link">
                     Budget Entry
                 </a>
             </div>
@@ -73,7 +73,7 @@ const sidebarHTML = `
     <div class="collapse show" id="purchaseCollapse">
         <div class="sub-menu-tree">
             <div class="operations-group">
-                <a href="Purchase/purchase_request.html" class="tree-link">
+                <a href="/inventory-budget/Purchase/purchase_request.html" class="tree-link">
             
                 Purchase Request
                 </a>
