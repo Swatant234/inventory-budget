@@ -64,7 +64,7 @@
    .table-container {
        background: white;
        border-radius: 24px;
-       overflow: hidden;
+        /* overflow: hidden; */
        box-shadow: var(--card-shadow);
        border: 1px solid #eef2f6;
    }
@@ -1048,3 +1048,38 @@
     text-transform: uppercase;
     font-weight: 700;
 }
+
+
+
+
+
+  .dropdown ul {
+      padding: 5px !important;
+      border-color: #e5e7eb;
+      box-shadow: 0 4px 10px #0000001a;
+  }
+
+  .dropdown li a {
+   font-size: 12px;
+    cursor: pointer;
+    padding: 8px 10px;
+    color: #191919;
+  }
+
+  .dropdown li a i {
+      margin-right: 5px;
+  }
+
+  .dropdown li a:hover {
+      background: #f4f5f5;
+  }
+
+  .dropdown .dropdown-toggle:after {
+      content: "\f078";
+      font-family: "Font Awesome 5 Free";
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-inline-start: 0.5rem;
+      border: 0;
+      vertical-align: 0;
+  }

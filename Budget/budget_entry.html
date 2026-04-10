@@ -105,7 +105,75 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="ps-4 fw-bold">BGT-2026-001</td>
+                        <td class="fw-bold text-nowrap">
+                            <div class="dropdown d-flex align-items-center">
+                                <button class="btn btn-sm btn-light" data-bs-toggle="dropdown">
+                                    <i class="bi bi-three-dots-vertical"></i>
+                                </button>
+                             <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+
+                                    <!-- VIEW -->
+                                    <li>
+                                        <span class="d-inline-block w-100" data-bs-toggle="tooltip"
+                                            data-bs-placement="right" title="View work order details">
+                                            <a class="dropdown-item d-flex align-items-center gap-2">
+                                                <i class="bi bi-eye text-primary"></i> View
+                                            </a>
+                                        </span>
+                                    </li>
+
+                                    <!-- REVIEW / APPROVE -->
+                                    <li>
+                                        <span class="d-inline-block w-100" data-bs-toggle="tooltip"
+                                            data-bs-placement="right" title="Review and approve this work order">
+                                            <a class="dropdown-item d-flex align-items-center gap-2">
+                                                <i class="bi bi-pencil-square text-secondary"></i> Review / Approve
+                                            </a>
+                                        </span>
+                                    </li>
+
+                                    <!-- ACTIVATE (DISABLED EXAMPLE) -->
+                                    <li>
+                                        <span class="d-inline-block w-100" data-bs-toggle="tooltip"
+                                            data-bs-placement="right" title="Already active">
+                                            <a class="dropdown-item d-flex align-items-center gap-2 " tabindex="-1"
+                                                aria-disabled="true">
+                                                <i class="bi bi-check-circle text-success"></i> Activate
+                                            </a>
+                                        </span>
+                                    </li>
+
+                                    <!-- DEACTIVATE (DISABLED EXAMPLE) -->
+                                    <li>
+                                        <span class="d-inline-block w-100" data-bs-toggle="tooltip"
+                                            data-bs-placement="right" title="Already inactive">
+                                            <a class="dropdown-item d-flex align-items-center gap-2 " tabindex="-1"
+                                                aria-disabled="true">
+                                                <i class="bi bi-x-circle text-danger"></i> Deactivate
+                                            </a>
+                                        </span>
+                                    </li>
+
+
+                                    <!-- PRINT -->
+                                    <li>
+                                        <span class="d-inline-block w-100" data-bs-toggle="tooltip"
+                                            data-bs-placement="right"
+                                            title="Print is enabled only for Completed work orders">
+                                            <a class="dropdown-item d-flex align-items-center gap-2 disabled"
+                                                tabindex="-1" aria-disabled="true">
+                                                <i class="bi bi-printer text-dark"></i> Print
+                                            </a>
+                                        </span>
+                                    </li>
+
+
+
+                                </ul>
+
+                                <span class="ms-2">BGT-2026-001</span>
+                            </div>
+                        </td>
                         <td>
                             <div class="small text-muted"> Routine machine
                                 upkeep</div>
@@ -119,7 +187,75 @@
                     </tr>
 
                     <tr class="border-bottom">
-                        <td class="ps-4 fw-bold">BGT-2026-002</td>
+                        <td class="fw-bold text-nowrap">
+                            <div class="dropdown d-flex align-items-center">
+                                <button class="btn btn-sm btn-light" data-bs-toggle="dropdown">
+                                    <i class="bi bi-three-dots-vertical"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+
+                                    <!-- VIEW -->
+                                    <li>
+                                        <span class="d-inline-block w-100" data-bs-toggle="tooltip"
+                                            data-bs-placement="right" title="View work order details">
+                                            <a class="dropdown-item d-flex align-items-center gap-2">
+                                                <i class="bi bi-eye text-primary"></i> View
+                                            </a>
+                                        </span>
+                                    </li>
+
+                                    <!-- REVIEW / APPROVE -->
+                                    <li>
+                                        <span class="d-inline-block w-100" data-bs-toggle="tooltip"
+                                            data-bs-placement="right" title="Review and approve this work order">
+                                            <a class="dropdown-item d-flex align-items-center gap-2">
+                                                <i class="bi bi-pencil-square text-secondary"></i> Review / Approve
+                                            </a>
+                                        </span>
+                                    </li>
+
+                                    <!-- ACTIVATE (DISABLED EXAMPLE) -->
+                                    <li>
+                                        <span class="d-inline-block w-100" data-bs-toggle="tooltip"
+                                            data-bs-placement="right" title="Already active">
+                                            <a class="dropdown-item d-flex align-items-center gap-2 " tabindex="-1"
+                                                aria-disabled="true">
+                                                <i class="bi bi-check-circle text-success"></i> Activate
+                                            </a>
+                                        </span>
+                                    </li>
+
+                                    <!-- DEACTIVATE (DISABLED EXAMPLE) -->
+                                    <li>
+                                        <span class="d-inline-block w-100" data-bs-toggle="tooltip"
+                                            data-bs-placement="right" title="Already inactive">
+                                            <a class="dropdown-item d-flex align-items-center gap-2 " tabindex="-1"
+                                                aria-disabled="true">
+                                                <i class="bi bi-x-circle text-danger"></i> Deactivate
+                                            </a>
+                                        </span>
+                                    </li>
+
+
+                                    <!-- PRINT -->
+                                    <li>
+                                        <span class="d-inline-block w-100" data-bs-toggle="tooltip"
+                                            data-bs-placement="right"
+                                            title="Print is enabled only for Completed work orders">
+                                            <a class="dropdown-item d-flex align-items-center gap-2 disabled"
+                                                tabindex="-1" aria-disabled="true">
+                                                <i class="bi bi-printer text-dark"></i> Print
+                                            </a>
+                                        </span>
+                                    </li>
+
+
+
+                                </ul>
+
+                                <span class="ms-2">BGT-2026-001</span>
+                            </div>
+                        </td>
                         <td>
                             <div class="small text-muted">Mandatory compliance for cleanroom standards</div>
                         </td>
@@ -237,18 +373,21 @@
 
                                         <div class="col-md-12">
                                             <div class="dcard">
-                                           <div class="section-header">
-    <div class="d-flex align-items-center">
-        <div class="icon-box-dark">
-            <i class="bi bi-pencil-square"></i>
-        </div>
-        <h6 class="section-title text-dark mb-0">Section B: Budget Allocations</h6>
-    </div>
-    
-    <button type="button" class="btn btn-sm btn-outline-primary rounded-pill px-3 fw-bold" onclick="addRow()">
-        <i class="bi bi-plus-circle me-1"></i> Add Line Item
-    </button>
-</div>
+                                                <div class="section-header">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="icon-box-dark">
+                                                            <i class="bi bi-pencil-square"></i>
+                                                        </div>
+                                                        <h6 class="section-title text-dark mb-0">Section B: Budget
+                                                            Allocations</h6>
+                                                    </div>
+
+                                                    <button type="button"
+                                                        class="btn btn-sm btn-outline-primary rounded-pill px-3 fw-bold"
+                                                        onclick="addRow()">
+                                                        <i class="bi bi-plus-circle me-1"></i> Add Line Item
+                                                    </button>
+                                                </div>
 
                                                 <div class="row g-3">
                                                     <div class="col-12">
@@ -500,12 +639,23 @@
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer border-0 p-4">
-                    <button type="button" class="btn btn-light px-4 py-2 fw-bold text-secondary"
-                        data-bs-dismiss="modal">Save as
-                        Draft</button>
-                    <button type="button" class="btn btn-premium px-5">Submit for Approval <i
-                            class="bi bi-send ms-2"></i></button>
+                <div class="modal-footer p-3 d-flex justify-content-between align-items-center">
+                    <button type="button" class="btn btn-link text-muted fw-semibold text-decoration-none"
+                        data-bs-dismiss="modal">
+                        <i class="bi bi-x-lg me-2"></i>Close
+                    </button>
+
+                    <div class="d-flex gap-2">
+                        <button type="button" class="btn btn-light px-4 py-2 fw-bold text-secondary border shadow-sm"
+                            data-bs-dismiss="modal">
+                            Save as Draft
+                        </button>
+
+                        <button type="button" class="btn btn-premium px-5 fw-bold shadow-sm d-flex align-items-center">
+                            Submit for Approval
+                            <i class="bi bi-send-fill ms-2"></i>
+                        </button>
+                    </div>
                 </div>
 
             </div>
