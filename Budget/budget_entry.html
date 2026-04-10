@@ -7,8 +7,10 @@
     <title>eConnect | Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-       <link rel="stylesheet" href="../common.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../common.css">
     <link rel="stylesheet" href="../styles.css">
 
 </head>
@@ -21,15 +23,14 @@
         <div class="d-flex justify-content-between align-items-center mb-5">
             <div>
                 <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb mb-1">
-                        <li class="breadcrumb-item ">Budget Planning</li>
-                    </ol>
+                    <h5 class="fw-bold mb-0">Budget Entry</h5>
                 </nav>
             </div>
             <div class="d-flex gap-3">
-                <button class="btn btn-outline-dark btn-sm"><i class="bi bi-download me-2"></i>Export
+                <button class="btn btn-white shadow-sm border-0 py-2 px-3" style="border-radius: 12px;">
+                    <i class="bi bi-download me-2 text-primary"></i>Export
                 </button>
-                <button class="btn btn-premium" data-bs-toggle="modal" data-bs-target="#budgetModal">
+                <button class="btn btn-premium px-4" data-bs-toggle="modal" data-bs-target="#budgetModal">
                     <i class="bi bi-plus-lg me-2"></i>Initiate Budget
                 </button>
             </div>
@@ -38,35 +39,54 @@
 
 
         <div class="filter-glass mb-4">
-            <div class="row g-3">
-                <div class="col-md-3">
-                    <label class="form-label small fw-bold text-muted">Search Budget Item</label>
-                    <input type="text" class="form-control" placeholder="Description or Ref Code...">
+            <div class="row g-3 align-items-end">
+                <div class="col-md-4">
+                    <label class="form-label small fw-bold text-muted">Global Search</label>
+                    <div class="input-group">
+                        <span class="input-group-text bg-transparent border-end-0"><i
+                                class="bi bi-search text-muted"></i></span>
+                        <input type="text" class="form-control border-start-0"
+                            placeholder="ID or Description or Category...">
+                    </div>
                 </div>
                 <div class="col-md-2">
-                    <label class="form-label small fw-bold text-muted">Type</label>
+                    <label class="form-label small fw-bold text-muted">Budget Type</label>
                     <select class="form-select">
                         <option>All Types</option>
-                        <option>OPEX</option>
-                        <option>CAPEX</option>
+                        <option value="CAPEX">CAPEX (Capital)</option>
+                        <option value="OPEX">OPEX (Revenue)</option>
                     </select>
                 </div>
                 <div class="col-md-2">
-                    <label class="form-label small fw-bold text-muted">Year</label>
+                    <label class="form-label small fw-bold text-muted">Status</label>
                     <select class="form-select">
-                        <option>2026-2027</option>
+                        <option>All</option>
+                        <option value="Drafts">Drafts</option>
+                        <option value="Approved">Approved</option>
+                        <option value="Reverted">Reverted</option>
+                        <option value="Rejected">Rejected</option>
                     </select>
                 </div>
-                <div class="col-md-3">
-                    <label class="form-label small fw-bold text-muted">Category</label>
-                    <select class="form-select">
-                        <option>Material</option>
-                        <option>Service</option>
-                        <option>Manpower</option>
-                    </select>
+                <div class="col-md-2">
+                    <label class="form-label small fw-bold text-muted">From Date</label>
+                    <input type="date" class="form-control">
                 </div>
-                <div class="col-md-2 d-flex align-items-end">
-                    <button class="btn btn-dark w-100 py-2 fw-bold">Filter View</button>
+                <div class="col-md-2">
+                    <label class="form-label small fw-bold text-muted">To Date</label>
+                    <input type="date" class="form-control">
+                </div>
+                <div class="col-md-12 d-flex justify-content-end gap-2">
+
+                    <button class="btn btn-light shadow-sm px-3 py-2 rounded-3">
+                        <i class="bi bi-arrow-clockwise me-2 text-secondary"></i>
+                        Clear
+                    </button>
+
+                    <button class="btn btn-premium px-4 py-2 rounded-3">
+                        <i class="bi bi-funnel-fill me-2"></i>
+                        Filter
+                    </button>
+
                 </div>
             </div>
         </div>
@@ -75,33 +95,39 @@
             <table class="table table-hover mb-0">
                 <thead class="bg-light">
                     <tr>
-                        <th class="ps-4">Code</th>
+                        <th class="ps-4">Budget ID</th>
                         <th>Description</th>
                         <th>Type</th>
                         <th>Category</th>
                         <th>Annual Total</th>
                         <th>Status</th>
-                        <th class="text-center">Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td class="ps-4 fw-bold">BGT-2026-001</td>
                         <td>
-                            <div class="fw-bold">Spares Maintenance - Plant 01</div>
-                            <div class="text-muted extra-small" style="font-size: 11px;">Justification: Routine machine
+                            <div class="small text-muted"> Routine machine
                                 upkeep</div>
                         </td>
-                        <td><span class="badge bg-info-subtle text-info border border-info-subtle">OPEX</span></td>
-                        <td>Material</td>
-                        <td class="fw-bold text-primary">₹ 1,50,000</td>
-                        <td><span
-                                class="badge rounded-pill bg-success-subtle text-success px-3 border border-success-subtle">Approved</span>
+                        <td><span class="status-pill bg-opex">OPEX</span></td>
+                        <td>Water</td>
+                        <td class="fw-bold">₹ 1,50,000</td>
+                        <td><span class="status approved">Approved</span>
                         </td>
-                        <td class="text-center">
-                            <button class="btn btn-sm btn-light border"><i class="bi bi-pencil"></i></button>
-                            <button class="btn btn-sm btn-light border text-info"><i class="bi bi-eye"></i></button>
+
+                    </tr>
+
+                    <tr class="border-bottom">
+                        <td class="ps-4 fw-bold">BGT-2026-002</td>
+                        <td>
+                            <div class="small text-muted">Mandatory compliance for cleanroom standards</div>
                         </td>
+                        <td><span class="status-pill bg-capex">CAPEX</span></td>
+                        <td><span class="badge bg-light text-dark">CIVIL</span></td>
+                        <td class="fw-bold">₹ 8,50,000</td>
+                        <td><span class="status rejected">Rejected</span></td>
+
                     </tr>
                 </tbody>
             </table>
@@ -111,7 +137,7 @@
     <div class="modal fade" id="budgetModal" tabindex="-1">
         <div class="modal-dialog modal-xl modal-dialog-scrollable">
             <div class="modal-content border-0 shadow-lg" style="border-radius: 24px;">
-                <div class="modal-header border-0 p-4">
+                <div class="modal-header p-3">
                     <div class="d-flex align-items-center">
 
                         <h4 class="modal-title fw-bold">Budget Initiation Form</h4>
@@ -119,112 +145,471 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
 
-                <div class="modal-body p-4 bg-light bg-opacity-50">
-                    <div class="row g-4">
-                        <div class="col-12">
-                            <div class="sap-sync-card p-4 rounded-4">
-                                <h6 class="fw-bold text-primary mb-3 small"><i
-                                        class="bi bi-hdd-network-fill me-2"></i>SECTION A: DEPARTMENT CONTEXT</h6>
-                                <div class="row g-3">
-                                    <div class="col-md-4">
-                                        <label class="form-label small">Plant / Unit</label>
-                                        <input type="text" class="form-control sap-input" value="MICRO LABS - PLANT 01"
-                                            readonly>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label class="form-label small">Sub Department</label>
-                                        <input type="text" class="form-control sap-input" value="UTILITY MAINTENANCE"
-                                            readonly>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label class="form-label small">Budget Currency</label>
-                                        <input type="text" class="form-control sap-input" value="INR (₹)" readonly>
-                                    </div>
-                                </div>
-                            </div>
+                <div class="modal-body">
+                    <div class="wo-content">
+                        <div class="sticky-tabs-container">
+                            <!-- MAIN TABS -->
+                            <ul class="nav nav-tabs mb-2 custom-tabs">
+
+                                <li class="nav-item">
+                                    <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#details"
+                                        title="Initiation Details">
+                                        <i class="fas fa-clipboard-list"></i>
+                                        <span class="tab-label">Initiation Details</span>
+                                    </button>
+                                </li>
+
+                                <li class="nav-item">
+                                    <button class="nav-link" data-bs-toggle="pill" data-bs-target="#files"
+                                        title="Attachments">
+                                        <i class="fa-solid fa-paperclip"></i>
+                                        <span class="tab-label">Attachments</span>
+                                    </button>
+                                </li>
+
+                                <li class="nav-item">
+                                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#approvers"
+                                        title="Approvers">
+                                        <i class="fa fa-users"></i>
+                                        <span class="tab-label">Approvers</span>
+                                    </button>
+                                </li>
+
+                                <li class="nav-item">
+                                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#audit"
+                                        title="Audit Log">
+                                        <i class="fa-solid fa-clock-rotate-left"></i>
+                                        <span class="tab-label">Audit Log</span>
+                                    </button>
+                                </li>
+
+                            </ul>
+
                         </div>
 
-                        <div class="col-md-12">
-                            <div class="config-card">
-                                <div class="d-flex align-items-center mb-4">
-                                    <div class="section-icon"><i class="bi bi-pencil-square"></i></div>
-                                    <h6 class="fw-bold mb-0 text-dark">Section B: Allocation Details</h6>
-                                </div>
-                                <div class="row g-3">
-                                    <div class="col-md-6">
-                                        <label class="form-label small">Expenditure Category</label>
-                                        <select class="form-select">
-                                            <option>Material</option>
-                                            <option>Service / AMC</option>
-                                            <option>Manpower</option>
-                                            <option>Consumables</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="form-label small">Budget Type</label>
-                                        <div class="btn-group w-100" role="group">
-                                            <input type="radio" class="btn-check" name="bgtype" id="opex" checked>
-                                            <label class="btn btn-outline-primary" for="opex">OPEX</label>
-                                            <input type="radio" class="btn-check" name="bgtype" id="capex">
-                                            <label class="btn btn-outline-primary" for="capex">CAPEX</label>
+                        <div class="tab-content">
+
+                            <!-- REQUEST -->
+                            <div class="tab-pane fade show active" id="details">
+                                <div class="">
+                                    <div class="row g-4">
+                                        <div class="col-12">
+                                            <div class="dcard">
+                                                <div class="section-header">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="icon-box-F">
+                                                            <i class="bi bi-hdd-network-fill"></i>
+                                                        </div>
+                                                        <h6 class="section-title text-primary mb-0">Section A: Basic
+                                                            Information</h6>
+                                                    </div>
+                                                </div>
+                                                <div class="row g-3">
+                                                    <div class="col-md-3">
+                                                        <label class="form-label small">Plant</label>
+                                                        <input type="text" class="form-control sap-input" value="ML11"
+                                                            readonly>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label class="form-label small">Department</label>
+                                                        <input type="text" class="form-control sap-input"
+                                                            value="Production" readonly>
+                                                    </div>
+
+                                                    <div class="col-md-3">
+                                                        <label class="form-label small">Requested By</label>
+                                                        <input type="text" class="form-control sap-input"
+                                                            value="(000037)" readonly>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label class="form-label small fw-bold">Budget Type</label>
+                                                        <select class="form-select" id="budgetType"
+                                                            onchange="toggleCategories()">
+                                                            <option value="" selected disabled>Select Budget Type...
+                                                            </option>
+                                                            <option value="CAPEX">CAPEX (Capital)</option>
+                                                            <option value="OPEX">OPEX (Revenue)</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <div class="dcard">
+                                           <div class="section-header">
+    <div class="d-flex align-items-center">
+        <div class="icon-box-dark">
+            <i class="bi bi-pencil-square"></i>
+        </div>
+        <h6 class="section-title text-dark mb-0">Section B: Budget Allocations</h6>
+    </div>
+    
+    <button type="button" class="btn btn-sm btn-outline-primary rounded-pill px-3 fw-bold" onclick="addRow()">
+        <i class="bi bi-plus-circle me-1"></i> Add Line Item
+    </button>
+</div>
+
+                                                <div class="row g-3">
+                                                    <div class="col-12">
+                                                        <table class="table table-sm align-middle" id="entryTable">
+                                                            <thead>
+                                                                <tr class="small text-muted">
+                                                                    <th width="40%">Budget Head / Category</th>
+                                                                    <th>Purpose / Remarks</th>
+                                                                    <th width="20%">Estimate (₹)</th>
+                                                                    <th width="5%">Action</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody id="tableBody">
+                                                            </tbody>
+                                                            <tfoot>
+                                                                <tr class="table-light">
+                                                                    <td colspan="2" class="text-end fw-bold py-2">Grand
+                                                                        Total:</td>
+                                                                    <td class="fw-bold text-primary py-2">
+                                                                        <span id="grandTotal">₹ 0.00</span>
+                                                                    </td>
+                                                                    <td></td>
+                                                                </tr>
+                                                            </tfoot>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
                                         </div>
                                     </div>
-                                    <div class="col-md-12">
-                                        <label class="form-label small">Budget Description & Justification</label>
-                                        <textarea class="form-control" rows="3"
-                                            placeholder="Explain the business need..."></textarea>
-                                    </div>
+                                </div>
 
+                            </div>
 
-                                    <div class="col-12 mt-4">
-                                        <h6 class="fw-800 border-bottom pb-2">Line Item Entry</h6>
-                                        <table class="table table-sm">
-                                            <thead>
-                                                <tr class="small text-muted">
-                                                    <th>Category</th>
-                                                    <th>Justification</th>
-                                                    <th>Amt (₹)</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td><input type="text" class="form-control form-control-sm"
-                                                            placeholder="e.g. Spares"></td>
-                                                    <td><input type="text" class="form-control form-control-sm"
-                                                            placeholder="Reason..."></td>
-                                                    <td><input type="number" class="form-control form-control-sm"
-                                                            placeholder="0.00"></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                        <button class="btn btn-sm btn-link text-primary p-0"><i
-                                                class="bi bi-plus-circle me-1"></i>Add Row</button>
+                            <div class="tab-pane fade" id="files">
+                                <div class="card-box">
+                                    <div class="card-header">Attachments</div>
+                                    <div class="card-body">
+
+                                        <div class="row g-2 align-items-end">
+
+                                            <!-- Attachment Type -->
+                                            <div class="col-lg-3 col-md-6">
+                                                <label class="form-label small text-muted">Attachment
+                                                    Type</label>
+                                                <select class="form-select">
+                                                    <option selected disabled>Select type</option>
+                                                    <option>📄 Document</option>
+                                                    <option>🖼️ Image</option>
+                                                    <option>🔗 URL</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- Description -->
+                                            <div class="col-lg-3 col-md-6">
+                                                <label class="form-label small text-muted">Description</label>
+                                                <input type="text" class="form-control"
+                                                    placeholder="Max 100 characters">
+                                            </div>
+
+                                            <!-- File / URL -->
+                                            <div class="col-lg-5 col-md-8">
+                                                <label class="form-label small text-muted">File /
+                                                    URL</label>
+                                                <input type="file" class="form-control">
+                                            </div>
+
+                                            <!-- Add Button -->
+                                            <div class="col-lg-1 col-md-4 text-end">
+                                                <button class="btn btn-primary btn-sm w-100">
+                                                    <i class="bi bi-plus-circle"></i>
+                                                </button>
+                                            </div>
+
+                                        </div>
+
+                                        <small class="text-muted d-block mt-2">
+                                            <i class="bi bi-info-circle me-1"></i>
+                                            Maximum total upload size: 25 MB
+                                        </small>
+
+                                        <div class="table-responsive mt-3">
+                                            <table class="table table-bordered align-middle">
+                                                <thead class="table-light">
+                                                    <tr>
+                                                        <th width="20%">Type</th>
+                                                        <th width="25%">Description</th>
+                                                        <th width="35%">File / URL</th>
+                                                        <th width="10%">Size</th>
+                                                        <th width="10%" class="text-center">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+
+                                                    <!-- Document -->
+                                                    <tr>
+                                                        <td>
+                                                            <i class="bi bi-file-earmark-text text-primary"></i>
+                                                            Document
+                                                        </td>
+                                                        <td class="text-truncate" title="Maintenance SOP document">
+                                                            Maintenance SOP document
+                                                        </td>
+                                                        <td>
+                                                            <a href="#" class="text-decoration-none">
+                                                                <i class="bi bi-file-earmark-pdf text-danger me-1"></i>
+                                                                SOP_Maintenance.pdf
+                                                            </a>
+                                                        </td>
+                                                        <td class="text-center">1.2 MB</td>
+                                                        <td class="text-center">
+                                                            <button class="btn btn-sm btn-outline-danger">
+                                                                <i class="bi bi-trash"></i>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+
+                                                    <!-- Image -->
+                                                    <tr>
+                                                        <td>
+                                                            <i class="bi bi-image text-success"></i> Image
+                                                        </td>
+                                                        <td>Equipment condition photo</td>
+                                                        <td>
+                                                            <a href="#">
+                                                                <i class="bi bi-image me-1"></i>
+                                                                motor_photo.jpg
+                                                            </a>
+                                                        </td>
+                                                        <td class="text-center">450 KB</td>
+                                                        <td class="text-center">
+                                                            <button class="btn btn-sm btn-outline-danger">
+                                                                <i class="bi bi-trash"></i>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+
+                                                    <!-- URL -->
+                                                    <tr>
+                                                        <td>
+                                                            <i class="bi bi-link-45deg text-secondary"></i>
+                                                            URL
+                                                        </td>
+                                                        <td>External safety SOP</td>
+                                                        <td>
+                                                            <a href="https://example.com" target="_blank"
+                                                                class="text-decoration-none">
+                                                                <i class="bi bi-box-arrow-up-right me-1"></i>
+                                                                https://example.com
+                                                            </a>
+                                                        </td>
+                                                        <td class="text-center">NA</td>
+                                                        <td class="text-center">
+                                                            <button class="btn btn-sm btn-outline-danger">
+                                                                <i class="bi bi-trash"></i>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                          
+
+                            <div class="tab-pane fade" id="approvers">
+                                <table class="table table-sm">
+                                    <tr>
+                                        <th>Approval Level</th>
+                                        <th>Department</th>
+                                        <th>Team Name</th>
+                                        <th>Team Member</th>
+                                    </tr>
+
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Engineering</td>
+                                        <td>Engineering Review Team</td>
+                                        <td>Vikram (000007)</td>
+                                    </tr>
+
+                                </table>
+
+                            </div>
+
+                            <div class="tab-pane fade" id="audit">
+
+                                <table class="table table-hover table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th rowspan="2" style="width: 10%">Action</th>
+                                            <th rowspan="2" style="width: 10%; cursor: pointer;">Done By</th>
+                                            <th rowspan="2" style="width: 10%; cursor: pointer;">Date & Time</th>
+                                            <th colspan="3" class="bg-secondary text-white" style="width: 50%">
+                                                Changes
+                                            </th>
+                                            <th rowspan="2" style="width: 10%">Reason</th>
+                                            <th rowspan="2" style="width: 10%">Status</th>
+                                        </tr>
+                                        <tr class="table-secondary">
+                                            <th style="width: 10%">Field</th>
+                                            <th style="width: 15%">Old Value</th>
+                                            <th style="width: 25%">New Value</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- Example Row with Changes -->
+                                        <tr>
+                                            <td rowspan="2">Update</td>
+                                            <td rowspan="2">John Doe</td>
+                                            <td rowspan="2">2025-12-27 10:00 AM</td>
+                                            <td>Username</td>
+                                            <td>OldUser</td>
+                                            <td>NewUser</td>
+                                            <td rowspan="2">Corrected typo</td>
+                                            <td rowspan="2">
+                                                <span class="badge-status approved">
+                                                    <i class="bi bi-check-circle"></i> Approved
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Email</td>
+                                            <td>old@example.com</td>
+                                            <td>new@example.com</td>
+                                        </tr>
+
+                                        <!-- Example Row with No Changes -->
+                                        <tr>
+                                            <td>Created</td>
+                                            <td>Jane Smith</td>
+                                            <td>2025-12-26 09:30 AM</td>
+                                            <td>NA</td>
+                                            <td>NA</td>
+                                            <td>NA</td>
+                                            <td>Initial creation</td>
+                                            <td>
+                                                <span class="badge-status pending">
+                                                    <i class="bi bi-hourglass-split"></i> Pending
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
 
                         </div>
                     </div>
                 </div>
-
-<div class="modal-footer border-0 p-4">
-            <button type="button" class="btn btn-light px-4 py-2 fw-bold text-secondary" data-bs-dismiss="modal">Save as
-                Draft</button>
-            <button type="button" class="btn btn-premium px-5">Submit for Approval <i
-                    class="bi bi-send ms-2"></i></button>
-        </div>
+                <div class="modal-footer border-0 p-4">
+                    <button type="button" class="btn btn-light px-4 py-2 fw-bold text-secondary"
+                        data-bs-dismiss="modal">Save as
+                        Draft</button>
+                    <button type="button" class="btn btn-premium px-5">Submit for Approval <i
+                            class="bi bi-send ms-2"></i></button>
+                </div>
 
             </div>
         </div>
 
-        
+
     </div>
-  
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../sidebar.js"></script>
     <script src="../header.js"></script>
+
+    <script>
+        // 1. Core function to add a new row
+        function addRow() {
+            const budgetType = document.getElementById('budgetType').value;
+
+            if (!budgetType) {
+                alert("Please select a Budget Type (CAPEX or OPEX) first!");
+                return;
+            }
+
+            const tbody = document.getElementById('tableBody');
+            const row = document.createElement('tr');
+
+            let options = "";
+            if (budgetType === "CAPEX") {
+                options = `
+                <option value="" selected disabled>Select CAPEX Category...</option>
+                <option>PROCESS EQUIPMENTS</option><option>CIVIL</option>
+                <option>HVAC</option><option>ELECTRICAL</option>
+                <option>UTILITY</option><option>EHS</option><option>DOCUMENTATION</option>`;
+            } else {
+                options = `
+                <option value="" selected disabled>Select OPEX Category...</option>
+                <option>Machinery Spares & Service</option><option>Laboratory Expenses</option>
+                <option>Admin Expenses</option><option>Electricity</option>
+                <option>Manpower</option><option>Fuel</option><option>Water</option>`;
+            }
+
+            row.innerHTML = `
+            <td>
+                <select class="form-select form-select-sm shadow-sm border-0 bg-light">
+                    ${options}
+                </select>
+            </td>
+            <td><input type="text" class="form-control form-control-sm border-0 bg-light shadow-sm" placeholder="Reason..."></td>
+            <td>
+                <input type="number" 
+                       class="form-control form-control-sm border-0 bg-light shadow-sm estimate-input" 
+                       placeholder="0.00" 
+                       oninput="calculateTotal()">
+            </td>
+            <td class="text-center">
+                <button type="button" class="btn btn-sm text-danger" onclick="removeRow(this)">
+                    <i class="bi bi-trash"></i>
+                </button>
+            </td>
+        `;
+
+            tbody.appendChild(row);
+            calculateTotal();
+        }
+
+        // 2. Function to remove row and refresh total
+        function removeRow(btn) {
+            btn.closest('tr').remove();
+            calculateTotal();
+        }
+
+        // 3. Calculation Logic
+        function calculateTotal() {
+            let total = 0;
+            const inputs = document.querySelectorAll('.estimate-input');
+
+            inputs.forEach(input => {
+                const val = parseFloat(input.value);
+                if (!isNaN(val)) {
+                    total += val;
+                }
+            });
+
+            // Format to Indian Currency (₹)
+            const formattedTotal = new Intl.NumberFormat('en-IN', {
+                style: 'currency',
+                currency: 'INR'
+            }).format(total);
+
+            document.getElementById('grandTotal').innerText = formattedTotal;
+        }
+
+        // 4. Reset table when CAPEX/OPEX toggle changes
+        function toggleCategories() {
+            const budgetType = document.getElementById('budgetType').value;
+            const tbody = document.getElementById('tableBody');
+
+            tbody.innerHTML = "";
+            if (budgetType === 'CAPEX' || budgetType === 'OPEX') {
+                addRow();
+            }
+            calculateTotal();
+        }
+    </script>
 </body>
 
 
