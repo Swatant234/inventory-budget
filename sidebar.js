@@ -10,6 +10,7 @@ const sidebarHTML = `
     </div>
 
     <div class="section-label">APPLICATIONS</div>
+    <div class="sidebar-body">
 
     <nav class="nav flex-column">
         <div class="nav-item">
@@ -81,6 +82,8 @@ const sidebarHTML = `
         </div>
     </div>
 </div>
+    </div>
+
     </nav>
 </aside>
 `;
