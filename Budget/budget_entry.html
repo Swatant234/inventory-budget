@@ -58,7 +58,7 @@
                     </select>
                 </div>
                 <div class="col-md-2">
-                    <label class="form-label small fw-bold text-muted">Status</label>
+                    <label class="form-label small fw-bold text-muted">Approval Status</label>
                     <select class="form-select">
                         <option>All</option>
                         <option value="Drafts">Drafts</option>
@@ -91,185 +91,197 @@
             </div>
         </div>
 
-        <div class="dcard">
-            <div class="table-responsive">
-                <table class="table table-hover mb-0">
-                    <thead class="bg-light">
-                        <tr>
-                            <th class="ps-4">Budget ID</th>
-                            <th>Description</th>
-                            <th>Type</th>
-                            <th>Category</th>
-                            <th>Annual Total</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="fw-bold text-nowrap">
-                                <div class="dropdown d-flex align-items-center">
-                                    <button class="btn btn-sm btn-light" data-bs-toggle="dropdown">
-                                        <i class="bi bi-three-dots-vertical"></i>
-                                    </button>
-                                    <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+        <div class="table-container">
+            <table class="table table-hover mb-0">
+                <thead class="bg-light">
+                    <tr>
+                        <th class="ps-4">Budget ID</th>
+                        <th>Description</th>
+                        <th>Type</th>
+                        <th>Category</th>
+                        <th>Annual Total</th>
+                        <th>Approval Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="fw-bold text-nowrap">
+                            <div class="dropdown d-flex align-items-center">
+                                <button class="btn btn-sm btn-light" data-bs-toggle="dropdown">
+                                    <i class="bi bi-three-dots-vertical"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end shadow-sm">
 
-                                        <!-- VIEW -->
-                                        <li>
-                                            <span class="d-inline-block w-100" data-bs-toggle="tooltip"
-                                                data-bs-placement="right" title="View work order details">
-                                                <a class="dropdown-item d-flex align-items-center gap-2">
-                                                    <i class="bi bi-eye text-primary"></i> View
-                                                </a>
-                                            </span>
-                                        </li>
+                                    <!-- VIEW -->
+                                    <li>
+                                        <span class="d-inline-block w-100" data-bs-toggle="tooltip"
+                                            data-bs-placement="right" title="View work order details">
+                                            <a class="dropdown-item d-flex align-items-center gap-2">
+                                                <i class="bi bi-eye text-primary"></i> View
+                                            </a>
+                                        </span>
+                                    </li>
 
-                                        <!-- REVIEW / APPROVE -->
-                                        <li>
-                                            <span class="d-inline-block w-100" data-bs-toggle="tooltip"
-                                                data-bs-placement="right" title="Review and approve this work order">
-                                                <a class="dropdown-item d-flex align-items-center gap-2">
-                                                    <i class="bi bi-pencil-square text-secondary"></i> Review / Approve
-                                                </a>
-                                            </span>
-                                        </li>
+                                    <!-- REVIEW / APPROVE -->
+                                    <li>
+                                        <span class="d-inline-block w-100" data-bs-toggle="tooltip"
+                                            data-bs-placement="right" title="Review and approve this work order">
+                                            <a class="dropdown-item d-flex align-items-center gap-2">
+                                                <i class="bi bi-pencil-square text-secondary"></i> Review / Approve
+                                            </a>
+                                        </span>
+                                    </li>
 
-                                        <!-- ACTIVATE (DISABLED EXAMPLE) -->
-                                        <li>
-                                            <span class="d-inline-block w-100" data-bs-toggle="tooltip"
-                                                data-bs-placement="right" title="Already active">
-                                                <a class="dropdown-item d-flex align-items-center gap-2 " tabindex="-1"
-                                                    aria-disabled="true">
-                                                    <i class="bi bi-check-circle text-success"></i> Activate
-                                                </a>
-                                            </span>
-                                        </li>
+                                    <!-- ACTIVATE (DISABLED EXAMPLE) -->
+                                    <li>
+                                        <span class="d-inline-block w-100" data-bs-toggle="tooltip"
+                                            data-bs-placement="right" title="Already active">
+                                            <a class="dropdown-item d-flex align-items-center gap-2 " tabindex="-1"
+                                                aria-disabled="true">
+                                                <i class="bi bi-check-circle text-success"></i> Activate
+                                            </a>
+                                        </span>
+                                    </li>
 
-                                        <!-- DEACTIVATE (DISABLED EXAMPLE) -->
-                                        <li>
-                                            <span class="d-inline-block w-100" data-bs-toggle="tooltip"
-                                                data-bs-placement="right" title="Already inactive">
-                                                <a class="dropdown-item d-flex align-items-center gap-2 " tabindex="-1"
-                                                    aria-disabled="true">
-                                                    <i class="bi bi-x-circle text-danger"></i> Deactivate
-                                                </a>
-                                            </span>
-                                        </li>
-
-
-                                        <!-- PRINT -->
-                                        <li>
-                                            <span class="d-inline-block w-100" data-bs-toggle="tooltip"
-                                                data-bs-placement="right"
-                                                title="Print is enabled only for Completed work orders">
-                                                <a class="dropdown-item d-flex align-items-center gap-2 disabled"
-                                                    tabindex="-1" aria-disabled="true">
-                                                    <i class="bi bi-printer text-dark"></i> Print
-                                                </a>
-                                            </span>
-                                        </li>
+                                    <!-- DEACTIVATE (DISABLED EXAMPLE) -->
+                                    <li>
+                                        <span class="d-inline-block w-100" data-bs-toggle="tooltip"
+                                            data-bs-placement="right" title="Already inactive">
+                                            <a class="dropdown-item d-flex align-items-center gap-2 " tabindex="-1"
+                                                aria-disabled="true">
+                                                <i class="bi bi-x-circle text-danger"></i> Deactivate
+                                            </a>
+                                        </span>
+                                    </li>
 
 
-
-                                    </ul>
-
-                                    <span class="ms-2">BGT-2026-001</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="small text-muted"> Routine machine
-                                    upkeep</div>
-                            </td>
-                            <td><span class="status-pill bg-opex">OPEX</span></td>
-                            <td>Water</td>
-                            <td class="fw-bold">₹ 1,50,000</td>
-                            <td><span class="status approved">Approved</span>
-                            </td>
-
-                        </tr>
-
-                        <tr class="border-bottom">
-                            <td class="fw-bold text-nowrap">
-                                <div class="dropdown d-flex align-items-center">
-                                    <button class="btn btn-sm btn-light" data-bs-toggle="dropdown">
-                                        <i class="bi bi-three-dots-vertical"></i>
-                                    </button>
-                                    <ul class="dropdown-menu dropdown-menu-end shadow-sm">
-
-                                        <!-- VIEW -->
-                                        <li>
-                                            <span class="d-inline-block w-100" data-bs-toggle="tooltip"
-                                                data-bs-placement="right" title="View work order details">
-                                                <a class="dropdown-item d-flex align-items-center gap-2">
-                                                    <i class="bi bi-eye text-primary"></i> View
-                                                </a>
-                                            </span>
-                                        </li>
-
-                                        <!-- REVIEW / APPROVE -->
-                                        <li>
-                                            <span class="d-inline-block w-100" data-bs-toggle="tooltip"
-                                                data-bs-placement="right" title="Review and approve this work order">
-                                                <a class="dropdown-item d-flex align-items-center gap-2">
-                                                    <i class="bi bi-pencil-square text-secondary"></i> Review / Approve
-                                                </a>
-                                            </span>
-                                        </li>
-
-                                        <!-- ACTIVATE (DISABLED EXAMPLE) -->
-                                        <li>
-                                            <span class="d-inline-block w-100" data-bs-toggle="tooltip"
-                                                data-bs-placement="right" title="Already active">
-                                                <a class="dropdown-item d-flex align-items-center gap-2 " tabindex="-1"
-                                                    aria-disabled="true">
-                                                    <i class="bi bi-check-circle text-success"></i> Activate
-                                                </a>
-                                            </span>
-                                        </li>
-
-                                        <!-- DEACTIVATE (DISABLED EXAMPLE) -->
-                                        <li>
-                                            <span class="d-inline-block w-100" data-bs-toggle="tooltip"
-                                                data-bs-placement="right" title="Already inactive">
-                                                <a class="dropdown-item d-flex align-items-center gap-2 " tabindex="-1"
-                                                    aria-disabled="true">
-                                                    <i class="bi bi-x-circle text-danger"></i> Deactivate
-                                                </a>
-                                            </span>
-                                        </li>
-
-
-                                        <!-- PRINT -->
-                                        <li>
-                                            <span class="d-inline-block w-100" data-bs-toggle="tooltip"
-                                                data-bs-placement="right"
-                                                title="Print is enabled only for Completed work orders">
-                                                <a class="dropdown-item d-flex align-items-center gap-2 disabled"
-                                                    tabindex="-1" aria-disabled="true">
-                                                    <i class="bi bi-printer text-dark"></i> Print
-                                                </a>
-                                            </span>
-                                        </li>
+                                    <!-- PRINT -->
+                                    <li>
+                                        <span class="d-inline-block w-100" data-bs-toggle="tooltip"
+                                            data-bs-placement="right"
+                                            title="Print is enabled only for Completed work orders">
+                                            <a class="dropdown-item d-flex align-items-center gap-2 disabled"
+                                                tabindex="-1" aria-disabled="true">
+                                                <i class="bi bi-printer text-dark"></i> Print
+                                            </a>
+                                        </span>
+                                    </li>
 
 
 
-                                    </ul>
+                                </ul>
 
-                                    <span class="ms-2">BGT-2026-001</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="small text-muted">Mandatory compliance for cleanroom standards</div>
-                            </td>
-                            <td><span class="status-pill bg-capex">CAPEX</span></td>
-                            <td><span class="badge bg-light text-dark">CIVIL</span></td>
-                            <td class="fw-bold">₹ 8,50,000</td>
-                            <td><span class="status rejected">Rejected</span></td>
+                                <span class="ms-2">BGT-2026-001</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="small text-muted"> Routine machine
+                                upkeep</div>
+                        </td>
+                        <td><span class="status-pill bg-opex">OPEX</span></td>
+                        <td>Water</td>
+                        <td class="fw-bold">₹ 1,50,000</td>
+                        <td><span class="status approved">Approved</span>
+                        </td>
 
-                        </tr>
-                    </tbody>
-                </table>
+                    </tr>
+
+                    <tr class="border-bottom">
+                        <td class="fw-bold text-nowrap">
+                            <div class="dropdown d-flex align-items-center">
+                                <button class="btn btn-sm btn-light" data-bs-toggle="dropdown">
+                                    <i class="bi bi-three-dots-vertical"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+
+                                    <!-- VIEW -->
+                                    <li>
+                                        <span class="d-inline-block w-100" data-bs-toggle="tooltip"
+                                            data-bs-placement="right" title="View work order details">
+                                            <a class="dropdown-item d-flex align-items-center gap-2">
+                                                <i class="bi bi-eye text-primary"></i> View
+                                            </a>
+                                        </span>
+                                    </li>
+
+                                    <!-- REVIEW / APPROVE -->
+                                    <li>
+                                        <span class="d-inline-block w-100" data-bs-toggle="tooltip"
+                                            data-bs-placement="right" title="Review and approve this work order">
+                                            <a class="dropdown-item d-flex align-items-center gap-2">
+                                                <i class="bi bi-pencil-square text-secondary"></i> Review / Approve
+                                            </a>
+                                        </span>
+                                    </li>
+
+                                    <!-- ACTIVATE (DISABLED EXAMPLE) -->
+                                    <li>
+                                        <span class="d-inline-block w-100" data-bs-toggle="tooltip"
+                                            data-bs-placement="right" title="Already active">
+                                            <a class="dropdown-item d-flex align-items-center gap-2 " tabindex="-1"
+                                                aria-disabled="true">
+                                                <i class="bi bi-check-circle text-success"></i> Activate
+                                            </a>
+                                        </span>
+                                    </li>
+
+                                    <!-- DEACTIVATE (DISABLED EXAMPLE) -->
+                                    <li>
+                                        <span class="d-inline-block w-100" data-bs-toggle="tooltip"
+                                            data-bs-placement="right" title="Already inactive">
+                                            <a class="dropdown-item d-flex align-items-center gap-2 " tabindex="-1"
+                                                aria-disabled="true">
+                                                <i class="bi bi-x-circle text-danger"></i> Deactivate
+                                            </a>
+                                        </span>
+                                    </li>
+
+
+                                    <!-- PRINT -->
+                                    <li>
+                                        <span class="d-inline-block w-100" data-bs-toggle="tooltip"
+                                            data-bs-placement="right"
+                                            title="Print is enabled only for Completed work orders">
+                                            <a class="dropdown-item d-flex align-items-center gap-2 disabled"
+                                                tabindex="-1" aria-disabled="true">
+                                                <i class="bi bi-printer text-dark"></i> Print
+                                            </a>
+                                        </span>
+                                    </li>
+
+
+
+                                </ul>
+
+                                <span class="ms-2">BGT-2026-001</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="small text-muted">Mandatory compliance for cleanroom standards</div>
+                        </td>
+                        <td><span class="status-pill bg-capex">CAPEX</span></td>
+                        <td><span class="badge bg-light text-dark">CIVIL</span></td>
+                        <td class="fw-bold">₹ 8,50,000</td>
+                        <td><span class="status rejected">Rejected</span></td>
+
+                    </tr>
+                </tbody>
+            </table>
+            <div class="p-4 bg-light bg-opacity-50 border-top d-flex justify-content-between align-items-center">
+                <span class="small text-muted">Showing 1 to 10 of 1,284 entries</span>
+                <nav>
+                    <ul class="pagination pagination-sm m-0">
+                        <li class="page-item disabled"><a class="page-link border-0 rounded-3" href="#">Prev</a>
+                        </li>
+                        <li class="page-item active"><a class="page-link border-0 rounded-3 mx-1" href="#">1</a>
+                        </li>
+                        <li class="page-item"><a class="page-link border-0 rounded-3 mx-1" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link border-0 rounded-3" href="#">Next</a></li>
+                    </ul>
+                </nav>
             </div>
         </div>
+
     </main>
 
     <div class="modal fade" id="budgetModal" tabindex="-1">

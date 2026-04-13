@@ -87,15 +87,16 @@
                         <span class="input-group-text bg-white border-end-0"><i
                                 class="bi bi-search text-muted"></i></span>
                         <input type="text" class="form-control border-start-0"
-                            placeholder="Search Code, Description, Material Group, Purchase Group, Vendor, Manufacturer, ...">
+                            placeholder="Search Code, Description, Material Group, Purchase Group, UOM, Vendor, Manufacturer, ...">
                     </div>
                 </div>
 
                 <div class="col-md-2">
-                    <label class="form-label">Status</label>
+                    <label class="form-label">Approval Status</label>
                     <select class="form-select">
-                        <option>Active</option>
-                        <option>Inactive</option>
+                        <option value="Approved">Approved</option>
+                        <option value="Reverted">Reverted</option>
+                        <option value="Rejected">Rejected</option>
                     </select>
                 </div>
 
@@ -142,16 +143,83 @@
                         <th>Material Group</th>
                         <th>Reorder Lvl</th>
                         <th>Live Stock</th>
-                        <th>Status</th>
-                        <th class="text-center">Actions</th>
+                        <th>Approval Status</th>
+                        <th class="text-center">QR Code</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr class="row-alert-warning">
-                        <td class="fw-bold text-dark">RM-00045</td>
-                        <td>
-                            <div class="fw-bold">Paracetamol API</div>
+                        <td class="fw-bold text-dark">
+                            <div class="dropdown d-flex align-items-center">
+                                <button class="btn btn-sm btn-light" data-bs-toggle="dropdown">
+                                    <i class="bi bi-three-dots-vertical"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+
+                                    <!-- VIEW -->
+                                    <li>
+                                        <span class="d-inline-block w-100" data-bs-toggle="tooltip"
+                                            data-bs-placement="right" title="View work order details">
+                                            <a class="dropdown-item d-flex align-items-center gap-2">
+                                                <i class="bi bi-eye text-primary"></i> View
+                                            </a>
+                                        </span>
+                                    </li>
+
+                                    <!-- REVIEW / APPROVE -->
+                                    <li>
+                                        <span class="d-inline-block w-100" data-bs-toggle="tooltip"
+                                            data-bs-placement="right" title="Review and approve this work order">
+                                            <a class="dropdown-item d-flex align-items-center gap-2">
+                                                <i class="bi bi-pencil-square text-secondary"></i> Review / Approve
+                                            </a>
+                                        </span>
+                                    </li>
+
+                                    <!-- ACTIVATE (DISABLED EXAMPLE) -->
+                                    <li>
+                                        <span class="d-inline-block w-100" data-bs-toggle="tooltip"
+                                            data-bs-placement="right" title="Already active">
+                                            <a class="dropdown-item d-flex align-items-center gap-2 " tabindex="-1"
+                                                aria-disabled="true">
+                                                <i class="bi bi-check-circle text-success"></i> Activate
+                                            </a>
+                                        </span>
+                                    </li>
+
+                                    <!-- DEACTIVATE (DISABLED EXAMPLE) -->
+                                    <li>
+                                        <span class="d-inline-block w-100" data-bs-toggle="tooltip"
+                                            data-bs-placement="right" title="Already inactive">
+                                            <a class="dropdown-item d-flex align-items-center gap-2 " tabindex="-1"
+                                                aria-disabled="true">
+                                                <i class="bi bi-x-circle text-danger"></i> Deactivate
+                                            </a>
+                                        </span>
+                                    </li>
+
+
+                                    <!-- PRINT -->
+                                    <li>
+                                        <span class="d-inline-block w-100" data-bs-toggle="tooltip"
+                                            data-bs-placement="right"
+                                            title="Print is enabled only for Completed work orders">
+                                            <a class="dropdown-item d-flex align-items-center gap-2 disabled"
+                                                tabindex="-1" aria-disabled="true">
+                                                <i class="bi bi-printer text-dark"></i> Print
+                                            </a>
+                                        </span>
+                                    </li>
+
+
+
+                                </ul>
+
+                                <span class="ms-2">MM-001</span>
                             </div>
+                        </td>
+                        <td>
+                            Paracetamol API
                         </td>
                         <td><span class="badge bg-light text-dark border fw-medium">Kg</span></td>
                         <td>Raw Material</td>
@@ -161,22 +229,88 @@
                                 <i class="bi bi-arrow-down-circle-fill"></i> 450
                             </a>
                         </td>
-                        <td><span class="badge rounded-pill bg-success px-3">Active</span></td>
+                        <td><span class="status approved">Approved</span>
+                        </td>
                         <td class="text-center">
                             <div class="d-flex justify-content-center gap-2">
-                                <button class="btn-action text-primary" title="Edit"><i
-                                        class="bi bi-pencil-square"></i></button>
-                                <button class="btn-action text-info" title="Quick View"><i
-                                        class="bi bi-eye"></i></button>
+
                                 <button class="btn-action text-dark" title="QR Code"><i
                                         class="bi bi-qr-code"></i></button>
                             </div>
                         </td>
                     </tr>
                     <tr>
-                        <td class="fw-bold text-dark">RM-00082</td>
+                        <td class="fw-bold text-dark">
+                            <div class="dropdown d-flex align-items-center">
+                                <button class="btn btn-sm btn-light" data-bs-toggle="dropdown">
+                                    <i class="bi bi-three-dots-vertical"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+
+                                    <!-- VIEW -->
+                                    <li>
+                                        <span class="d-inline-block w-100" data-bs-toggle="tooltip"
+                                            data-bs-placement="right" title="View work order details">
+                                            <a class="dropdown-item d-flex align-items-center gap-2">
+                                                <i class="bi bi-eye text-primary"></i> View
+                                            </a>
+                                        </span>
+                                    </li>
+
+                                    <!-- REVIEW / APPROVE -->
+                                    <li>
+                                        <span class="d-inline-block w-100" data-bs-toggle="tooltip"
+                                            data-bs-placement="right" title="Review and approve this work order">
+                                            <a class="dropdown-item d-flex align-items-center gap-2">
+                                                <i class="bi bi-pencil-square text-secondary"></i> Review / Approve
+                                            </a>
+                                        </span>
+                                    </li>
+
+                                    <!-- ACTIVATE (DISABLED EXAMPLE) -->
+                                    <li>
+                                        <span class="d-inline-block w-100" data-bs-toggle="tooltip"
+                                            data-bs-placement="right" title="Already active">
+                                            <a class="dropdown-item d-flex align-items-center gap-2 " tabindex="-1"
+                                                aria-disabled="true">
+                                                <i class="bi bi-check-circle text-success"></i> Activate
+                                            </a>
+                                        </span>
+                                    </li>
+
+                                    <!-- DEACTIVATE (DISABLED EXAMPLE) -->
+                                    <li>
+                                        <span class="d-inline-block w-100" data-bs-toggle="tooltip"
+                                            data-bs-placement="right" title="Already inactive">
+                                            <a class="dropdown-item d-flex align-items-center gap-2 " tabindex="-1"
+                                                aria-disabled="true">
+                                                <i class="bi bi-x-circle text-danger"></i> Deactivate
+                                            </a>
+                                        </span>
+                                    </li>
+
+
+                                    <!-- PRINT -->
+                                    <li>
+                                        <span class="d-inline-block w-100" data-bs-toggle="tooltip"
+                                            data-bs-placement="right"
+                                            title="Print is enabled only for Completed work orders">
+                                            <a class="dropdown-item d-flex align-items-center gap-2 disabled"
+                                                tabindex="-1" aria-disabled="true">
+                                                <i class="bi bi-printer text-dark"></i> Print
+                                            </a>
+                                        </span>
+                                    </li>
+
+
+
+                                </ul>
+
+                                <span class="ms-2">MM-002</span>
+                            </div>
+                        </td>
                         <td>
-                            <div class="fw-bold">Magnesium Stearate</div>
+                            Magnesium Stearate
                         </td>
                         <td><span class="badge bg-light text-dark border fw-medium">Kg</span></td>
                         <td>Excipients</td>
@@ -186,11 +320,10 @@
                                 <i class="bi bi-check-circle-fill"></i> 1,250
                             </a>
                         </td>
-                        <td><span class="badge rounded-pill bg-success px-3">Active</span></td>
+                        <td><span class="status approved">Approved</span>
+                        </td>
                         <td class="text-center">
                             <div class="d-flex justify-content-center gap-2">
-                                <button class="btn-action text-primary"><i class="bi bi-pencil-square"></i></button>
-                                <button class="btn-action text-info"><i class="bi bi-eye"></i></button>
                                 <button class="btn-action text-dark"><i class="bi bi-qr-code"></i></button>
                             </div>
                         </td>
