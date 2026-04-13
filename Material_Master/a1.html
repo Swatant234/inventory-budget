@@ -20,21 +20,26 @@
     <div id="sidebar-placeholder"></div>
     <div id="header-placeholder"></div>
     <main id="main-wrapper">
-        <div class="d-flex justify-content-between align-items-center mb-3">
-            <div>
-                <nav aria-label="breadcrumb">
-                    <h5 class="fw-bold mb-0">Material Master</h5>
-                </nav>
-            </div>
-            <div class="d-flex gap-3">
-                <button class="btn btn-white shadow-sm border-0 py-2 px-3" style="border-radius: 12px;">
-                    <i class="bi bi-download me-2 text-primary"></i>Export
-                </button>
-                <button class="btn btn-premium px-4">
-                    <i class="bi bi-plus-lg me-2"></i>New Material
-                </button>
+        <div class="sticky-header px-3 py-2 mb-3">
+
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <nav class="breadcrumb mb-0">
+                        <h5 class="fw-bold mb-0">Material Master</h5>
+                    </nav>
+                </div>
+                <div class="d-flex gap-3">
+                    <button class="btn btn-white shadow-sm border-0 py-2 px-3" style="border-radius: 12px;">
+                        <i class="bi bi-download me-2 text-primary"></i>Export
+                    </button>
+                    <button class="btn btn-premium px-4">
+                        <i class="bi bi-plus-lg me-2"></i>New Material
+                    </button>
+                </div>
             </div>
         </div>
+
+
 
 
         <!-- <div class="row g-4 mb-5">
@@ -511,7 +516,8 @@
                                                                 class="form-control"
                                                                 placeholder="Search Manufacturer name...">
 
-                                                            <button class="btn btn-secondary" onclick="addManufacturer()">
+                                                            <button class="btn btn-secondary"
+                                                                onclick="addManufacturer()">
                                                                 <i class="bi bi-plus-lg"></i>
                                                             </button>
                                                         </div>
@@ -546,7 +552,8 @@
                                                             <input type="text" id="vendorInput" class="form-control"
                                                                 placeholder="Enter Vendor / Supplier name...">
 
-                                                            <button class="btn btn-secondary fw-bold" onclick="addVendor()">
+                                                            <button class="btn btn-secondary fw-bold"
+                                                                onclick="addVendor()">
                                                                 <i class="bi bi-plus-lg"></i>
                                                             </button>
                                                         </div>

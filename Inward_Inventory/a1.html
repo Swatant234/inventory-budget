@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-       <link rel="stylesheet" href="../common.css">
+    <link rel="stylesheet" href="../common.css">
     <link rel="stylesheet" href="../styles.css">
 
 </head>
@@ -17,177 +17,295 @@
 
     <div id="sidebar-placeholder"></div>
     <div id="header-placeholder"></div>
+
     <main id="main-wrapper">
-
-
-        <div id="step2">
-            <div class="d-flex justify-content-between align-items-end mb-4">
+        <div class="sticky-header px-3 py-2 mb-3">
+            <div class="d-flex justify-content-between align-items-center">
                 <div>
-                    <h2 class="fw-bold text-dark mb-1">Inventory Inward Details</h2>
-                    <p class="text-muted small mb-0">GRN Creation & Multi-Level Allocation</p>
+                    <nav class="breadcrumb mb-0">
+                        <h5 class="fw-bold mb-0">Inventory Inward</h5>
+                    </nav>
                 </div>
-                <div class="text-end">
-                    <div class="small fw-bold text-muted">SYSTEM DATE</div>
-                    <div class="fw-bold">08-Apr-2026</div>
-                </div>
-            </div>
-
-            <div class="header-box">
-                <div class="row g-4">
-                    <div class="col-md-2">
-                        <label class="form-label small fw-bold text-muted">GRN Number</label>
-                        <input type="text" class="form-control fw-bold border-0 bg-light" value="GRN/26/0045" readonly>
-                    </div>
-                    <div class="col-md-3">
-                        <label class="form-label small fw-bold text-muted">PO Number (Optional)</label>
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Link to PO...">
-                            <button class="btn btn-outline-secondary"><i class="bi bi-link-45deg"></i></button>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <label class="form-label small fw-bold text-muted">Vendor</label>
-                        <div class="d-flex align-items-center p-2 border rounded-3 bg-white">
-                            <i class="bi bi-shop me-2 text-primary"></i>
-                            <span class="fw-bold small">Reliance Industrial Spares Ltd.</span>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <label class="form-label small fw-bold text-muted">Inward Date</label>
-                        <input type="date" class="form-control" value="2026-04-08">
-                    </div>
-                </div>
-            </div>
-
-            <div class="line-item-container">
-                <div class="row g-0">
-
-                    <div class="col-md-3 id-sidebar">
-                        <h6 class="section-header"><i class="bi bi-search"></i> Identification</h6>
-
-                        <div class="mb-4">
-                            <label class="form-label extra-small fw-bold">ITEM CODE</label>
-                            <div class="input-group mb-2">
-                                <input type="text" class="form-control fw-bold border-primary" value="MAT-8802">
-                                <button class="btn btn-primary" title="Change/Assign Code"><i
-                                        class="bi bi-pencil-square"></i></button>
-                            </div>
-                            <span class="extra-small text-muted lh-sm d-block">Change if PO inward, Assign if Petty
-                                Cash/Non-PO.</span>
-                        </div>
-
-                        <div class="qr-vault p-3 bg-white rounded-4 border">
-                            <div class="text-center mb-3">
-                                <i class="bi bi-qr-code fs-1"></i>
-                            </div>
-                            <button class="qr-action-btn"><i class="bi bi-printer me-2"></i>Print New QR</button>
-                            <button class="qr-action-btn"><i class="bi bi-camera me-2"></i>Capture Existing</button>
-                            <button class="qr-action-btn border-primary text-primary"><i
-                                    class="bi bi-plus-circle me-2"></i>Generate New</button>
-                        </div>
-                    </div>
-
-                    <div class="col-md-9 p-4">
-                        <div class="d-flex justify-content-between align-items-center mb-4">
-                            <h5 class="fw-bold m-0 text-dark">Allocation Matrix</h5>
-                            <div class="text-end">
-                                <div class="small text-muted">Total Received</div>
-                                <div class="fw-bold fs-5">250.00 Units</div>
-                            </div>
-                        </div>
-
-                        <div class="mb-5">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <h6 class="section-header"><i class="bi bi-people-fill"></i> i. User & Department
-                                    Allocation</h6>
-                                <button class="btn btn-sm btn-link text-decoration-none fw-bold"><i
-                                        class="bi bi-plus-lg me-1"></i> Add Split</button>
-                            </div>
-                            <table class="table table-split">
-                                <thead>
-                                    <tr>
-                                        <th>Select User</th>
-                                        <th>Department</th>
-                                        <th width="120">Qty Split</th>
-                                        <th width="50"></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <select class="form-select form-select-sm">
-                                                <option>Rahul Bajaj (Emp-101)</option>
-                                                <option>Anika Singh (Emp-105)</option>
-                                            </select>
-                                        </td>
-                                        <td><input type="text" class="form-control form-control-sm bg-light"
-                                                value="Manufacturing" readonly></td>
-                                        <td><input type="number" class="form-control form-control-sm qty-split-input"
-                                                value="150"></td>
-                                        <td class="text-end"><i class="bi bi-trash3 text-danger cursor-pointer"></i>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <div>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <h6 class="section-header"><i class="bi bi-layers-half"></i> ii. Batch Details
-                                    Allocation</h6>
-                                <button class="btn btn-sm btn-link text-decoration-none fw-bold"><i
-                                        class="bi bi-plus-lg me-1"></i> New Batch</button>
-                            </div>
-                            <table class="table table-split">
-                                <thead>
-                                    <tr>
-                                        <th>Batch Number</th>
-                                        <th>MFG Date</th>
-                                        <th>Expiry Date</th>
-                                        <th width="120">Qty Split</th>
-                                        <th width="50"></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><input type="text" class="form-control form-control-sm"
-                                                value="BATCH-APR-001"></td>
-                                        <td><input type="date" class="form-control form-control-sm"></td>
-                                        <td><input type="date" class="form-control form-control-sm"></td>
-                                        <td><input type="number" class="form-control form-control-sm qty-split-input"
-                                                value="150"></td>
-                                        <td class="text-end"><i class="bi bi-trash3 text-danger cursor-pointer"></i>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="action-bar d-flex justify-content-between align-items-center mt-4">
-                <div class="d-flex gap-4">
-                    <div class="small fw-bold text-white-50"><i class="bi bi-check2-circle me-2 text-success"></i>Item
-                        Level</div>
-                    <div class="small fw-bold text-white-50"><i class="bi bi-check2-circle me-2 text-success"></i>Batch
-                        Level</div>
-                    <div class="small fw-bold text-white-50"><i class="bi bi-check2-circle me-2 text-success"></i>User
-                        Level</div>
-                </div>
-                <div class="d-flex align-items-center gap-4">
-                    <div class="text-end">
-                        <div class="small text-white-50">ALLOCATION STATUS</div>
-                        <div class="fw-bold">150 / 250 Units (60%)</div>
-                    </div>
-                    <button class="btn btn-light px-4 py-2 fw-bold text-dark rounded-3"
-                        onclick="alert('Inventory Increases & Stock Ledger Updated!')">
-                        Complete Inward
+                <div class="d-flex gap-3">
+                    <button class="btn btn-white shadow-sm border-0 py-2 px-3" style="border-radius: 12px;">
+                        <i class="bi bi-download me-2 text-primary"></i>Export
                     </button>
+
                 </div>
             </div>
         </div>
+
+   <div class="dcard mb-3">
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <label class="form-label">Global Search</label>
+                    <div class="input-group">
+                        <span class="input-group-text bg-white border-end-0"><i
+                                class="bi bi-search text-muted"></i></span>
+                        <input type="text" class="form-control border-start-0"
+                            placeholder="Search Code, Description, Material Group, Purchase Group, UOM, Vendor, Manufacturer, ...">
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <label class="form-label">Approval Status</label>
+                    <select class="form-select">
+                        <option value="Approved">Approved</option>
+                        <option value="Reverted">Reverted</option>
+                        <option value="Rejected">Rejected</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2">
+                    <label class="form-label">Stock Availability</label>
+                    <select class="form-select">
+                        <option>In Stock</option>
+                        <option>Below Reorder</option>
+                        <option>Out of Strock</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2">
+                    <label class="form-label small fw-bold text-muted">From Date</label>
+                    <input type="date" class="form-control">
+                </div>
+                <div class="col-md-2">
+                    <label class="form-label small fw-bold text-muted">To Date</label>
+                    <input type="date" class="form-control">
+                </div>
+                <div class="col-md-12 d-flex justify-content-end gap-2">
+
+                    <button class="btn btn-light shadow-sm px-3 py-2 rounded-3">
+                        <i class="bi bi-arrow-clockwise me-2 text-secondary"></i>
+                        Clear
+                    </button>
+
+                    <button class="btn btn-premium px-4 py-2 rounded-3">
+                        <i class="bi bi-funnel-fill me-2"></i>
+                        Filter
+                    </button>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table class="table table-hover mb-0">
+                <thead>
+                    <tr>
+                        <th><i class="bi bi-hash me-2"></i>Material Code</th>
+                        <th>Description</th>
+                        <th>UOM</th>
+                        <th>Material Group</th>
+                        <th>Purchase Group</th>
+                        <th>Reorder Level</th>
+                        <th>Live Stock</th>
+                        <th>Approval Status</th>
+                        <th class="text-center">QR Code</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="row-alert-warning">
+                        <td class="fw-bold text-dark">
+                            <div class="dropdown d-flex align-items-center">
+                                <button class="btn btn-sm btn-light" data-bs-toggle="dropdown">
+                                    <i class="bi bi-three-dots-vertical"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+
+                                    <!-- VIEW -->
+                                    <li>
+                                        <span class="d-inline-block w-100" data-bs-toggle="tooltip"
+                                            data-bs-placement="right" title="View work order details">
+                                            <a class="dropdown-item d-flex align-items-center gap-2">
+                                                <i class="bi bi-eye text-primary"></i> View
+                                            </a>
+                                        </span>
+                                    </li>
+
+                                    <!-- REVIEW / APPROVE -->
+                                    <li>
+                                        <span class="d-inline-block w-100" data-bs-toggle="tooltip"
+                                            data-bs-placement="right" title="Review and approve this work order">
+                                            <a class="dropdown-item d-flex align-items-center gap-2"
+                                              href="/Inward_Inventory/inventory_details.html">
+                                                <i class="bi bi-pencil-square text-secondary"></i> Edit
+                                            </a>
+                                        </span>
+                                    </li>
+
+                                    <!-- ACTIVATE (DISABLED EXAMPLE) -->
+                                    <li>
+                                        <span class="d-inline-block w-100" data-bs-toggle="tooltip"
+                                            data-bs-placement="right" title="Already active">
+                                            <a class="dropdown-item d-flex align-items-center gap-2 " tabindex="-1"
+                                                aria-disabled="true">
+                                                <i class="bi bi-check-circle text-success"></i> Activate
+                                            </a>
+                                        </span>
+                                    </li>
+
+                                    <!-- DEACTIVATE (DISABLED EXAMPLE) -->
+                                    <li>
+                                        <span class="d-inline-block w-100" data-bs-toggle="tooltip"
+                                            data-bs-placement="right" title="Already inactive">
+                                            <a class="dropdown-item d-flex align-items-center gap-2 " tabindex="-1"
+                                                aria-disabled="true">
+                                                <i class="bi bi-x-circle text-danger"></i> Deactivate
+                                            </a>
+                                        </span>
+                                    </li>
+
+
+                                    <!-- PRINT -->
+                                    <li>
+                                        <span class="d-inline-block w-100" data-bs-toggle="tooltip"
+                                            data-bs-placement="right"
+                                            title="Print is enabled only for Completed work orders">
+                                            <a class="dropdown-item d-flex align-items-center gap-2 disabled"
+                                                tabindex="-1" aria-disabled="true">
+                                                <i class="bi bi-printer text-dark"></i> Print
+                                            </a>
+                                        </span>
+                                    </li>
+
+
+
+                                </ul>
+
+                                <span class="ms-2">MM-001</span>
+                            </div>
+                        </td>
+                        <td>
+                            Paracetamol API
+                        </td>
+                        <td><span class="badge bg-light text-dark border fw-medium">Kg</span></td>
+                        <td>Raw Material</td>
+                        <td>RM-PG</td>
+                        <td class="fw-bold text-secondary">500</td>
+                        <td>
+                            <a href="#" class="stock-pill pill-danger" title="Click to Drilldown">
+                                <i class="bi bi-arrow-down-circle-fill"></i> 450
+                            </a>
+                        </td>
+                        <td><span class="status approved">Approved</span>
+                        </td>
+                        <td class="text-center">
+                            <div class="d-flex justify-content-center gap-2">
+
+                                <button class="btn-action text-dark" title="QR Code"><i
+                                        class="bi bi-qr-code"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold text-dark">
+                            <div class="dropdown d-flex align-items-center">
+                                <button class="btn btn-sm btn-light" data-bs-toggle="dropdown">
+                                    <i class="bi bi-three-dots-vertical"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+
+                                    <!-- VIEW -->
+                                    <li>
+                                        <span class="d-inline-block w-100" data-bs-toggle="tooltip"
+                                            data-bs-placement="right" title="View work order details">
+                                            <a class="dropdown-item d-flex align-items-center gap-2">
+                                                <i class="bi bi-eye text-primary"></i> View
+                                            </a>
+                                        </span>
+                                    </li>
+
+                                    <!-- REVIEW / APPROVE -->
+                                    <li>
+                                        <span class="d-inline-block w-100" data-bs-toggle="tooltip"
+                                            data-bs-placement="right" title="Review and approve this work order">
+                                            <a class="dropdown-item d-flex align-items-center gap-2">
+                                                <i class="bi bi-pencil-square text-secondary"></i> Edit
+                                            </a>
+                                        </span>
+                                    </li>
+
+                                    <!-- ACTIVATE (DISABLED EXAMPLE) -->
+                                    <li>
+                                        <span class="d-inline-block w-100" data-bs-toggle="tooltip"
+                                            data-bs-placement="right" title="Already active">
+                                            <a class="dropdown-item d-flex align-items-center gap-2 " tabindex="-1"
+                                                aria-disabled="true">
+                                                <i class="bi bi-check-circle text-success"></i> Activate
+                                            </a>
+                                        </span>
+                                    </li>
+
+                                    <!-- DEACTIVATE (DISABLED EXAMPLE) -->
+                                    <li>
+                                        <span class="d-inline-block w-100" data-bs-toggle="tooltip"
+                                            data-bs-placement="right" title="Already inactive">
+                                            <a class="dropdown-item d-flex align-items-center gap-2 " tabindex="-1"
+                                                aria-disabled="true">
+                                                <i class="bi bi-x-circle text-danger"></i> Deactivate
+                                            </a>
+                                        </span>
+                                    </li>
+
+
+                                    <!-- PRINT -->
+                                    <li>
+                                        <span class="d-inline-block w-100" data-bs-toggle="tooltip"
+                                            data-bs-placement="right"
+                                            title="Print is enabled only for Completed work orders">
+                                            <a class="dropdown-item d-flex align-items-center gap-2 disabled"
+                                                tabindex="-1" aria-disabled="true">
+                                                <i class="bi bi-printer text-dark"></i> Print
+                                            </a>
+                                        </span>
+                                    </li>
+
+
+
+                                </ul>
+
+                                <span class="ms-2">MM-002</span>
+                            </div>
+                        </td>
+                        <td>
+                            Magnesium Stearate
+                        </td>
+                        <td><span class="badge bg-light text-dark border fw-medium">Kg</span></td>
+                        <td>Excipients</td>
+                        <td>RM-PG</td>
+                        <td class="fw-bold text-secondary">200</td>
+                        <td>
+                            <a href="#" class="stock-pill pill-success" title="Click to Drilldown">
+                                <i class="bi bi-check-circle-fill"></i> 1,250
+                            </a>
+                        </td>
+                        <td><span class="status approved">Approved</span>
+                        </td>
+                        <td class="text-center">
+                            <div class="d-flex justify-content-center gap-2">
+                                <button class="btn-action text-dark"><i class="bi bi-qr-code"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="p-4 bg-light bg-opacity-50 border-top d-flex justify-content-between align-items-center">
+                <span class="small text-muted">Showing 1 to 10 of 1,284 entries</span>
+                <nav>
+                    <ul class="pagination pagination-sm m-0">
+                        <li class="page-item disabled"><a class="page-link border-0 rounded-3" href="#">Prev</a>
+                        </li>
+                        <li class="page-item active"><a class="page-link border-0 rounded-3 mx-1" href="#">1</a>
+                        </li>
+                        <li class="page-item"><a class="page-link border-0 rounded-3 mx-1" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link border-0 rounded-3" href="#">Next</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

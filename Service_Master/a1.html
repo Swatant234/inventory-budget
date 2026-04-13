@@ -18,22 +18,25 @@
     <div id="sidebar-placeholder"></div>
     <div id="header-placeholder"></div>
     <main id="main-wrapper">
+        <div class="sticky-header  px-3 py-2 mb-3">
 
-        <div class="d-flex justify-content-between align-items-center mb-3">
-            <div>
-                <nav aria-label="breadcrumb">
-                    <h5 class="fw-bold mb-0">Service Master</h5>
-                </nav>
-            </div>
-            <div class="d-flex gap-3">
-                <button class="btn btn-white shadow-sm border-0 py-2 px-3" style="border-radius: 12px;">
-                    <i class="bi bi-download me-2 text-primary"></i>Export
-                </button>
-                <button class="btn btn-premium px-4" data-bs-toggle="modal" data-bs-target="#editServiceModal">
-                    <i class="bi bi-plus-lg me-2"></i>New Service
-                </button>
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <nav class="breadcrumb mb-0">
+                        <h5 class="fw-bold mb-0">Service Master</h5>
+                    </nav>
+                </div>
+                <div class="d-flex gap-3">
+                    <button class="btn btn-white shadow-sm border-0 py-2 px-3" style="border-radius: 12px;">
+                        <i class="bi bi-download me-2 text-primary"></i>Export
+                    </button>
+                    <button class="btn btn-premium px-4" data-bs-toggle="modal" data-bs-target="#editServiceModal">
+                        <i class="bi bi-plus-lg me-2"></i>New Service
+                    </button>
+                </div>
             </div>
         </div>
+
 
         <!-- 
         <div class="row g-4 mb-4">
@@ -138,7 +141,7 @@
                 <tbody>
                     <tr>
                         <td class="fw-bold text-dark">
-                                   <div class="dropdown d-flex align-items-center">
+                            <div class="dropdown d-flex align-items-center">
                                 <button class="btn btn-sm btn-light" data-bs-toggle="dropdown">
                                     <i class="bi bi-three-dots-vertical"></i>
                                 </button>
@@ -206,8 +209,8 @@
 
                                 <span class="ms-2">SRV-2024-901</span>
                             </div>
-                            
-                            </td>
+
+                        </td>
                         <td>Industrial Calibration - Level 1</td>
                         <td><span class="badge bg-light text-dark border px-3">TECH-PG</span></td>
                         <td class="fw-bold text-primary">₹ 12,400.00</td>

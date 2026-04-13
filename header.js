@@ -19,7 +19,7 @@ const headerHTML = `
         <div class="d-flex gap-3 align-items-center">
             <div class="position-relative p-2 text-secondary cursor-pointer">
                 <i class="bi bi-bell fs-5"></i>
-                <span class="position-absolute top-0 start-50 translate-middle-y badge rounded-pill bg-danger" style="font-size: 8px;">3</span>
+                <span class="position-absolute top-10 start-50 translate-middle-y badge rounded-pill bg-danger" style="font-size: 8px;">3</span>
             </div>
             <i class="bi bi-fullscreen text-secondary cursor-pointer fs-5"></i>
             <div class="d-flex align-items-center gap-2 ps-3 border-start ms-2">

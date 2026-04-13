@@ -206,7 +206,7 @@
       right: 0;
       height: var(--topbar-height);
       background: #fff;
-      padding: 0 30px;
+      padding: 0 15px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -244,7 +244,7 @@
   /* --- MAIN CONTENT --- */
   #main-wrapper {
       margin-left: var(--sidebar-width);
-      padding: 30px;
+      padding: 15px;
       margin-top: var(--topbar-height);
       min-height: 100vh;
 

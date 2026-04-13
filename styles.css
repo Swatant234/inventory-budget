@@ -227,7 +227,7 @@
 
 .line-item-container {
     background: white;
-    border-radius: 24px;
+    border-radius: 16px;
     border: 1px solid #eef2f6;
     box-shadow: var(--card-shadow);
     overflow: hidden;
@@ -296,16 +296,6 @@
     color: var(--brand-primary);
 }
 
-.action-bar {
-    position: sticky;
-    bottom: 20px;
-    background: rgba(0, 58, 84, 0.95);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    padding: 20px 40px;
-    color: white;
-    box-shadow: var(--card-shadow);
-}
 
 .filter-section {
     background: white;
@@ -1088,5 +1078,18 @@ label {
 }
 
 .breadcrumb h5 {
-    font-size: 16px;
+    font-size: 14px;
+}
+
+.sticky-header {
+    position: sticky;
+    top: 85px;
+    z-index: 1050;
+    border-radius: 16px;
+
+    background: rgba(255, 255, 255, 0.6); 
+    backdrop-filter: blur(10px);      
+    -webkit-backdrop-filter: blur(10px); 
+    border: 1px solid #e0e6ed;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
