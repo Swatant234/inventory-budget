@@ -1042,6 +1042,10 @@
     font-size: 1.1rem;
 }
 
+
+
+
+
 .section-title {
     font-size: 0.85rem;
     letter-spacing: 0.05em;
@@ -1087,4 +1091,8 @@
 
   .form-control , .form-select{
     font-size: 16px;
+  }
+
+  .modal-dialog .modal-body{
+    padding-top: 0;
   }

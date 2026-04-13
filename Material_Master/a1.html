@@ -8,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../common.css">
     <link rel="stylesheet" href="../styles.css">
 
@@ -29,7 +30,7 @@
                 <button class="btn btn-white shadow-sm border-0 py-2 px-3" style="border-radius: 12px;">
                     <i class="bi bi-download me-2 text-primary"></i>Export
                 </button>
-                <button class="btn btn-premium px-4" data-bs-toggle="modal" data-bs-target="#masterModal">
+                <button class="btn btn-premium px-4">
                     <i class="bi bi-plus-lg me-2"></i>New Material
                 </button>
             </div>
@@ -141,7 +142,8 @@
                         <th>Description</th>
                         <th>UOM</th>
                         <th>Material Group</th>
-                        <th>Reorder Lvl</th>
+                        <th>Purchase Group</th>
+                        <th>Reorder Level</th>
                         <th>Live Stock</th>
                         <th>Approval Status</th>
                         <th class="text-center">QR Code</th>
@@ -170,8 +172,9 @@
                                     <li>
                                         <span class="d-inline-block w-100" data-bs-toggle="tooltip"
                                             data-bs-placement="right" title="Review and approve this work order">
-                                            <a class="dropdown-item d-flex align-items-center gap-2">
-                                                <i class="bi bi-pencil-square text-secondary"></i> Review / Approve
+                                            <a class="dropdown-item d-flex align-items-center gap-2"
+                                                data-bs-toggle="modal" data-bs-target="#masterModal">
+                                                <i class="bi bi-pencil-square text-secondary"></i> Edit
                                             </a>
                                         </span>
                                     </li>
@@ -223,6 +226,7 @@
                         </td>
                         <td><span class="badge bg-light text-dark border fw-medium">Kg</span></td>
                         <td>Raw Material</td>
+                        <td>RM-PG</td>
                         <td class="fw-bold text-secondary">500</td>
                         <td>
                             <a href="#" class="stock-pill pill-danger" title="Click to Drilldown">
@@ -314,6 +318,7 @@
                         </td>
                         <td><span class="badge bg-light text-dark border fw-medium">Kg</span></td>
                         <td>Excipients</td>
+                        <td>RM-PG</td>
                         <td class="fw-bold text-secondary">200</td>
                         <td>
                             <a href="#" class="stock-pill pill-success" title="Click to Drilldown">
@@ -347,189 +352,788 @@
     </main>
 
     <div class="modal fade" id="masterModal" tabindex="-1">
-        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-dialog modal-xl modal-dialog-scrollable">
             <div class="modal-content">
-                <div class="modal-content border-0 shadow-lg" style="border-radius: 24px;">
-                    <div class="modal-header p-3">
-                        <div class="d-flex align-items-center">
+                <div class="modal-header p-3">
+                    <div class="d-flex align-items-center">
 
-                            <h4 class="modal-title fw-bold">Create New Material Master</h4>
-                        </div>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        <h4 class="modal-title fw-bold">Create New Material Master</h4>
                     </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
 
 
-                    <div class="modal-body p-4 bg-light bg-opacity-50">
-                        <div class="row g-4">
+                <div class="modal-body">
+                    <div class="wo-content">
+                        <div class="sticky-tabs-container">
+                            <!-- MAIN TABS -->
+                            <ul class="nav nav-tabs mb-2 custom-tabs">
 
-                            <div class="col-12">
-                                <div class="sap-sync-card p-4 rounded-4">
-                                    <h6 class="fw-bold text-secondary mb-3 small"><i
-                                            class="bi bi-hdd-network-fill me-2"></i>SECTION A: SAP SYNC DATA</h6>
-                                    <div class="row g-3">
-                                        <div class="col-md-3">
-                                            <label class="form-label">Material Code</label>
-                                            <div class="input-group">
-                                                <span class="input-group-text bg-white border-end-0"><i
-                                                        class="bi bi-lock-fill text-muted small"></i></span>
-                                                <input type="text" class="form-control sap-input border-start-0"
-                                                    value="RM-00045" readonly>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="form-label">Full Description</label>
-                                            <input type="text" class="form-control sap-input"
-                                                value="Paracetamol API Grade A (Crystalline)" readonly>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <label class="form-label">Base UOM</label>
-                                            <input type="text" class="form-control sap-input" value="Kg" readonly>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                                <li class="nav-item">
+                                    <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#details"
+                                        title="Initiation Details">
+                                        <i class="fas fa-clipboard-list"></i>
+                                        <span class="tab-label">Initiation Details</span>
+                                    </button>
+                                </li>
 
-                            <div class="col-md-8">
-                                <div class="config-card">
-                                    <div class="d-flex align-items-center mb-4">
-                                        <div class="section-icon"><i class="bi bi-pencil-square"></i></div>
-                                        <h6 class="fw-bold mb-0">Section B: Detailed Specifications</h6>
-                                    </div>
-                                    <div class="row g-3">
-                                        <div class="col-md-6">
-                                            <label class="form-label">Make / Brand</label>
-                                            <input type="text" class="form-control"
-                                                placeholder="Search or type brand...">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="form-label">Storage Condition</label>
-                                            <select class="form-select">
-                                                <option>Ambient (25°C)</option>
-                                                <option>Cold (2-8°C)</option>
-                                                <option>Hazardous / Vault</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <label class="form-label">Technical Details & Handling Instructions</label>
-                                            <textarea class="form-control" rows="3"
-                                                placeholder="Enter specific chemical or physical details..."></textarea>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="form-label">Gross Weight</label>
-                                            <div class="input-group">
-                                                <input type="number" class="form-control" placeholder="0.00">
-                                                <span class="input-group-text bg-light fw-bold">Kg</span>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="form-label">Manufacturer Part #</label>
-                                            <input type="text" class="form-control" placeholder="P-990-X1">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                                <li class="nav-item">
+                                    <button class="nav-link" data-bs-toggle="pill" data-bs-target="#files"
+                                        title="Attachments">
+                                        <i class="fa-solid fa-paperclip"></i>
+                                        <span class="tab-label">Attachments</span>
+                                    </button>
+                                </li>
 
-                            <div class="col-md-4">
-                                <div class="config-card inventory-logic-box">
-                                    <div class="d-flex align-items-center mb-4">
-                                        <div class="section-icon bg-danger"><i class="bi bi-shield-exclamation"></i>
-                                        </div>
-                                        <h6 class="fw-bold mb-0 text-danger">Section C: Inventory Rules</h6>
-                                    </div>
+                                <li class="nav-item">
+                                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#approvers"
+                                        title="Approvers">
+                                        <i class="fa fa-users"></i>
+                                        <span class="tab-label">Approvers</span>
+                                    </button>
+                                </li>
 
-                                    <div class="mb-3">
-                                        <label class="form-label">Reorder Level <i
-                                                class="bi bi-info-circle ms-1 text-muted"
-                                                title="Triggers Purchase Request"></i></label>
-                                        <input type="number" class="form-control border-danger border-opacity-25"
-                                            value="500">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="form-label">Safety Stock</label>
-                                        <input type="number" class="form-control" value="100">
-                                    </div>
+                                <li class="nav-item">
+                                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#audit"
+                                        title="Audit Log">
+                                        <i class="fa-solid fa-clock-rotate-left"></i>
+                                        <span class="tab-label">Audit Log</span>
+                                    </button>
+                                </li>
 
-                                    <div class="form-check form-switch py-2 mb-3">
-                                        <input class="form-check-input" type="checkbox" id="autoPurchase" checked>
-                                        <label class="form-check-label small fw-bold" for="autoPurchase">Auto-Trigger
-                                            Purchase Recs</label>
-                                    </div>
-
-                                    <div class="stock-display text-center">
-                                        <span class="text-muted small text-uppercase fw-bold ls-1">Live Stock
-                                            Status</span>
-                                        <h2 class="fw-bold text-danger mt-1 mb-0">450 <span
-                                                class="fs-6 fw-normal text-muted">Kg</span></h2>
-                                        <div class="badge bg-danger bg-opacity-10 text-danger mb-2">BELOW REORDER LEVEL
-                                        </div>
-                                        <button class="btn btn-outline-dark btn-sm w-100 rounded-pill fw-bold"
-                                            style="font-size: 11px;">
-                                            <i class="bi bi-geo-alt-fill me-1"></i>VIEW BIN LOCATIONS
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="config-card">
-                                    <div class="d-flex align-items-center mb-4">
-                                        <div class="section-icon bg-info text-dark"><i class="bi bi-paperclip"></i>
-                                        </div>
-                                        <h6 class="fw-bold mb-0">Section D: Attachments</h6>
-                                    </div>
-                                    <div class="dropzone-mock text-center">
-                                        <i class="bi bi-cloud-arrow-up text-primary fs-2"></i>
-                                        <p class="mb-0 mt-2 fw-bold small">Drop MSDS or Specs here</p>
-                                        <p class="text-muted extra-small" style="font-size: 10px;">Max file size: 5MB
-                                            (PDF/JPG)</p>
-                                        <input type="file" class="d-none" id="fileUp">
-                                        <button type="button"
-                                            class="btn btn-primary btn-sm mt-2 px-3 rounded-pill">Browse
-                                            Files</button>
-                                    </div>
-                                    <div class="mt-3 d-flex justify-content-between align-items-center">
-                                        <span class="small text-muted"><i class="bi bi-shield-check me-1"></i>Version
-                                            Control Active</span>
-                                        <span class="badge bg-light text-dark border">v1.2 (Latest)</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="config-card text-center">
-                                    <div class="d-flex align-items-center mb-4 text-start">
-                                        <div class="section-icon bg-dark"><i class="bi bi-qr-code-scan"></i></div>
-                                        <h6 class="fw-bold mb-0">Section E: QR Tracking</h6>
-                                    </div>
-                                    <div class="d-inline-block p-3 border rounded-4 bg-white shadow-sm mb-3">
-                                        <i class="bi bi-qr-code text-dark" style="font-size: 5rem;"></i>
-                                    </div>
-                                    <div class="d-flex gap-2 justify-content-center">
-                                        <button class="btn btn-outline-dark px-4 py-2 rounded-3 fw-bold small">
-                                            <i class="bi bi-printer me-2"></i>PRINT LABEL
-                                        </button>
-                                        <button class="btn btn-outline-primary px-4 py-2 rounded-3 fw-bold small">
-                                            <i class="bi bi-download me-2"></i>EXPORT PNG
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
+                            </ul>
 
                         </div>
-                    </div>
+                        <div class="tab-content">
 
-                    <div class="modal-footer border-0 bg-white p-4 justify-content-between">
-                        <button type="button" class="btn btn-light px-4 py-2 fw-bold text-secondary"
-                            data-bs-dismiss="modal">Discard Changes</button>
-                        <button type="button" class="btn btn-primary btn-update">Update Material Master</button>
+                            <!-- REQUEST -->
+                            <div class="tab-pane fade show active" id="details">
+                                <div class="">
+
+                                    <div class="row g-3">
+
+                                        <div class="col-12">
+                                            <div class="dcard">
+                                                <div class="section-header">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="icon-box-primary">
+                                                            <i class="bi bi-hdd-network-fill"></i>
+                                                        </div>
+                                                        <h6 class="section-title text-primary mb-0">Section A: Basic
+                                                            Information</h6>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row g-3">
+                                                    <div class="col-md-3">
+                                                        <label class="form-label">Material Code</label>
+                                                        <div class="input-group">
+                                                            <span class="input-group-text bg-white border-end-0"><i
+                                                                    class="bi bi-lock-fill text-muted small"></i></span>
+                                                            <input type="text"
+                                                                class="form-control sap-input border-start-0"
+                                                                value="RM-00045" readonly>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label class="form-label">Full Description</label>
+                                                        <input type="text" class="form-control sap-input"
+                                                            value="Paracetamol API" readonly>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label class="form-label">UOM</label>
+                                                        <input type="text" class="form-control sap-input" value="Kg"
+                                                            readonly>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label class="form-label">Material Group</label>
+                                                        <input type="text" class="form-control sap-input"
+                                                            value="Raw Material" readonly>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-8">
+                                            <div class="dcard">
+                                                <div class="section-header">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="icon-box-primary">
+                                                            <i class="bi bi-pencil-square"></i>
+                                                        </div>
+                                                        <h6 class="section-title text-primary mb-0">Section B: Detailed
+                                                            Specification
+                                                        </h6>
+                                                    </div>
+
+
+                                                </div>
+
+                                                <div class="row g-3">
+                                                    <div class="col-md-12">
+                                                        <label class="form-label">Detailed Specification</label>
+                                                        <textarea class="form-control" rows="3"
+                                                            placeholder="Enter specific chemical or physical details..."></textarea>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label class="form-label">Make</label>
+                                                        <input type="text" class="form-control" placeholder="">
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label class="form-label">Model</label>
+                                                        <input type="text" class="form-control" placeholder="">
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label class="form-label">Part Number</label>
+                                                        <input type="text" class="form-control" placeholder="">
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <label class="d-flex justify-content-between">
+                                                            Manufacturer
+                                                            <button
+                                                                class="btn btn-sm btn-outline-primary rounded-pill px-3 fw-bold"
+                                                                onclick="addRow('manufacturerList')">+ Add</button>
+
+
+                                                        </label>
+                                                        <div id="manufacturerList"></div>
+                                                    </div>
+
+                                                    <!-- Vendors -->
+                                                    <div class="col-md-12">
+                                                        <label class="d-flex justify-content-between">
+                                                            Vendors / Suppliers
+                                                            <button
+                                                                class="btn btn-sm btn-outline-primary rounded-pill px-3 fw-bold"
+                                                                onclick="addRow('vendorList')">+
+                                                                Add</button>
+                                                        </label>
+                                                        <div id="vendorList"></div>
+                                                    </div>
+
+
+
+                                                    <div class="col-md-6">
+                                                        <label class="form-label">Price</label>
+                                                        <input type="number" class="form-control">
+                                                    </div>
+
+                                                    <div class="col-md-6">
+                                                        <label class="form-label">Delivery Timeline (Days)</label>
+                                                        <input type="number" class="form-control">
+                                                    </div>
+
+                                                    <div class="col-md-6">
+                                                        <label class="form-label">Purchase Group</label>
+                                                        <input type="text" class="form-control">
+                                                    </div>
+
+                                                    <div class="col-md-6">
+                                                        <label class="form-label">Storage Condition</label>
+                                                        <select class="form-select">
+                                                            <option>Ambient (25°C)</option>
+                                                            <option>Cold (2-8°C)</option>
+                                                            <option>Hazardous / Vault</option>
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="col-md-6">
+                                                        <label class="form-label">Size / Dimensions</label>
+                                                        <input type="text" class="form-control"
+                                                            placeholder="e.g. 10x20x30 cm">
+                                                    </div>
+
+                                                    <!-- Weight -->
+                                                    <div class="col-md-3">
+                                                        <label class="form-label">Gross Weight</label>
+                                                        <div class="input-group">
+                                                            <input type="number" class="form-control">
+                                                            <select class="form-select">
+                                                                <option>kg</option>
+                                                                <option>g</option>
+                                                                <option>lb</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-3">
+                                                        <label class="form-label">Net Weight</label>
+                                                        <div class="input-group">
+                                                            <input type="number" class="form-control">
+                                                            <select class="form-select">
+                                                                <option>kg</option>
+                                                                <option>g</option>
+                                                                <option>lb</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+
+
+
+
+                                                    <div class="col-md-6">
+                                                        <label class="form-label">Gross Weight</label>
+                                                        <div class="input-group">
+                                                            <input type="number" class="form-control"
+                                                                placeholder="0.00">
+                                                            <span class="input-group-text bg-light fw-bold">Kg</span>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="dcard mb-3">
+                                          <div class="section-header">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="icon-box-primary">
+                                                            <i class="bi bi-qr-code-scan"></i>
+                                                        </div>
+                                                        <h6 class="section-title text-primary mb-0">Section C: Inventory Parameters
+                                                            
+                                                        </h6>
+                                                    </div>
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <label class="form-label">Reorder Level <i
+                                                            class="bi bi-info-circle ms-1 text-muted"
+                                                            title="Triggers Purchase Request"></i></label>
+                                                    <input type="number"
+                                                        class="form-control border-danger border-opacity-25"
+                                                        value="500">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label">Safety Stock</label>
+                                                    <input type="number" class="form-control" value="100">
+                                                </div>
+
+                                                <!-- <div class="form-check form-switch py-2 mb-3">
+                                                    <input class="form-check-input" type="checkbox" id="autoPurchase"
+                                                        checked>
+                                                    <label class="form-check-label small fw-bold"
+                                                        for="autoPurchase">Auto-Trigger
+                                                        Purchase Recs</label>
+                                                </div> -->
+
+                                                <div class="stock-display text-center">
+                                                    <span class="text-muted small text-uppercase fw-bold ls-1">Live
+                                                        Stock
+                                                        Status</span>
+                                                    <div class="d-flex align-items-center justify-content-center gap-2 mt-1">
+
+                                                        <h2 class="fw-bold text-danger mt-1 mb-0">450 <span
+                                                                class="fs-6 fw-normal text-muted">Kg</span></h2>
+                                                        <div class="icon-box-primary cursor-pointer"
+                                                            data-bs-toggle="modal" data-bs-target="#stockDrilldownModal"
+                                                            title="View Stock Details">
+                                                            <i class="bi bi-box-arrow-up-right"></i>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- <div class="badge bg-danger bg-opacity-10 text-danger mb-2">
+                                                        BELOW REORDER LEVEL
+                                                    </div> -->
+                                                    <button
+                                                        class="btn btn-outline-dark btn-sm w-100 rounded-pill fw-bold mt-2"
+                                                        style="font-size: 11px;">
+                                                        <i class="bi bi-geo-alt-fill me-1"></i>VIEW TOTAL STOCK
+                                                    </button>
+                                                </div>
+                                            </div>
+
+                                            <div class="dcard">
+
+                                                <div class="section-header">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="icon-box-primary">
+                                                            <i class="bi bi-qr-code-scan"></i>
+                                                        </div>
+                                                        <h6 class="section-title text-primary mb-0">Section D: QR
+                                                            Tracking
+                                                        </h6>
+                                                    </div>
+                                                </div>
+                                                <div class="text-center">
+
+                                                    <!-- BIG QR VIEW -->
+                                                    <div class="">
+                                                        <i class="bi bi-qr-code text-dark" style="font-size: 5rem;"></i>
+                                                    </div>
+
+                                                    <!-- FULL WIDTH BUTTONS -->
+                                                    <div class="d-grid gap-2">
+
+                                                        <button class="btn btn-premium" onclick="generateQR()">
+                                                            <i class="bi bi-qr-code me-2"></i>VIEW FULL QR
+                                                        </button>
+
+                                                        <button class="btn btn-outline-dark" onclick="printQR()">
+                                                            <i class="bi bi-printer me-2"></i>PRINT QR
+                                                        </button>
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="tab-pane fade" id="files">
+                                <div class="card-box">
+                                    <div class="card-header">Attachments</div>
+                                    <div class="card-body">
+
+                                        <div class="row g-2 align-items-end">
+
+                                            <!-- Attachment Type -->
+                                            <div class="col-lg-3 col-md-6">
+                                                <label class="form-label small text-muted">Attachment
+                                                    Type</label>
+                                                <select class="form-select">
+                                                    <option selected disabled>Select type</option>
+                                                    <option>📄 Document</option>
+                                                    <option>🖼️ Image</option>
+                                                    <option>🔗 URL</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- Description -->
+                                            <div class="col-lg-3 col-md-6">
+                                                <label class="form-label small text-muted">Description</label>
+                                                <input type="text" class="form-control"
+                                                    placeholder="Max 100 characters">
+                                            </div>
+
+                                            <!-- File / URL -->
+                                            <div class="col-lg-5 col-md-8">
+                                                <label class="form-label small text-muted">File /
+                                                    URL</label>
+                                                <input type="file" class="form-control">
+                                            </div>
+
+                                            <!-- Add Button -->
+                                            <div class="col-lg-1 col-md-4 text-end">
+                                                <button class="btn btn-primary btn-sm w-100">
+                                                    <i class="bi bi-plus-circle"></i>
+                                                </button>
+                                            </div>
+
+                                        </div>
+
+                                        <small class="text-muted d-block mt-2">
+                                            <i class="bi bi-info-circle me-1"></i>
+                                            Maximum total upload size: 25 MB
+                                        </small>
+
+                                        <div class="table-responsive mt-3">
+                                            <table class="table table-bordered align-middle">
+                                                <thead class="table-light">
+                                                    <tr>
+                                                        <th width="20%">Type</th>
+                                                        <th width="25%">Description</th>
+                                                        <th width="35%">File / URL</th>
+                                                        <th width="10%">Size</th>
+                                                        <th width="10%" class="text-center">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+
+                                                    <!-- Document -->
+                                                    <tr>
+                                                        <td>
+                                                            <i class="bi bi-file-earmark-text text-primary"></i>
+                                                            Document
+                                                        </td>
+                                                        <td class="text-truncate" title="Maintenance SOP document">
+                                                            Maintenance SOP document
+                                                        </td>
+                                                        <td>
+                                                            <a href="#" class="text-decoration-none">
+                                                                <i class="bi bi-file-earmark-pdf text-danger me-1"></i>
+                                                                SOP_Maintenance.pdf
+                                                            </a>
+                                                        </td>
+                                                        <td class="text-center">1.2 MB</td>
+                                                        <td class="text-center">
+                                                            <button class="btn btn-sm btn-outline-danger">
+                                                                <i class="bi bi-trash"></i>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+
+                                                    <!-- Image -->
+                                                    <tr>
+                                                        <td>
+                                                            <i class="bi bi-image text-success"></i> Image
+                                                        </td>
+                                                        <td>Equipment condition photo</td>
+                                                        <td>
+                                                            <a href="#">
+                                                                <i class="bi bi-image me-1"></i>
+                                                                motor_photo.jpg
+                                                            </a>
+                                                        </td>
+                                                        <td class="text-center">450 KB</td>
+                                                        <td class="text-center">
+                                                            <button class="btn btn-sm btn-outline-danger">
+                                                                <i class="bi bi-trash"></i>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+
+                                                    <!-- URL -->
+                                                    <tr>
+                                                        <td>
+                                                            <i class="bi bi-link-45deg text-secondary"></i>
+                                                            URL
+                                                        </td>
+                                                        <td>External safety SOP</td>
+                                                        <td>
+                                                            <a href="https://example.com" target="_blank"
+                                                                class="text-decoration-none">
+                                                                <i class="bi bi-box-arrow-up-right me-1"></i>
+                                                                https://example.com
+                                                            </a>
+                                                        </td>
+                                                        <td class="text-center">NA</td>
+                                                        <td class="text-center">
+                                                            <button class="btn btn-sm btn-outline-danger">
+                                                                <i class="bi bi-trash"></i>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="approvers">
+                                <table class="table table-sm">
+                                    <tr>
+                                        <th>Approval Level</th>
+                                        <th>Department</th>
+                                        <th>Team Name</th>
+                                        <th>Team Member</th>
+                                    </tr>
+
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Engineering</td>
+                                        <td>Engineering Review Team</td>
+                                        <td>Vikram (000007)</td>
+                                    </tr>
+
+                                </table>
+
+                            </div>
+
+                            <div class="tab-pane fade" id="audit">
+
+                                <table class="table table-hover table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th rowspan="2" style="width: 10%">Action</th>
+                                            <th rowspan="2" style="width: 10%; cursor: pointer;">Done By</th>
+                                            <th rowspan="2" style="width: 10%; cursor: pointer;">Date & Time</th>
+                                            <th colspan="3" class="bg-secondary text-white" style="width: 50%">
+                                                Changes
+                                            </th>
+                                            <th rowspan="2" style="width: 10%">Reason</th>
+                                            <th rowspan="2" style="width: 10%">Status</th>
+                                        </tr>
+                                        <tr class="table-secondary">
+                                            <th style="width: 10%">Field</th>
+                                            <th style="width: 15%">Old Value</th>
+                                            <th style="width: 25%">New Value</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- Example Row with Changes -->
+                                        <tr>
+                                            <td rowspan="2">Update</td>
+                                            <td rowspan="2">John Doe</td>
+                                            <td rowspan="2">2025-12-27 10:00 AM</td>
+                                            <td>Username</td>
+                                            <td>OldUser</td>
+                                            <td>NewUser</td>
+                                            <td rowspan="2">Corrected typo</td>
+                                            <td rowspan="2">
+                                                <span class="badge-status approved">
+                                                    <i class="bi bi-check-circle"></i> Approved
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Email</td>
+                                            <td>old@example.com</td>
+                                            <td>new@example.com</td>
+                                        </tr>
+
+                                        <!-- Example Row with No Changes -->
+                                        <tr>
+                                            <td>Created</td>
+                                            <td>Jane Smith</td>
+                                            <td>2025-12-26 09:30 AM</td>
+                                            <td>NA</td>
+                                            <td>NA</td>
+                                            <td>NA</td>
+                                            <td>Initial creation</td>
+                                            <td>
+                                                <span class="badge-status pending">
+                                                    <i class="bi bi-hourglass-split"></i> Pending
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
                     </div>
+                </div>
+
+
+
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-light px-4 py-2 fw-bold text-secondary"
+                        data-bs-dismiss="modal">Discard Changes</button>
+                    <button type="button" class="btn btn-premium">Update</button>
                 </div>
             </div>
         </div>
+    </div>
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="../sidebar.js"></script>
-        <script src="../header.js"></script>
+    <div class="modal fade" id="stockDrilldownModal">
+        <div class="modal-dialog modal-xl modal-dialog-scrollable">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title">Stock Detail Drilldown</h5>
+                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+
+                    <!-- Tabs -->
+                    <ul class="nav nav-tabs mb-3" id="stockTabs">
+                        <li class="nav-item">
+                            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#item">Item
+                                Level</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#batch">Batch Level</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#user">User Level</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#location">Location
+                                Level</button>
+                        </li>
+                    </ul>
+
+                    <!-- Tab Content -->
+                    <div class="tab-content">
+
+                        <!-- COMMON TABLE TEMPLATE -->
+                        <div class="tab-pane fade show active" id="item">
+                            <div class="table-responsive">
+                                <table class="table table-hover align-middle">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>Location</th>
+                                            <th>Batch</th>
+                                            <th>Quantity</th>
+                                            <th>User</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Area A / Rack 1 / Bin 2</td>
+                                            <td>B001</td>
+                                            <td>120 Kg</td>
+                                            <td>-</td>
+                                            <td><span class="badge bg-success">Available</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Area B / Rack 3</td>
+                                            <td>B002</td>
+                                            <td>80 Kg</td>
+                                            <td>John</td>
+                                            <td><span class="badge bg-warning text-dark">Issued</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Batch -->
+                        <div class="tab-pane fade" id="batch">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>Location</th>
+                                            <th>Batch</th>
+                                            <th>Quantity</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Rack 1</td>
+                                            <td>B001</td>
+                                            <td>200 Kg</td>
+                                            <td><span class="badge bg-success">Available</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- User -->
+                        <div class="tab-pane fade" id="user">
+                            <table class="table table-hover">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>User</th>
+                                        <th>Batch</th>
+                                        <th>Quantity</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>John</td>
+                                        <td>B002</td>
+                                        <td>80 Kg</td>
+                                        <td><span class="badge bg-warning text-dark">Issued</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Location -->
+                        <div class="tab-pane fade" id="location">
+                            <table class="table table-hover">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Location</th>
+                                        <th>Batch</th>
+                                        <th>Quantity</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Area A / Rack 1</td>
+                                        <td>B001</td>
+                                        <td>120 Kg</td>
+                                        <td><span class="badge bg-success">Available</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../sidebar.js"></script>
+    <script src="../header.js"></script>
+
+    <script>
+        function addRow(containerId) {
+            let container = document.getElementById(containerId);
+
+            let div = document.createElement('div');
+            div.className = 'dynamic-row d-flex align-items-center gap-2';
+
+            div.innerHTML = `
+        <input type="text" class="form-control" placeholder="Enter value">
+        <button class="btn btn-danger btn-sm" onclick="removeRow(this)">Remove</button>
+    `;
+
+            container.appendChild(div);
+        }
+
+        function removeRow(btn) {
+            btn.parentElement.remove();
+        }
+    </script>
+
+
+    <script>
+        function generateQR() {
+            let m = document.getElementById("qrMaterial").value;
+            let d = document.getElementById("qrDesc").value;
+            let b = document.getElementById("qrBatch").value;
+
+            if (!m || !d) {
+                alert("Material & Description required");
+                return;
+            }
+
+            let data = `Material: ${m}\nDescription: ${d}\nBatch: ${b || 'N/A'}`;
+
+            let box = document.getElementById("qrBox");
+            let info = document.getElementById("qrInfo");
+
+            box.innerHTML = "";
+            info.innerHTML = `
+        <div><strong>${m}</strong></div>
+        <div>${d}</div>
+        <div>Batch: ${b || 'N/A'}</div>
+    `;
+
+            QRCode.toCanvas(data, { width: 220 }, function (err, canvas) {
+                box.appendChild(canvas);
+            });
+        }
+
+        function printQR() {
+            let qrCanvas = document.querySelector("#qrBox canvas");
+
+            if (!qrCanvas) {
+                alert("Generate QR first");
+                return;
+            }
+
+            let img = qrCanvas.toDataURL();
+
+            let content = `
+        <div style="text-align:center; font-family:sans-serif;">
+            <h4>Material QR</h4>
+            <img src="${img}" style="width:200px"/>
+        </div>
+    `;
+
+            let w = window.open('');
+            w.document.write(`<html><body>${content}</body></html>`);
+            w.print();
+        }
+    </script>
 </body>
 
 
