@@ -80,7 +80,7 @@
             </div>
         </div> -->
 
-        <div class="filter-glass mb-3">
+        <div class="dcard mb-3">
             <div class="row g-3">
                 <div class="col-md-4">
                     <label class="form-label">Global Search</label>
@@ -414,7 +414,7 @@
 
                                         <div class="col-12">
                                             <div class="dcard">
-                                                <div class="section-header">
+                                                <!-- <div class="section-header">
                                                     <div class="d-flex align-items-center">
                                                         <div class="icon-box-primary">
                                                             <i class="bi bi-hdd-network-fill"></i>
@@ -422,8 +422,9 @@
                                                         <h6 class="section-title text-primary mb-0">Section A: Basic
                                                             Information</h6>
                                                     </div>
-                                                </div>
-
+                                                </div> -->
+                                                <div class="mb-3"><span class="section-tag">Section A: Basic
+                                                        Information</span></div>
                                                 <div class="row g-3">
                                                     <div class="col-md-3">
                                                         <label class="form-label">Material Code</label>
@@ -456,7 +457,7 @@
 
                                         <div class="col-md-8">
                                             <div class="dcard">
-                                                <div class="section-header">
+                                                <!-- <div class="section-header">
                                                     <div class="d-flex align-items-center">
                                                         <div class="icon-box-primary">
                                                             <i class="bi bi-pencil-square"></i>
@@ -467,7 +468,9 @@
                                                     </div>
 
 
-                                                </div>
+                                                </div> -->
+                                                <div class="mb-3"><span class="section-tag">Section B: Detailed
+                                                        Specification</span></div>
 
                                                 <div class="row g-3">
                                                     <div class="col-md-12">
@@ -487,7 +490,7 @@
                                                         <label class="form-label">Part Number</label>
                                                         <input type="text" class="form-control" placeholder="">
                                                     </div>
-                                                    <div class="col-md-12">
+                                                    <!-- <div class="col-md-12">
                                                         <label class="d-flex justify-content-between">
                                                             Manufacturer
                                                             <button
@@ -497,22 +500,67 @@
 
                                                         </label>
                                                         <div id="manufacturerList"></div>
+                                                    </div> -->
+
+                                                    <div class="col-md-6">
+                                                        <label class="form-label">Manufacturer Name</span>
+                                                        </label>
+                                                        <!-- Input -->
+                                                        <div class="input-group input-group-sm mb-2">
+                                                            <input type="text" id="manufacturerInput"
+                                                                class="form-control"
+                                                                placeholder="Search Manufacturer name...">
+
+                                                            <button class="btn btn-secondary" onclick="addManufacturer()">
+                                                                <i class="bi bi-plus-lg"></i>
+                                                            </button>
+                                                        </div>
+
+                                                        <!-- LIST CONTAINER (IMPORTANT) -->
+                                                        <div id="manufacturerList" class="d-flex flex-column gap-2">
+
+                                                            <div class="vendor-pill">
+                                                                <span>TATA Metrology</span>
+                                                                <i class="bi bi-x-circle ms-auto text-muted"
+                                                                    onclick="removeRow(this)"></i>
+                                                            </div>
+
+                                                            <div class="vendor-pill">
+                                                                <span>Precision Labs Pvt Ltd</span>
+                                                                <i class="bi bi-x-circle ms-auto text-muted"
+                                                                    onclick="removeRow(this)"></i>
+                                                            </div>
+
+                                                        </div>
+
                                                     </div>
 
                                                     <!-- Vendors -->
-                                                    <div class="col-md-12">
-                                                        <label class="d-flex justify-content-between">
-                                                            Vendors / Suppliers
-                                                            <button
-                                                                class="btn btn-sm btn-outline-primary rounded-pill px-3 fw-bold"
-                                                                onclick="addRow('vendorList')">+
-                                                                Add</button>
+                                                    <div class="col-md-6">
+
+                                                        <label class="form-label">Vendors / Suppliers</span>
                                                         </label>
-                                                        <div id="vendorList"></div>
+
+                                                        <!-- Input + Add -->
+                                                        <div class="input-group input-group-sm mb-2">
+                                                            <input type="text" id="vendorInput" class="form-control"
+                                                                placeholder="Enter Vendor / Supplier name...">
+
+                                                            <button class="btn btn-secondary fw-bold" onclick="addVendor()">
+                                                                <i class="bi bi-plus-lg"></i>
+                                                            </button>
+                                                        </div>
+
+                                                        <!-- Vendor List -->
+                                                        <div id="vendorList" class="d-flex flex-column gap-2">
+                                                            <div class="vendor-pill">
+                                                                <span>Microlabs</span>
+                                                                <i class="bi bi-x-circle ms-auto text-muted"
+                                                                    onclick="removeRow(this)"></i>
+                                                            </div>
+                                                        </div>
+
                                                     </div>
-
-
-
                                                     <div class="col-md-6">
                                                         <label class="form-label">Price</label>
                                                         <input type="number" class="form-control">
@@ -587,16 +635,20 @@
 
                                         <div class="col-md-4">
                                             <div class="dcard mb-3">
-                                          <div class="section-header">
+                                                <!-- <div class="section-header">
                                                     <div class="d-flex align-items-center">
                                                         <div class="icon-box-primary">
                                                             <i class="bi bi-qr-code-scan"></i>
                                                         </div>
-                                                        <h6 class="section-title text-primary mb-0">Section C: Inventory Parameters
-                                                            
+                                                        <h6 class="section-title text-primary mb-0">Section C: Inventory
+                                                            Parameters
+
                                                         </h6>
                                                     </div>
-                                                </div>
+                                                </div> -->
+
+                                                <div class="mb-3"><span class="section-tag">Section C: Inventory
+                                                        Parameters</span></div>
 
                                                 <div class="mb-3">
                                                     <label class="form-label">Reorder Level <i
@@ -623,7 +675,8 @@
                                                     <span class="text-muted small text-uppercase fw-bold ls-1">Live
                                                         Stock
                                                         Status</span>
-                                                    <div class="d-flex align-items-center justify-content-center gap-2 mt-1">
+                                                    <div
+                                                        class="d-flex align-items-center justify-content-center gap-2 mt-1">
 
                                                         <h2 class="fw-bold text-danger mt-1 mb-0">450 <span
                                                                 class="fs-6 fw-normal text-muted">Kg</span></h2>
@@ -647,7 +700,7 @@
 
                                             <div class="dcard">
 
-                                                <div class="section-header">
+                                                <!-- <div class="section-header">
                                                     <div class="d-flex align-items-center">
                                                         <div class="icon-box-primary">
                                                             <i class="bi bi-qr-code-scan"></i>
@@ -656,7 +709,10 @@
                                                             Tracking
                                                         </h6>
                                                     </div>
-                                                </div>
+                                                </div> -->
+
+                                                <div class="mb-3"><span class="section-tag">Section D: QR
+                                                        Tracking</span></div>
                                                 <div class="text-center">
 
                                                     <!-- BIG QR VIEW -->
@@ -1064,22 +1120,61 @@
     <script src="../header.js"></script>
 
     <script>
-        function addRow(containerId) {
-            let container = document.getElementById(containerId);
+        function addManufacturer() {
 
-            let div = document.createElement('div');
-            div.className = 'dynamic-row d-flex align-items-center gap-2';
+            let input = document.getElementById("manufacturerInput");
+            let value = input.value.trim();
+
+            if (!value) return;
+
+            let container = document.getElementById("manufacturerList");
+
+            let div = document.createElement("div");
+            div.className = "vendor-pill d-flex align-items-center";
 
             div.innerHTML = `
-        <input type="text" class="form-control" placeholder="Enter value">
-        <button class="btn btn-danger btn-sm" onclick="removeRow(this)">Remove</button>
+        <span>${value}</span>
+        <i class="bi bi-x-circle ms-auto text-muted cursor-pointer"
+           onclick="removeRow(this)"></i>
     `;
 
             container.appendChild(div);
+
+            input.value = ""; // clear input
         }
 
-        function removeRow(btn) {
-            btn.parentElement.remove();
+        function removeRow(icon) {
+            icon.parentElement.remove();
+        }
+
+
+    </script>
+
+    <script>
+        function addVendor() {
+
+            let input = document.getElementById("vendorInput");
+            let value = input.value.trim();
+
+            if (!value) return;
+
+            let container = document.getElementById("vendorList");
+
+            let div = document.createElement("div");
+            div.className = "vendor-pill d-flex align-items-center";
+
+            div.innerHTML = `
+        <span>${value}</span>
+        <i class="bi bi-x-circle ms-auto text-muted cursor-pointer"
+           onclick="removeRow(this)"></i>
+    `;
+
+            container.appendChild(div);
+            input.value = "";
+        }
+
+        function removeRow(icon) {
+            icon.parentElement.remove();
         }
     </script>
 
