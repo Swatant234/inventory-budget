@@ -998,7 +998,7 @@
 
    .dcard {
        background: #ffffff;
-       padding: 24px;
+       padding: 20px;
        border-radius: 16px;
        border: 1px solid #e0e6ed;
        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
@@ -1082,4 +1082,9 @@
       margin-inline-start: 0.5rem;
       border: 0;
       vertical-align: 0;
+  }
+
+
+  .form-control , .form-select{
+    font-size: 16px;
   }
