@@ -21,7 +21,7 @@ const headerHTML = `
                 <i class="bi bi-bell fs-5"></i>
                 <span class="position-absolute top-10 start-50 translate-middle-y badge rounded-pill bg-danger" style="font-size: 8px;">3</span>
             </div>
-            <i class="bi bi-fullscreen text-secondary cursor-pointer fs-5"></i>
+            <i id="fullscreen-btn" class="bi bi-fullscreen text-secondary cursor-pointer fs-5" style="cursor:pointer"></i>
             <div class="d-flex align-items-center gap-2 ps-3 border-start ms-2">
                 <div class="text-end d-none d-sm-block">
                     <div class="fw-bold text-dark small">Stores User</div>
@@ -38,5 +38,27 @@ document.addEventListener("DOMContentLoaded", function() {
     const headerContainer = document.getElementById('header-placeholder');
     if (headerContainer) {
         headerContainer.innerHTML = headerHTML;
+
+        // --- Fullscreen Logic Start ---
+        const fsButton = document.getElementById('fullscreen-btn');
+        
+        if (fsButton) {
+            fsButton.addEventListener('click', function() {
+                if (!document.fullscreenElement) {
+                    // Enter Fullscreen
+                    document.documentElement.requestFullscreen().catch(err => {
+                        console.error(`Error attempting to enable full-screen mode: ${err.message}`);
+                    });
+                    // Optional: Change icon to 'exit' style
+                    this.classList.replace('bi-fullscreen', 'bi-fullscreen-exit');
+                } else {
+                    // Exit Fullscreen
+                    document.exitFullscreen();
+                    // Optional: Change icon back
+                    this.classList.replace('bi-fullscreen-exit', 'bi-fullscreen');
+                }
+            });
+        }
+        // --- Fullscreen Logic End ---
     }
 });

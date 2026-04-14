@@ -67,7 +67,7 @@
                 <div class="col-md-2">
                     <label class="form-label small fw-bold text-muted">Put Away Status</label>
                     <select class="form-select">
-                        <option value="Pending Put Away Items">Pending Put Away Items</option>
+                        <option value="Pending Put Away Items">Pending Storage</option>
 
                     </select>
                 </div>
@@ -115,6 +115,7 @@
                         <th>Batch</th>
                         <th>Inward Ref</th>
                         <th>Quantity</th>
+                        <th>Put Away Status</th>
                         <th>Approval Status</th>
                     </tr>
                 </thead>
@@ -196,7 +197,8 @@
                         <td>BT-MAR-099</td>
                         <td>GRN-9901</td>
                         <td>50 Units</td>
-                        <td><span class="status-badge status-pending">Pending Storage</span>
+                        <td>Pending Storage</td>
+                        <td><span class="status approved">Approved</span>
                         </td>
 
                     </tr>
@@ -221,7 +223,7 @@
 
 
 
-     
+
     </main>
 
 
@@ -311,7 +313,7 @@
                                                                 value="MAT-SP-441" readonly>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-3">
                                                         <label class="form-label">Description</label>
                                                         <input type="text" class="form-control sap-input"
                                                             value="Ball Bearing (Industrial)" readonly>
@@ -334,6 +336,9 @@
                                                 </div>
                                             </div>
 
+
+                                        </div>
+                                        <div class="col-12">
                                             <div class="dcard">
                                                 <!-- <div class="section-header">
                                                     <div class="d-flex align-items-center">
