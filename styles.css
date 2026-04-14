@@ -327,11 +327,29 @@
     padding: 25px;
 }
 
-.location-grid {
+/* .location-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 15px;
     padding: 25px;
+} */
+
+
+/* FLOW BOX */
+.flow-box {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.flow-step {
+    flex: 1;
+}
+
+.flow-arrow {
+    font-size: 18px;
+    color: #999;
 }
 
 .loc-input-group label {
