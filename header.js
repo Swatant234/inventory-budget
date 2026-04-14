@@ -1,11 +1,11 @@
 const headerHTML = `
 <header id="topbar">
     <div class="d-flex align-items-center">
-        <div class="p-2 me-3 rounded-circle hover-bg-light" style="cursor:pointer">
+        <div class="p-2 rounded-circle hover-bg-light" style="cursor:pointer">
             <i class="bi bi-text-indent-left fs-4 text-secondary"></i>
         </div>
         <div class="logo-text">
-            <h3>e<span>connect</span></h3>
+    <img src="/inventory-budget/assets/econnect.png" class="logo-icon">
         </div>
     </div>
 
@@ -34,16 +34,16 @@ const headerHTML = `
 </header>
 `;
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const headerContainer = document.getElementById('header-placeholder');
     if (headerContainer) {
         headerContainer.innerHTML = headerHTML;
 
         // --- Fullscreen Logic Start ---
         const fsButton = document.getElementById('fullscreen-btn');
-        
+
         if (fsButton) {
-            fsButton.addEventListener('click', function() {
+            fsButton.addEventListener('click', function () {
                 if (!document.fullscreenElement) {
                     // Enter Fullscreen
                     document.documentElement.requestFullscreen().catch(err => {
