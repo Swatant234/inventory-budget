@@ -258,7 +258,7 @@
       margin-left: var(--sidebar-width);
       padding: 15px;
       margin-top: var(--topbar-height);
-      min-height: 100vh;
+      /* min-height: 100vh; */
 
       /* ✅ Push content below header */
 
@@ -277,3 +277,5 @@
       font-weight: 700;
       color: #12263f;
   }
+
+  

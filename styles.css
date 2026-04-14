@@ -132,7 +132,7 @@
 
 
 .modal-content {
-    border-radius: 28px;
+    /* border-radius: 28px; */
     border: none;
     box-shadow: var(--card-shadow);
 }
@@ -227,7 +227,7 @@
 
 .line-item-container {
     background: white;
-    border-radius: 16px;
+    border-radius: 6px;
     border: 1px solid #eef2f6;
     box-shadow: var(--card-shadow);
     overflow: hidden;
@@ -350,6 +350,7 @@
 .flow-arrow {
     font-size: 18px;
     color: #999;
+    margin-top: 20px;
 }
 
 .loc-input-group label {
@@ -1105,9 +1106,9 @@ label {
     z-index: 1050;
     border-radius: 6px;
 
-    background: rgba(255, 255, 255, 0.6); 
-    backdrop-filter: blur(10px);      
-    -webkit-backdrop-filter: blur(10px); 
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border: 1px solid #e0e6ed;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
