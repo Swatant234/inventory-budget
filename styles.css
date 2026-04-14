@@ -33,7 +33,7 @@
 
 .table-container {
     background: white;
-    border-radius: 24px;
+    border-radius: 6px;
     /* overflow: hidden; */
     box-shadow: var(--card-shadow);
     border: 1px solid #eef2f6;
@@ -968,7 +968,7 @@
 .dcard {
     background: #ffffff;
     padding: 20px;
-    border-radius: 16px;
+    border-radius: 6px;
     border: 1px solid #e0e6ed;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
@@ -1085,7 +1085,7 @@ label {
     position: sticky;
     top: 85px;
     z-index: 1050;
-    border-radius: 16px;
+    border-radius: 6px;
 
     background: rgba(255, 255, 255, 0.6); 
     backdrop-filter: blur(10px);      
