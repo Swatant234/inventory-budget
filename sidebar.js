@@ -3,7 +3,7 @@ const sidebarHTML = `
     <div class="sidebar-header">
         <div class="d-flex align-items-center gap-3">
             <div class="logo-box">
-                <i class="bi bi-water text-primary fs-4"></i>
+    <img src="/inventory-budget/assets/MTS Logo.jpg" class="menu-icon">
             </div>
             <div class="brand-text">MICRO LABS</div>
         </div>
