@@ -35,30 +35,32 @@ const headerHTML = `
 `;
 
 document.addEventListener("DOMContentLoaded", function () {
-    const headerContainer = document.getElementById('header-placeholder');
-    if (headerContainer) {
-        headerContainer.innerHTML = headerHTML;
+  const headerContainer = document.getElementById("header-placeholder");
+  if (headerContainer) {
+    headerContainer.innerHTML = headerHTML;
 
-        // --- Fullscreen Logic Start ---
-        const fsButton = document.getElementById('fullscreen-btn');
+    // --- Fullscreen Logic Start ---
+    const fsButton = document.getElementById("fullscreen-btn");
 
-        if (fsButton) {
-            fsButton.addEventListener('click', function () {
-                if (!document.fullscreenElement) {
-                    // Enter Fullscreen
-                    document.documentElement.requestFullscreen().catch(err => {
-                        console.error(`Error attempting to enable full-screen mode: ${err.message}`);
-                    });
-                    // Optional: Change icon to 'exit' style
-                    this.classList.replace('bi-fullscreen', 'bi-fullscreen-exit');
-                } else {
-                    // Exit Fullscreen
-                    document.exitFullscreen();
-                    // Optional: Change icon back
-                    this.classList.replace('bi-fullscreen-exit', 'bi-fullscreen');
-                }
-            });
+    if (fsButton) {
+      fsButton.addEventListener("click", function () {
+        if (!document.fullscreenElement) {
+          // Enter Fullscreen
+          document.documentElement.requestFullscreen().catch((err) => {
+            console.error(
+              `Error attempting to enable full-screen mode: ${err.message}`,
+            );
+          });
+          // Optional: Change icon to 'exit' style
+          this.classList.replace("bi-fullscreen", "bi-fullscreen-exit");
+        } else {
+          // Exit Fullscreen
+          document.exitFullscreen();
+          // Optional: Change icon back
+          this.classList.replace("bi-fullscreen-exit", "bi-fullscreen");
         }
-        // --- Fullscreen Logic End ---
+      });
     }
+    // --- Fullscreen Logic End ---
+  }
 });

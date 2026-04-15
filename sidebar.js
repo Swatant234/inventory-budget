@@ -89,55 +89,54 @@ const sidebarHTML = `
 `;
 
 document.addEventListener("DOMContentLoaded", function () {
-    const container = document.getElementById('sidebar-placeholder');
+  const container = document.getElementById("sidebar-placeholder");
 
-    if (container) {
-        container.innerHTML = sidebarHTML;
+  if (container) {
+    container.innerHTML = sidebarHTML;
 
-        // Bootstrap collapse init
-        if (window.bootstrap) {
-            const collapseElementList = container.querySelectorAll('.collapse');
-            collapseElementList.forEach(collapseEl => {
-                new bootstrap.Collapse(collapseEl, { toggle: false });
-            });
-        }
-
-        // ✅ AUTO ACTIVE LINK
-        const currentURL = window.location.href;
-
-        const links = container.querySelectorAll('.tree-link');
-
-        links.forEach(link => {
-            const linkURL = link.href;
-
-            // ignore #
-            if (!linkURL || link.getAttribute('href') === "#") return;
-
-            // ✅ MATCH CURRENT PAGE
-            if (currentURL === linkURL) {
-
-                link.classList.add('active-tree');
-
-                // ✅ OPEN PARENT MENUS
-                let parentCollapse = link.closest('.collapse');
-
-                while (parentCollapse) {
-                    parentCollapse.classList.add('show');
-
-                    const trigger = document.querySelector(
-                        `[data-bs-target="#${parentCollapse.id}"]`
-                    );
-
-                    if (trigger) {
-                        trigger.setAttribute('aria-expanded', 'true');
-                        trigger.classList.remove('collapsed');
-                    }
-
-                    parentCollapse = parentCollapse.parentElement.closest('.collapse');
-                }
-            }
-        });
+    // Bootstrap collapse init
+    if (window.bootstrap) {
+      const collapseElementList = container.querySelectorAll(".collapse");
+      collapseElementList.forEach((collapseEl) => {
+        new bootstrap.Collapse(collapseEl, { toggle: false });
+      });
     }
+
+    // ✅ AUTO ACTIVE LINK
+    const currentURL = window.location.href;
+
+    const links = container.querySelectorAll(".tree-link");
+
+    links.forEach((link) => {
+      const linkURL = link.href;
+
+      // ignore #
+      if (!linkURL || link.getAttribute("href") === "#") return;
+
+      // ✅ MATCH CURRENT PAGE
+      if (currentURL === linkURL) {
+        link.classList.add("active-tree");
+
+        // ✅ OPEN PARENT MENUS
+        let parentCollapse = link.closest(".collapse");
+
+        while (parentCollapse) {
+          parentCollapse.classList.add("show");
+
+          const trigger = document.querySelector(
+            `[data-bs-target="#${parentCollapse.id}"]`,
+          );
+
+          if (trigger) {
+            trigger.setAttribute("aria-expanded", "true");
+            trigger.classList.remove("collapsed");
+          }
+
+          parentCollapse = parentCollapse.parentElement.closest(".collapse");
+        }
+      }
+    });
+  }
 });
 
 link.scrollIntoView({ block: "center" });
