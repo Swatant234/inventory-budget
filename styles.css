@@ -227,8 +227,8 @@
 }
 
 .id-sidebar {
-  background: #f8fafc;
-  border-right: 1px solid #eef2f6;
+  background: #ffffff;
+  border-left: 1px solid #eef2f6;
   padding: 25px;
 }
 
@@ -1059,4 +1059,29 @@ label {
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid #e0e6ed;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.extra-small {
+  font-size: 12px;
+  color: rgba(33, 37, 41, 0.75);
+}
+
+.header-box {
+  padding: 20px;
+  border-bottom: 1px solid rgb(216, 216, 216);
+}
+
+.btn-outline-primary {
+  color: #0076a8;
+  border-color: #0076a8;
+}
+
+.btn-outline-primary:hover {
+  background-color: #0076a8;
+  color: #fff;
+  border-color: #0076a8;
+}
+
+.btn{
+  font-size: 10px;
 }
