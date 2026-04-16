@@ -59,24 +59,7 @@ const sidebarHTML = `
     </div>
 </div>
 
-<div class="nav-item">
-    <a href="#purchaseCollapse" class="nav-link" data-bs-toggle="collapse" aria-expanded="true">
-        <i class="bi bi-cart-plus"></i> 
-        <span>PURCHASE</span>
-        <i class="bi bi-chevron-down ms-auto arrow-icon"></i>
-    </a>
 
-    <div class="collapse show" id="purchaseCollapse">
-        <div class="sub-menu-tree">
-            <div class="operations-group">
-                <a href="/inventory-budget/Purchase/purchase_request.html" class="tree-link">
-            
-                Purchase Request
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
     </div>
 
     </nav>
