@@ -623,7 +623,11 @@
                 <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-light px-4 py-2 fw-bold text-secondary"
                         data-bs-dismiss="modal">Discard Changes</button>
-                    <button type="button" class="btn btn-premium">Update</button>
+                    <!-- <button type="button" class="btn btn-premium">Update</button> -->
+                    <button class="btn btn-store"
+                        onclick="this.innerHTML='<i class=\'bi bi-check-circle-fill me-2\'></i>Stored'; this.classList.remove('btn-store'); this.classList.add('status-stored');">
+                        Store Item
+                    </button>
                 </div>
             </div>
         </div>
