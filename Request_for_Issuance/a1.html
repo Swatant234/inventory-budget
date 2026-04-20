@@ -52,19 +52,40 @@
                 </div>
 
                 <div class="col-md-2">
+                    <label class="form-label">Department</label>
+                    <select class="form-select">
+                        <option>Stores</option>
+                        <option>EHS</option>
+                        <option>IT</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2">
+                    <label class="form-label">User</label>
+                    <input type="text" class="form-control" value="Search User..." />
+                </div>
+
+                <div class="col-md-2">
                     <label class="form-label small fw-bold text-muted">Source</label>
                     <select class="form-select">
                         <option>Work Order</option>
                         <option>Adhoc</option>
-                        <option>Asset</option>
+                        <!-- <option>Asset</option> -->
                     </select>
                 </div>
 
                 <div class="col-md-2">
                     <label class="form-label small fw-bold text-muted">Approval Status</label>
                     <select class="form-select">
+                        <option value="Draft">Draft</option>
+                        <option value="Submitted / Requested">Submitted / Requested</option>
+                        <option value="Pending for Approval">Pending for Approval</option>
                         <option value="Approved">Approved</option>
+                        <option value="Pending for Issuance">Pending for Issuance</option>
+                        <option value="Partially Issued">Partially Issued</option>
+                        <option value="Issued / Completed">Issued / Completed</option>
                         <option value="Reverted">Reverted</option>
+                        <option value="Cancelled">Cancelled</option>
                         <option value="Rejected">Rejected</option>
                     </select>
                 </div>
@@ -139,28 +160,7 @@
                                         </span>
                                     </li>
 
-                                    <!-- ACTIVATE (DISABLED EXAMPLE) -->
-                                    <li>
-                                        <span class="d-inline-block w-100" data-bs-toggle="tooltip"
-                                            data-bs-placement="right" title="Activate">
-                                            <a class="dropdown-item d-flex align-items-center gap-2" tabindex="-1"
-                                                aria-disabled="true">
-                                                <i class="bi bi-check-circle text-success"></i>
-                                                Activate
-                                            </a>
-                                        </span>
-                                    </li>
-
-                                    <!-- DEACTIVATE (DISABLED EXAMPLE) -->
-                                    <li>
-                                        <span class="d-inline-block w-100" data-bs-toggle="tooltip"
-                                            data-bs-placement="right" title="Deactivate">
-                                            <a class="dropdown-item d-flex align-items-center gap-2" tabindex="-1"
-                                                aria-disabled="true">
-                                                <i class="bi bi-x-circle text-danger"></i> Deactivate
-                                            </a>
-                                        </span>
-                                    </li>
+                                  
                                 </ul>
 
                                 <span class="ms-2">REQ-001</span>
@@ -179,30 +179,7 @@
                         <td>Stores Executor (000037)</td>
                         <td>14/04/2025, 12:13 PM</td>
                     </tr>
-
-                    <tr class="row-alert-warning">
-                        <td class="fw-bold text-dark">
-                            <div class="dropdown d-flex align-items-center">
-                                <button class="btn btn-sm btn-light" data-bs-toggle="dropdown">
-                                    <i class="bi bi-three-dots-vertical"></i>
-                                </button>
-
-                                <span class="ms-2">REQ-002</span>
-                            </div>
-                        </td>
-                        <td><span class="status-pill bg-adhoc">Adhoc</span></td>
-
-                        <td>RI-1234</td>
-                        <!-- <td>OSE0151321</td>
-              <td>PIN FOR EJECTION HEX 10X70</td> -->
-                        <td>5</td>
-                        <!-- <td>250</td>
-              <td>Units</td> -->
-                        <!-- <td>BATCH-APR-001</td> -->
-                        <td><span class="status pending">Pending</span></td>
-                        <td>Stores Executor (000037)</td>
-                        <td>14/04/2025, 12:13 PM</td>
-                    </tr>
+                    
 
                     <tr class="row-alert-warning">
                         <td class="fw-bold text-dark">
@@ -226,6 +203,110 @@
                                         <span class="d-inline-block w-100" data-bs-toggle="tooltip"
                                             data-bs-placement="right" title="Edit">
                                             <a class="dropdown-item d-flex align-items-center gap-2"
+                                                data-bs-toggle="modal" data-bs-target="#masterModal">
+                                                <i class="bi bi-pencil-square text-secondary"></i>
+                                                Edit
+                                            </a>
+                                        </span>
+                                    </li>
+                                </ul>
+                                <span class="ms-2">REQ-002</span>
+                            </div>
+                        </td>
+                        <td><span class="status-pill bg-adhoc">Adhoc</span></td>
+
+                        <td>RI-1234</td>
+                        <!-- <td>OSE0151321</td>
+              <td>PIN FOR EJECTION HEX 10X70</td> -->
+                        <td>5</td>
+                        <!-- <td>250</td>
+              <td>Units</td> -->
+                        <!-- <td>BATCH-APR-001</td> -->
+                        <td><span class="status pending">Pending</span></td>
+                        <td>Stores Executor (000037)</td>
+                        <td>14/04/2025, 12:13 PM</td>
+                    </tr>
+
+                       <tr class="row-alert-warning">
+                        <td class="fw-bold text-dark">
+                            <div class="dropdown d-flex align-items-center">
+                                <button class="btn btn-sm btn-light" data-bs-toggle="dropdown">
+                                    <i class="bi bi-three-dots-vertical"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+                                    <!-- VIEW -->
+                                    <li>
+                                        <span class="d-inline-block w-100" data-bs-toggle="tooltip"
+                                            data-bs-placement="right" title="View">
+                                            <a class="dropdown-item d-flex align-items-center gap-2">
+                                                <i class="bi bi-eye text-primary"></i> View
+                                            </a>
+                                        </span>
+                                    </li>
+
+                                    <!-- REVIEW / APPROVE -->
+                                    <li>
+                                        <span class="d-inline-block w-100" data-bs-toggle="tooltip"
+                                            data-bs-placement="right" title="Edit">
+                                            <a class="dropdown-item d-flex align-items-center gap-2"
+                                                data-bs-toggle="modal" data-bs-target="#workOrderModal">
+                                                <i class="bi bi-pencil-square text-secondary"></i>
+                                                Edit
+                                            </a>
+                                        </span>
+                                    </li>
+
+                                    <li>
+                                        <span class="d-inline-block w-100" data-bs-toggle="tooltip"
+                                            data-bs-placement="right" title="Issue Material">
+
+                                            <a class="dropdown-item d-flex align-items-center gap-2"
+                                                data-bs-toggle="modal" data-bs-target="#isseModal">
+
+                                                <i class="bi bi-box-arrow-up text-primary"></i>
+                                                Issue Material
+
+                                            </a>
+                                        </span>
+                                    </li>
+                                </ul>
+
+                                <span class="ms-2">REQ-003</span>
+                            </div>
+                        </td>
+                        <td><span class="status-pill bg-workorder">Work Order</span></td>
+
+                        <td>ML11/JWO/0002</td>
+                        <!-- <td>OSE0151321</td>
+              <td>AF90 CLOSING PIN DELRIN</td> -->
+                        <td>5</td>
+                        <!-- <td>250</td>
+              <td>Units</td> -->
+                        <!-- <td>BATCH-APR-001</td> -->
+                        <td><span class="status approved">Approved</span></td>
+                        <td>Stores Executor (000037)</td>
+                        <td>14/04/2025, 12:13 PM</td>
+                    </tr>
+                    <!-- <tr class="row-alert-warning">
+                        <td class="fw-bold text-dark">
+                            <div class="dropdown d-flex align-items-center">
+                                <button class="btn btn-sm btn-light" data-bs-toggle="dropdown">
+                                    <i class="bi bi-three-dots-vertical"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+                                    <li>
+                                        <span class="d-inline-block w-100" data-bs-toggle="tooltip"
+                                            data-bs-placement="right" title="View">
+                                            <a class="dropdown-item d-flex align-items-center gap-2">
+                                                <i class="bi bi-eye text-primary"></i> View
+                                            </a>
+                                        </span>
+                                    </li>
+
+                                    <li>
+                                        <span class="d-inline-block w-100" data-bs-toggle="tooltip"
+                                            data-bs-placement="right" title="Edit">
+                                            <a class="dropdown-item d-flex align-items-center gap-2"
                                                 data-bs-toggle="modal" data-bs-target="#workOrderAsset">
                                                 <i class="bi bi-pencil-square text-secondary"></i>
                                                 Edit
@@ -233,7 +314,6 @@
                                         </span>
                                     </li>
 
-                                    <!-- ACTIVATE (DISABLED EXAMPLE) -->
                                     <li>
                                         <span class="d-inline-block w-100" data-bs-toggle="tooltip"
                                             data-bs-placement="right" title="Activate">
@@ -245,7 +325,6 @@
                                         </span>
                                     </li>
 
-                                    <!-- DEACTIVATE (DISABLED EXAMPLE) -->
                                     <li>
                                         <span class="d-inline-block w-100" data-bs-toggle="tooltip"
                                             data-bs-placement="right" title="Deactivate">
@@ -263,17 +342,11 @@
                         <td><span class="status-pill bg-asset">Asset</span></td>
 
                         <td>ML00AS1234</td>
-                        <!-- <td>MAT-SP-441</td>
-              <td>CLOSING PIN SIZE #2</td> -->
                         <td>5</td>
-
-                        <!-- <td>250</td> -->
-                        <!-- <td>Units</td> -->
-                        <!-- <td>BATCH-APR-001</td> -->
                         <td><span class="status pending">Pending</span></td>
                         <td>Stores Executor (000037)</td>
                         <td>14/04/2025, 12:13 PM</td>
-                    </tr>
+                    </tr> -->
                 </tbody>
             </table>
             <div class="p-4 bg-light bg-opacity-50 border-top d-flex justify-content-between align-items-center">
@@ -393,7 +466,7 @@
                                                         <select class="form-select" disabled>
                                                             <option>Work Order</option>
                                                             <option selected>Adhoc</option>
-                                                            <option>Asset</option>
+                                                            <!-- <option>Asset</option> -->
                                                         </select>
                                                     </div>
 
@@ -810,12 +883,12 @@
                                                         </div>
                                                     </div>
 
-                                                    <button type="button"
+                                                    <!-- <button type="button"
                                                         class="btn btn-sm btn-outline-primary rounded-pill px-3 fw-bold"
                                                         onclick="addRow()">
                                                         <i class="bi bi-plus-circle me-1"></i> Add Line
                                                         Item
-                                                    </button>
+                                                    </button> -->
                                                 </div>
 
                                                 <div class="row g-3">
@@ -825,9 +898,8 @@
                                                                 <tr class="small text-muted">
 
                                                                     <th width="20%">Material Code </th>
-                                                                    <th>Description</th>
-                                                                    <th width="10%">Quantity</th>
-                                                                    <th width="5%">Action</th>
+                                                                    <th width="50%">Description</th>
+                                                                    <th width="10%">Requested Qty</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody id="tableBody">
@@ -836,29 +908,26 @@
 
                                                                     <td>
                                                                         <input type="text"
-                                                                            class="form-control form-control-sm"
-                                                                            value="MAT-45872" />
+                                                                            class="form-control form-control-sm "
+                                                                            disabled value="MAT-45872" />
                                                                     </td>
 
                                                                     <td>
                                                                         <input type="text"
-                                                                            class="form-control form-control-sm"
+                                                                            class="form-control form-control-sm "
+                                                                            disabled
                                                                             value="SS Clamp 2 Inch - Stainless Steel" />
                                                                     </td>
 
                                                                     <td>
                                                                         <input type="number"
                                                                             class="form-control form-control-sm"
-                                                                            value="25" />
+                                                                            disabled value="25" />
                                                                     </td>
 
 
 
-                                                                    <td class="text-center">
-                                                                        <button class="btn btn-sm btn-outline-danger">
-                                                                            <i class="bi bi-trash"></i>
-                                                                        </button>
-                                                                    </td>
+
                                                                 </tr>
 
                                                                 <tr>
@@ -867,25 +936,21 @@
                                                                     <td>
                                                                         <input type="text"
                                                                             class="form-control form-control-sm"
-                                                                            value="MAT-11223" />
+                                                                            disabled value="MAT-11223" />
                                                                     </td>
                                                                     <td><input type="text"
                                                                             class="form-control form-control-sm"
-                                                                            value="Lactose Monohydrate IP"></td>
+                                                                            disabled value="Lactose Monohydrate IP">
+                                                                    </td>
 
                                                                     <td>
                                                                         <input type="number"
                                                                             class="form-control form-control-sm"
-                                                                            value="150" />
+                                                                            disabled value="150" />
                                                                     </td>
 
 
 
-                                                                    <td class="text-center">
-                                                                        <button class="btn btn-sm btn-outline-danger">
-                                                                            <i class="bi bi-trash"></i>
-                                                                        </button>
-                                                                    </td>
                                                                 </tr>
                                                             </tbody>
                                                         </table>
@@ -1479,6 +1544,484 @@
                             </div>
 
                             <div class="tab-pane fade" id="auditAsset">
+                                <table class="table table-hover table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th rowspan="2" style="width: 10%">Action</th>
+                                            <th rowspan="2" style="width: 10%; cursor: pointer">
+                                                Done By
+                                            </th>
+                                            <th rowspan="2" style="width: 10%; cursor: pointer">
+                                                Date & Time
+                                            </th>
+                                            <th colspan="3" class="bg-secondary text-white" style="width: 50%">
+                                                Changes
+                                            </th>
+                                            <th rowspan="2" style="width: 10%">Reason</th>
+                                            <th rowspan="2" style="width: 10%">Status</th>
+                                        </tr>
+                                        <tr class="table-secondary">
+                                            <th style="width: 10%">Field</th>
+                                            <th style="width: 15%">Old Value</th>
+                                            <th style="width: 25%">New Value</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- Example Row with Changes -->
+                                        <tr>
+                                            <td rowspan="2">Update</td>
+                                            <td rowspan="2">John Doe</td>
+                                            <td rowspan="2">2025-12-27 10:00 AM</td>
+                                            <td>Username</td>
+                                            <td>OldUser</td>
+                                            <td>NewUser</td>
+                                            <td rowspan="2">Corrected typo</td>
+                                            <td rowspan="2">
+                                                <span class="badge-status approved">
+                                                    <i class="bi bi-check-circle"></i> Approved
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Email</td>
+                                            <td>old@example.com</td>
+                                            <td>new@example.com</td>
+                                        </tr>
+
+                                        <!-- Example Row with No Changes -->
+                                        <tr>
+                                            <td>Created</td>
+                                            <td>Jane Smith</td>
+                                            <td>2025-12-26 09:30 AM</td>
+                                            <td>NA</td>
+                                            <td>NA</td>
+                                            <td>NA</td>
+                                            <td>Initial creation</td>
+                                            <td>
+                                                <span class="badge-status pending">
+                                                    <i class="bi bi-hourglass-split"></i> Pending
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-light px-4 py-2 fw-bold text-secondary"
+                        data-bs-dismiss="modal">
+                        Discard Changes
+                    </button>
+                    <button type="button" class="btn btn-premium">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="isseModal" tabindex="-1">
+        <div class="modal-dialog modal-xl modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header p-3">
+                    <div class="d-flex align-items-center">
+                        <h4 class="modal-title fw-bold">Edit Request</h4>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="wo-content">
+                        <div class="sticky-tabs-container">
+                            <!-- MAIN TABS -->
+                            <ul class="nav nav-tabs mb-2 custom-tabs">
+                                <li class="nav-item">
+                                    <button class="nav-link active" data-bs-toggle="tab"
+                                        data-bs-target="#detailsWorkOrder" title="Initiation Details">
+                                        <i class="fas fa-clipboard-list"></i>
+                                        <span class="tab-label">Initiation Details</span>
+                                    </button>
+                                </li>
+
+                                <li class="nav-item">
+                                    <button class="nav-link" data-bs-toggle="pill" data-bs-target="#filesWorkOrder"
+                                        title="Attachments">
+                                        <i class="fa-solid fa-paperclip"></i>
+                                        <span class="tab-label">Attachments</span>
+                                    </button>
+                                </li>
+
+                                <li class="nav-item">
+                                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#approversWorkOrder"
+                                        title="Approvers">
+                                        <i class="fa fa-users"></i>
+                                        <span class="tab-label">Approvers</span>
+                                    </button>
+                                </li>
+
+                                <li class="nav-item">
+                                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#auditWorkOrder"
+                                        title="Audit Log">
+                                        <i class="fa-solid fa-clock-rotate-left"></i>
+                                        <span class="tab-label">Audit Log</span>
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-content">
+                            <!-- REQUEST -->
+                            <div class="tab-pane fade show active" id="detailsWorkOrder">
+                                <div class="">
+                                    <div class="row g-3">
+                                        <div class="col-12">
+                                            <div class="dcard">
+                                                <!-- <div class="section-header">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="icon-box-primary">
+                                                            <i class="bi bi-hdd-network-fill"></i>
+                                                        </div>
+                                                        <h6 class="section-title text-primary mb-0">Section A: Basic
+                                                            Information</h6>
+                                                    </div>
+                                                </div> -->
+                                                <div class="mb-3">
+                                                    <span class="section-tag">Section A: Basic Information</span>
+                                                </div>
+                                                <div class="row g-3">
+                                                    <div class="col-md-2">
+                                                        <label class="form-label">Plant</label>
+                                                        <input type="text" class="form-control sap-input" value="ML11"
+                                                            readonly />
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label class="form-label">Department</label>
+                                                        <select class="form-select">
+                                                            <option>Stores</option>
+                                                            <option>EHS</option>
+                                                            <option>IT</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label class="form-label">User</label>
+                                                        <select class="form-select">
+                                                            <option>Stores Executor (000037)</option>
+                                                            <option>Stores Reviewer (000035)</option>
+                                                            <option>Stores HOD (000033)</option>
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="col-md-2">
+                                                        <label class="form-label">Source</label>
+                                                        <select class="form-select" disabled>
+                                                            <option>Work Order</option>
+                                                            <option>Adhoc</option>
+                                                            <option>Asset</option>
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="col-md-2">
+                                                        <label class="form-label">Request ID</label>
+                                                        <input type="text" class="form-control sap-input"
+                                                            value="REQ-001" readonly />
+                                                    </div>
+
+                                                    <div class="col-md-12">
+                                                        <label class="form-label">Purpose of Issuance
+                                                        </label>
+                                                        <textarea type="text" class="form-control"
+                                                            title="Material required for preventive maintenance activity of Granulation Line-02 and batch processing support."
+                                                            value="Material required for preventive maintenance activity of Granulation Line-02 and batch processing support."></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <div class="dcard">
+                                                <div class="section-header">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="mb-3">
+                                                            <span class="section-tag">Section B: Material Details
+                                                            </span>
+                                                        </div>
+                                                    </div>
+
+                                                    <button type="button"
+                                                        class="btn btn-sm btn-outline-primary rounded-pill px-3 fw-bold"
+                                                        onclick="addRow()">
+                                                        <i class="bi bi-plus-circle me-1"></i> Add Line
+                                                        Item
+                                                    </button>
+                                                </div>
+
+                                                <div class="row g-3">
+                                                    <div class="col-12">
+                                                        <table class="table table-sm align-middle mb-0" id="entryTable">
+                                                            <thead>
+                                                                <tr class="small text-muted text-uppercase">
+                                                                    <th>Material Code</th>
+                                                                    <th>Description</th>
+                                                                    <th class="text-center">Req. Qty</th>
+                                                                    <th style="width: 200px;">Available Stock</th>
+                                                                    <th class="text-center">Issue Qty</th>
+                                                                    <th class="text-center">Action</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody id="tableBody">
+                                                                <tr data-mat="MAT-45872" data-req="250"
+                                                                    data-avail="500">
+                                                                    <td>
+                                                                        <div class="input-group input-group-sm">
+                                                                            <span class="input-group-text bg-light"><i
+                                                                                    class="bi bi-qr-code"></i></span>
+                                                                            <input type="text"
+                                                                                class="form-control bg-white fw-bold mat-code"
+                                                                                value="MAT-45872" readonly />
+                                                                        </div>
+                                                                    </td>
+                                                                    <td><input type="text"
+                                                                            class="form-control form-control-sm border-0 bg-transparent"
+                                                                            value="SS Clamp 2 Inch - Stainless Steel"
+                                                                            readonly /></td>
+                                                                    <td class="text-center"><span
+                                                                            class="fw-bold">250</span></td>
+                                                                    <td>
+                                                                        <div class="stock-monitor">
+                                                                            <div
+                                                                                class="d-flex justify-content-between mb-1 small">
+                                                                                <span class="fw-bold">500 Units</span>
+                                                                                <span class="text-success">In
+                                                                                    Stock</span>
+                                                                            </div>
+                                                                            <div class="progress" style="height: 6px;">
+                                                                                <div class="progress-bar bg-success"
+                                                                                    style="width: 100%"></div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <input type="number"
+                                                                            class="form-control form-control-sm issue-qty text-center"
+                                                                            placeholder="Scan QR" disabled />
+                                                                    </td>
+                                                                    <td class="text-center action-cell">
+                                                                        <button
+                                                                            class="btn btn-sm btn-outline-primary verify-btn"
+                                                                            onclick="simulateQRScan(this)">
+                                                                            Verify QR
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr data-mat="MAT-11223" data-req="100" data-avail="20">
+                                                                    <td>
+                                                                        <div class="input-group input-group-sm">
+                                                                            <span class="input-group-text bg-light"><i
+                                                                                    class="bi bi-qr-code"></i></span>
+                                                                            <input type="text"
+                                                                                class="form-control bg-white fw-bold mat-code"
+                                                                                value="MAT-11223" readonly />
+                                                                        </div>
+                                                                    </td>
+                                                                    <td><input type="text"
+                                                                            class="form-control form-control-sm border-0 bg-transparent"
+                                                                            value="Lactose Monohydrate IP" readonly />
+                                                                    </td>
+                                                                    <td class="text-center"><span
+                                                                            class="fw-bold">100</span></td>
+                                                                    <td>
+                                                                        <div class="stock-monitor">
+                                                                            <div
+                                                                                class="d-flex justify-content-between mb-1 small">
+                                                                                <span class="fw-bold text-danger">20
+                                                                                    Units</span>
+                                                                                <span class="text-danger">-80
+                                                                                    Short</span>
+                                                                            </div>
+                                                                            <div class="progress" style="height: 6px;">
+                                                                                <div class="progress-bar bg-danger"
+                                                                                    style="width: 20%"></div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <input type="number"
+                                                                            class="form-control form-control-sm issue-qty text-center"
+                                                                            placeholder="Scan QR" disabled />
+                                                                    </td>
+                                                                    <td class="text-center action-cell">
+                                                                        <button
+                                                                            class="btn btn-sm btn-danger py-1 btn-premium-pr"
+                                                                            onclick="raisePR('MAT-11223', 80)">
+                                                                            <i class="bi bi-cart-plus me-1"></i> Raise
+                                                                            PR
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+
+
+
+
+
+
+
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="filesWorkOrder">
+                                <div class="card-box">
+                                    <div class="card-header">Attachments</div>
+                                    <div class="card-body">
+                                        <div class="row g-2 align-items-end">
+                                            <!-- Attachment Type -->
+                                            <div class="col-lg-3 col-md-6">
+                                                <label class="form-label small text-muted">Attachment Type</label>
+                                                <select class="form-select">
+                                                    <option selected disabled>Select type</option>
+                                                    <option>📄 Document</option>
+                                                    <option>🖼️ Image</option>
+                                                    <option>🔗 URL</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- Description -->
+                                            <div class="col-lg-3 col-md-6">
+                                                <label class="form-label small text-muted">Description</label>
+                                                <input type="text" class="form-control"
+                                                    placeholder="Max 100 characters" />
+                                            </div>
+
+                                            <!-- File / URL -->
+                                            <div class="col-lg-5 col-md-8">
+                                                <label class="form-label small text-muted">File / URL</label>
+                                                <input type="file" class="form-control" />
+                                            </div>
+
+                                            <!-- Add Button -->
+                                            <div class="col-lg-1 col-md-4 text-end">
+                                                <button class="btn btn-primary btn-sm w-100">
+                                                    <i class="bi bi-plus-circle"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <small class="text-muted d-block mt-2">
+                                            <i class="bi bi-info-circle me-1"></i>
+                                            Maximum total upload size: 25 MB
+                                        </small>
+
+                                        <div class="table-responsive mt-3">
+                                            <table class="table table-bordered align-middle">
+                                                <thead class="table-light">
+                                                    <tr>
+                                                        <th width="20%">Type</th>
+                                                        <th width="25%">Description</th>
+                                                        <th width="35%">File / URL</th>
+                                                        <th width="10%">Size</th>
+                                                        <th width="10%" class="text-center">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <!-- Document -->
+                                                    <tr>
+                                                        <td>
+                                                            <i class="bi bi-file-earmark-text text-primary"></i>
+                                                            Document
+                                                        </td>
+                                                        <td class="text-truncate" title="Maintenance SOP document">
+                                                            Maintenance SOP document
+                                                        </td>
+                                                        <td>
+                                                            <a href="#" class="text-decoration-none">
+                                                                <i class="bi bi-file-earmark-pdf text-danger me-1"></i>
+                                                                SOP_Maintenance.pdf
+                                                            </a>
+                                                        </td>
+                                                        <td class="text-center">1.2 MB</td>
+                                                        <td class="text-center">
+                                                            <button class="btn btn-sm btn-outline-danger">
+                                                                <i class="bi bi-trash"></i>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+
+                                                    <!-- Image -->
+                                                    <tr>
+                                                        <td>
+                                                            <i class="bi bi-image text-success"></i> Image
+                                                        </td>
+                                                        <td>Equipment condition photo</td>
+                                                        <td>
+                                                            <a href="#">
+                                                                <i class="bi bi-image me-1"></i>
+                                                                motor_photo.jpg
+                                                            </a>
+                                                        </td>
+                                                        <td class="text-center">450 KB</td>
+                                                        <td class="text-center">
+                                                            <button class="btn btn-sm btn-outline-danger">
+                                                                <i class="bi bi-trash"></i>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+
+                                                    <!-- URL -->
+                                                    <tr>
+                                                        <td>
+                                                            <i class="bi bi-link-45deg text-secondary"></i>
+                                                            URL
+                                                        </td>
+                                                        <td>External safety SOP</td>
+                                                        <td>
+                                                            <a href="https://example.com" target="_blank"
+                                                                class="text-decoration-none">
+                                                                <i class="bi bi-box-arrow-up-right me-1"></i>
+                                                                https://example.com
+                                                            </a>
+                                                        </td>
+                                                        <td class="text-center">NA</td>
+                                                        <td class="text-center">
+                                                            <button class="btn btn-sm btn-outline-danger">
+                                                                <i class="bi bi-trash"></i>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="approversWorkOrder">
+                                <table class="table table-sm">
+                                    <tr>
+                                        <th>Approval Level</th>
+                                        <th>Department</th>
+                                        <th>Team Name</th>
+                                        <th>Team Member</th>
+                                    </tr>
+
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Engineering</td>
+                                        <td>Engineering Review Team</td>
+                                        <td>Vikram (000007)</td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div class="tab-pane fade" id="auditWorkOrder">
                                 <table class="table table-hover table-bordered">
                                     <thead>
                                         <tr>

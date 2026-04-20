@@ -38,7 +38,6 @@ const sidebarHTML = `
                         <a href="/inventory-budget/Inward_Inventory/a1.html" class="tree-link">Inward - Inventory</a>
                         <a href="/inventory-budget/Put_Away/a1.html" class="tree-link">Put Away</a>
                         <a href="/inventory-budget/Request_for_Issuance/a1.html" class="tree-link">Request for Issuance</a>
-                        <a href="/inventory-budget/Issuance_of_Material/a1.html" class="tree-link">Issuance of Material</a>
                         <a href="/inventory-budget/Return_Material/a1.html" class="tree-link">Return Material</a>
                    <a href="/inventory-budget/Stock_Adjustment/a1.html" class="tree-link">Stock Adjustment</a>
                     <a href="/inventory-budget/Stock_Verification/a1.html" class="tree-link">Stock Verification</a>
