@@ -45,6 +45,54 @@
 
       <div class="">
         <div class="line-item-container">
+          <div class="container mt-4">
+            <div class="info-card">
+              <div class="section-title">INVENTORY INWARD INFORMATION</div>
+
+              <!-- Row 1 -->
+              <div class="row info-row">
+                <div class="col-md-3 label">Inward ID</div>
+                <div class="col-md-3 value">INV005868</div>
+
+                <div class="col-md-3 label">Material / Item Code</div>
+                <div class="col-md-3 value">OSE0151321</div>
+              </div>
+
+              <!-- Row 2 -->
+              <div class="row info-row">
+                <div class="col-md-3 label">Material / Item Name</div>
+                <div class="col-md-3 value">AF90 CLOSING PIN DELRIN</div>
+
+                <div class="col-md-3 label">Description</div>
+                <div class="col-md-3 value">AF90 CLOSING PIN DELRIN</div>
+              </div>
+
+              <!-- Row 3 -->
+              <div class="row info-row">
+                <div class="col-md-3 label">Total Quantity</div>
+                <div class="col-md-3 value">1500</div>
+
+                <div class="col-md-3 label">UOM</div>
+                <div class="col-md-3 value">Units</div>
+              </div>
+
+              <!-- Row 4 (Optional - good practice) -->
+              <div class="row info-row">
+                <div class="col-md-3 label">Approval Status</div>
+                <div class="col-md-3 value">
+                  <span class="badge badge-custom badge-pending">Pending</span>
+                </div>
+
+                <div class="col-md-3 label">Created By</div>
+                <div class="col-md-3 value">Stores Executor (000037)</div>
+              </div>
+
+              <div class="row info-row">
+                <div class="col-md-3 label">Created On</div>
+                <div class="col-md-3 value">14-Apr-2025, 12:13 PM</div>
+              </div>
+            </div>
+          </div>
           <!-- <div class="header-box">
             <div class="row g-4">
               <div class="col-md-2">
@@ -80,181 +128,255 @@
           </div> -->
 
           <div class="row">
-            <div class="col-md-9 p-4">
+            <div class="col-md-12 p-4">
               <div
-                class="d-flex justify-content-between align-items-center mb-4"
+                class="mb-4 p-2 bg-light border rounded"
               >
-                <h6 class="fw-bold m-0 text-dark">Allocation Matrix</h6>
-                <div class="text-end">
+                <div class="row">
+           
+
+                  <div class="col-md-4">
+                    <label class="form-label extra-small fw-bold"
+                      >Material / Item Code Change (If required)</label
+                    >
+                    <div class="input-group mb-2">
+                      <input
+                        type="text"
+                        class="form-control fw-bold border-primary"
+                        value="MAT-8802"
+                      />
+                      <button class="btn btn-dark" title="Change/Assign Code">
+                        <i class="bi bi-pencil-square"></i>
+                      </button>
+                    </div>
+                    <!-- <span class="extra-small"
+                    >Change if PO inward, Assign if Petty Cash/Non-PO.</span
+                  > -->
+                  </div>
+
+                  <div class="col-md-4">
+                    <label class="form-label small fw-bold"
+                      >Allocation Mode</label
+                    >
+                    <select
+                      class="form-select form-select-brand fw-bold"
+                      onchange="toggleSections(this.value)"
+                      id="allocationSelector"
+                    >
+                      <option value="dept" selected>Department Wise</option>
+                      <option value="batch">Batch Wise</option>
+                      <option value="both">Both</option>
+                    </select>
+                  </div>
+                </div>
+                <!-- <div class="text-end">
                   <div class="small text-muted">Total Received</div>
                   <h6 class="fw-bold m-0 text-dark">250.00 Units</h6>
+                </div> -->
+              </div>
+
+              <div id="section-dept" class="allocation-section mb-5">
+                <div class="mb-5">
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <h6 class="section-header">
+                      <i class="bi bi-people-fill"></i> User & Department
+                      Allocation
+                    </h6>
+                    <button
+                      class="btn btn-sm btn-outline-primary rounded-pill px-3 fw-bold"
+                    >
+                      <i class="bi bi-plus-lg me-1"></i> New Split
+                    </button>
+                  </div>
+                  <table class="table table-split">
+                    <thead>
+                      <tr>
+                        <th>Department</th>
+                        <th>Select User</th>
+                        <th width="120">Qty Split</th>
+                        <th width="50"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <select class="form-select form-select-sm">
+                            <option>Engineering</option>
+                            <option>Stores</option>
+                          </select>
+                        </td>
+                        <td>
+                          <select class="form-select form-select-sm">
+                            <option>Rahul Bajaj (Emp-101)</option>
+                            <option>Anika Singh (Emp-105)</option>
+                          </select>
+                        </td>
+
+                        <td>
+                          <input
+                            type="number"
+                            class="form-control form-control-sm qty-split-input"
+                            value="150"
+                          />
+                        </td>
+                        <td class="text-end">
+                          <i
+                            class="bi bi-trash3 text-danger cursor-pointer"
+                          ></i>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
               </div>
 
-              <div class="mb-5">
-                <div class="d-flex justify-content-between align-items-center">
-                  <h6 class="section-header">
-                    <i class="bi bi-people-fill"></i> i. User & Department
-                    Allocation
-                  </h6>
-                  <button
-                    class="btn btn-sm btn-outline-primary rounded-pill px-3 fw-bold"
+              <div
+                id="section-batch"
+                class="allocation-section mb-5"
+                style="display: none"
+              >
+                <div class="mb-5">
+                  <div
+                    class="d-flex justify-content-between align-items-center"
                   >
-                    <i class="bi bi-plus-lg me-1"></i> New Split
-                  </button>
+                    <h6 class="section-header">
+                      <i class="bi bi-layers-half"></i> Batch Details Allocation
+                    </h6>
+                    <button
+                      class="btn btn-sm btn-outline-primary rounded-pill px-3 fw-bold"
+                    >
+                      <i class="bi bi-plus-lg me-1"></i> New Batch
+                    </button>
+                  </div>
+                  <table class="table table-split">
+                    <thead>
+                      <tr>
+                        <th>Batch Number</th>
+                        <th>MFG Date</th>
+                        <th>Expiry Date</th>
+                        <th width="120">Qty Split</th>
+                        <th width="50"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <input
+                            type="text"
+                            class="form-control form-control-sm"
+                            value="BATCH-APR-001"
+                          />
+                        </td>
+                        <td>
+                          <input
+                            type="date"
+                            class="form-control form-control-sm"
+                          />
+                        </td>
+                        <td>
+                          <input
+                            type="date"
+                            class="form-control form-control-sm"
+                          />
+                        </td>
+                        <td>
+                          <input
+                            type="number"
+                            class="form-control form-control-sm qty-split-input"
+                            value="150"
+                          />
+                        </td>
+                        <td class="text-end">
+                          <i
+                            class="bi bi-trash3 text-danger cursor-pointer"
+                          ></i>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
-                <table class="table table-split">
-                  <thead>
-                    <tr>
-                      <th>Select User</th>
-                      <th>Department</th>
-                      <th width="120">Qty Split</th>
-                      <th width="50"></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>
-                        <select class="form-select form-select-sm">
-                          <option>Rahul Bajaj (Emp-101)</option>
-                          <option>Anika Singh (Emp-105)</option>
-                        </select>
-                      </td>
-                      <td>
-                        <input
-                          type="text"
-                          class="form-control form-control-sm bg-light"
-                          value="Manufacturing"
-                          readonly
-                        />
-                      </td>
-                      <td>
-                        <input
-                          type="number"
-                          class="form-control form-control-sm qty-split-input"
-                          value="150"
-                        />
-                      </td>
-                      <td class="text-end">
-                        <i class="bi bi-trash3 text-danger cursor-pointer"></i>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
               </div>
 
-              <div class="mb-5">
-                <div class="d-flex justify-content-between align-items-center">
-                  <h6 class="section-header">
-                    <i class="bi bi-layers-half"></i> ii. Batch Details
-                    Allocation
-                  </h6>
-                  <button
-                    class="btn btn-sm btn-outline-primary rounded-pill px-3 fw-bold"
+              <div
+                id="section-both"
+                class="allocation-section mb-5"
+                style="display: none"
+              >
+                <div class="mb-5">
+                  <div
+                    class="d-flex justify-content-between align-items-center"
                   >
-                    <i class="bi bi-plus-lg me-1"></i> New Batch
-                  </button>
-                </div>
-                <table class="table table-split">
-                  <thead>
-                    <tr>
-                      <th>Batch Number</th>
-                      <th>MFG Date</th>
-                      <th>Expiry Date</th>
-                      <th width="120">Qty Split</th>
-                      <th width="50"></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>
-                        <input
-                          type="text"
-                          class="form-control form-control-sm"
-                          value="BATCH-APR-001"
-                        />
-                      </td>
-                      <td>
-                        <input
-                          type="date"
-                          class="form-control form-control-sm"
-                        />
-                      </td>
-                      <td>
-                        <input
-                          type="date"
-                          class="form-control form-control-sm"
-                        />
-                      </td>
-                      <td>
-                        <input
-                          type="number"
-                          class="form-control form-control-sm qty-split-input"
-                          value="150"
-                        />
-                      </td>
-                      <td class="text-end">
-                        <i class="bi bi-trash3 text-danger cursor-pointer"></i>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+                    <h6 class="section-header">
+                      <i class="bi bi-boxes"></i> Item Details Allocation
+                    </h6>
+                    <button
+                      class="btn btn-sm btn-outline-primary rounded-pill px-3 fw-bold"
+                    >
+                      <i class="bi bi-plus-lg me-1"></i> New Item
+                    </button>
+                  </div>
+                  <table class="table table-split">
+                    <thead>
+                      <tr>
+                        <th>Item</th>
+                        <th>Batch</th>
+                        <th>Department</th>
+                        <th>User</th>
+                        <th width="120">Qty Split</th>
+                        <th width="50"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <input
+                            type="text"
+                            class="form-control form-control-sm"
+                            value="RM001"
+                          />
+                        </td>
+                        <td>
+                          <input
+                            type="text"
+                            class="form-control form-control-sm"
+                            value="BATCH-APR-001"
+                          />
+                        </td>
 
-              <div class="mb-5">
-                <div class="d-flex justify-content-between align-items-center">
-                  <h6 class="section-header">
-                    <i class="bi bi-boxes"></i> iii. Item Details Allocation
-                  </h6>
-                  <button
-                    class="btn btn-sm btn-outline-primary rounded-pill px-3 fw-bold"
-                  >
-                    <i class="bi bi-plus-lg me-1"></i> New Item
-                  </button>
+                        <td>
+                          <select class="form-select form-select-sm">
+                            <option>Engineering</option>
+                            <option>Stores</option>
+                          </select>
+                        </td>
+                        <td>
+                          <select class="form-select form-select-sm">
+                            <option>Rahul Bajaj (Emp-101)</option>
+                            <option>Anika Singh (Emp-105)</option>
+                          </select>
+                        </td>
+                        <td>
+                          <input
+                            type="number"
+                            class="form-control form-control-sm qty-split-input"
+                            value="150"
+                          />
+                        </td>
+                        <td class="text-end">
+                          <i
+                            class="bi bi-trash3 text-danger cursor-pointer"
+                          ></i>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
-                <table class="table table-split">
-                  <thead>
-                    <tr>
-                      <th>Item</th>
-                      <th>Batch</th>
-                      <th>Department</th>
-                      <th>User</th>
-                      <th width="120">Qty Split</th>
-                      <th width="50"></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>      <input
-                          type="text"
-                          class="form-control form-control-sm"
-                          value="RM001"
-                        /></td>
-                      <td>      <input
-                          type="text"
-                          class="form-control form-control-sm"
-                          value="BATCH-APR-001"
-                        /></td>
-
-                      <td>Production</td>
-                      <td>Ravi</td>
-                      <td>
-                        <input
-                          type="number"
-                          class="form-control form-control-sm qty-split-input"
-                          value="150"
-                        />
-                      </td>
-                      <td class="text-end">
-                        <i class="bi bi-trash3 text-danger cursor-pointer"></i>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
               </div>
             </div>
 
-            <div class="col-md-3 id-sidebar">
+            <!-- <div class="col-md-3 id-sidebar">
               <h6
                 class="section-header"
                 style="display: flex; justify-content: flex-start"
@@ -286,7 +408,9 @@
               </div>
 
               <div class="mb-4">
-                <label class="form-label extra-small fw-bold">Item Code Change (If required)</label>
+                <label class="form-label extra-small fw-bold"
+                  >Item Code Change (If required)</label
+                >
                 <div class="input-group mb-2">
                   <input
                     type="text"
@@ -316,7 +440,7 @@
                   <i class="bi bi-plus-circle me-2"></i>Generate New
                 </button>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -325,5 +449,23 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../sidebar.js"></script>
     <script src="../header.js"></script>
+
+    <script>
+      function toggleSections(mode) {
+        // List of all section IDs
+        const sections = ["section-dept", "section-batch", "section-both"];
+
+        sections.forEach((id) => {
+          const element = document.getElementById(id);
+          if (element) {
+            if (id === "section-" + mode) {
+              element.style.display = "block";
+            } else {
+              element.style.display = "none";
+            }
+          }
+        });
+      }
+    </script>
   </body>
 </html>

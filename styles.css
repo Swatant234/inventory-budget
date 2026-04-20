@@ -773,9 +773,9 @@
 
 #entryTable input,
 #entryTable select {
-  border: 1px solid transparent;
-  background-color: #f8f9fa;
-  transition: all 0.2s ease;
+border: 1px solid #d3d3d3;
+    /* background-color: #f8f9fa; */
+    transition: all 0.2s ease;
 }
 
 #entryTable input:focus,
@@ -843,6 +843,21 @@
   color: #096885;
 }
 
+.bg-workorder {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.bg-adhoc {
+  background: #fff3e0;
+  color: #ef6c00;
+}
+
+.bg-asset {
+  background: #ede7f6;
+  color: #5e35b1;
+}
+
 .status {
   padding: 5px 12px;
   border-radius: 999px;
@@ -854,6 +869,11 @@
 .approved {
   background: linear-gradient(135deg, #ecfeff, #cffafe) !important;
   color: #0d9488;
+}
+
+.pending {
+  background: linear-gradient(135deg, #fffbe6, #fff1d6) !important;
+  color: #f59e0b;
 }
 
 .reverted {
@@ -908,6 +928,30 @@
   transition: all 0.25s ease;
   font-weight: 600;
   font-size: 10px;
+}
+
+/* Hide labels by default (only icons visible) */
+.nav-tabs .nav-link .tab-label,
+.nav-pills .nav-link .tab-label {
+  display: none;
+}
+
+/* Show label only for active tab */
+.nav-tabs .nav-link.active .tab-label,
+.nav-pills .nav-link.active .tab-label {
+  display: inline;
+}
+
+/* Center icon when label is hidden */
+.nav-tabs .nav-link,
+.nav-pills .nav-link {
+  justify-content: center;
+}
+
+/* Align properly when active (icon + text) */
+.nav-tabs .nav-link.active,
+.nav-pills .nav-link.active {
+  justify-content: flex-start;
 }
 
 /* cards UI */
@@ -1082,6 +1126,128 @@ label {
   border-color: #0076a8;
 }
 
-.btn{
+.btn {
   font-size: 10px;
+}
+
+:root {
+  --brand-primary: #0076a8;
+}
+
+/* Custom dropdown styling */
+.form-select-brand {
+  border-color: #dee2e6;
+  color: #333;
+}
+
+/* Change border and glow to brand color on focus */
+.form-select-brand:focus {
+  border-color: var(--brand-primary);
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(0, 118, 168, 0.15);
+}
+
+/* Style for the headers and icons to match brand */
+.section-header i {
+  color: var(--brand-primary);
+}
+
+.btn-outline-brand {
+  color: var(--brand-primary);
+  border-color: var(--brand-primary);
+}
+
+.btn-outline-brand:hover {
+  background-color: var(--brand-primary);
+  color: white;
+}
+
+.info-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.section-title {
+  font-weight: 600;
+  color: #6c757d;
+  font-size: 14px;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+}
+
+.info-row {
+  border-bottom: 1px solid #eee;
+  padding: 6px 0;
+}
+
+.label {
+  color: #6c757d;
+  font-weight: 500;
+  font-size: 11px;
+}
+
+.value {
+  font-weight: 500;
+  color: #212529;
+  font-size: 11px;
+}
+
+.badge-custom {
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+}
+
+.badge-approved {
+  background: #e6f4ea;
+  color: #198754;
+}
+
+.badge-pending {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.navp {
+  font-size: 10px;
+}
+
+:root {
+  --danger-accent: #f02b59;
+}
+
+.btn-premium-pr {
+  background: #fff1f2;
+  color: var(--danger-accent);
+  border: 1px solid #fecdd3;
+  font-weight: 600;
+  font-size: 0.75rem;
+  transition: all 0.2s;
+}
+
+.btn-premium-pr:hover {
+  background: var(--danger-accent);
+  color: white;
+}
+
+/* Styling for the radio selection cards */
+.form-check {
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.form-check:hover {
+  background-color: #f8f9fa;
+  border-color: #ffc107 !important;
+}
+.form-check-input:checked + .form-check-label {
+  color: #000;
+}
+
+.qty-input {
+  width: 80px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
 }
