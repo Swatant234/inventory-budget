@@ -1809,7 +1809,7 @@
                                                                     <td>
                                                                         <input type="number"
                                                                             class="form-control form-control-sm issue-qty text-center"
-                                                                            placeholder="Scan QR" disabled />
+                                                                            placeholder="Enter issue Qty" disabled />
                                                                     </td>
                                                                     <td class="text-center action-cell">
                                                                         <button
@@ -1854,7 +1854,7 @@
                                                                     <td>
                                                                         <input type="number"
                                                                             class="form-control form-control-sm issue-qty text-center"
-                                                                            placeholder="Scan QR" disabled />
+                                                                            placeholder="Enter issue Qty" disabled />
                                                                     </td>
                                                                     <td class="text-center action-cell">
                                                                         <button
@@ -2202,6 +2202,36 @@
             addRow();
         });
     </script>
+
+    
+    <script>
+    // 1. Simulate QR Scan (Requirement d.i)
+    function simulateQRScan(btn) {
+        const row = btn.closest('tr');
+        const matCode = row.querySelector('.mat-code').value;
+        const issueInput = row.querySelector('.issue-qty');
+
+        alert(`Scanning QR for ${matCode}... Verified!`);
+        
+        // Confirm & Unlock
+        row.classList.add('table-success');
+        issueInput.disabled = false;
+        issueInput.classList.add('border-primary');
+        issueInput.focus();
+        btn.innerHTML = '<i class="bi bi-check-circle-fill"></i> Verified';
+        btn.classList.replace('btn-outline-primary', 'btn-success');
+    }
+
+ 
+    function raisePR(code, qty) {
+        alert(`Requirement c:\nConverting ${code} into a Purchase Request for ${qty} units.`);
+    }
+
+    function finalSubmit() {
+        alert("Success: Issuance record posted and stock updated.");
+        location.reload();
+    }
+</script>
 </body>
 
 </html>
