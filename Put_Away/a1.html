@@ -78,6 +78,7 @@
         <div class="col-md-2">
           <label class="form-label small fw-bold text-muted">Approval Status</label>
           <select class="form-select">
+            <option value="Pending">Pending</option>
             <option value="Approved">Approved</option>
             <option value="Reverted">Reverted</option>
             <option value="Rejected">Rejected</option>
@@ -181,8 +182,7 @@
               <!-- MAIN TABS -->
               <ul class="nav nav-tabs mb-2 custom-tabs">
                 <li class="nav-item">
-                  <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#details"
-                    title="Details">
+                  <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#details" title="Details">
                     <i class="fas fa-clipboard-list"></i>
                     <span class="tab-label">Details</span>
                   </button>
@@ -237,14 +237,14 @@
                         <div class="row g-3">
                           <div class="col-md-3">
                             <label class="form-label">Material Code</label>
-                             
-                              <input type="text" class="form-control sap-input border-start-0" value="MAT-BRG-001"
-                                readonly />
+
+                            <input type="text" class="form-control sap-input border-start-0" value="MAT-BRG-001"
+                              readonly />
                           </div>
                           <div class="col-md-3">
                             <label class="form-label">Description</label>
-                            <input type="text" class="form-control sap-input" value="Ball Bearing - Stainless Steel (SKF Type 6205)"
-                              readonly />
+                            <input type="text" class="form-control sap-input"
+                              value="Ball Bearing - Stainless Steel (SKF Type 6205)" readonly />
                           </div>
                           <div class="col-md-2">
                             <label class="form-label">Batch</label>
@@ -264,7 +264,7 @@
                             <label class="form-label">Quantity</label>
                             <input type="text" class="form-control sap-input" value="1000 Units" readonly />
                           </div>
-                         
+
                         </div>
                       </div>
                     </div>
@@ -319,27 +319,28 @@
                             </div> -->
 
                           <div class="col-md-12">
-                           <div class="d-flex align-items-center justify-content-between mb-3">
+                            <div class="d-flex align-items-center justify-content-between mb-3">
 
-  <!-- LEFT -->
-  <span class="section-tag">Section B: Split & Assign Location</span>
+                              <!-- LEFT -->
+                              <span class="section-tag">Section B: Split & Assign Location</span>
 
-  <!-- RIGHT GROUP -->
-  <div class="d-flex align-items-center gap-3">
+                              <!-- RIGHT GROUP -->
+                              <div class="d-flex align-items-center gap-3">
 
-    <!-- Remaining -->
-    <div class="remaining-box text-center px-3 py-1">
-      Remaining: <span id="remainingQty">1000</span>
-    </div>
+                                <!-- Remaining -->
+                                <div class="remaining-box text-center px-3 py-1">
+                                  Remaining: <span id="remainingQty">1000</span>
+                                </div>
 
-    <!-- Button -->
-    <button class="btn btn-sm btn-outline-primary rounded-pill px-3 fw-bold" onclick="addRow()">
-      + Add Split
-    </button>
+                                <!-- Button -->
+                                <button class="btn btn-sm btn-outline-primary rounded-pill px-3 fw-bold"
+                                  onclick="addRow()">
+                                  + Add Split
+                                </button>
 
-  </div>
+                              </div>
 
-</div>
+                            </div>
                             <div class="table-responsive">
                               <table class="table table-bordered align-middle split-table">
                                 <thead>
@@ -388,11 +389,11 @@
                                     </td>
 
                                     <td>
-                                  
 
-                                       <button type="button" class="btn btn-sm text-danger" onclick="removeRow(this)">
-                    <i class="bi bi-trash"></i>
-                </button>
+
+                                      <button type="button" class="btn btn-sm text-danger" onclick="removeRow(this)">
+                                        <i class="bi bi-trash"></i>
+                                      </button>
                                     </td>
                                   </tr>
                                 </tbody>
