@@ -22,17 +22,7 @@ const sidebarHTML = `
 
             <div class="collapse show" id="inventoryCollapse">
                 <div class="sub-menu-tree">
-                    <div class="nested-item">
-                        <div class="nested-header" data-bs-toggle="collapse" data-bs-target="#masterNested" aria-expanded="true">
-                            <span>Master</span>
-                            <i class="bi bi-chevron-down arrow-icon small"></i>
-                        </div>
-                        
-                        <div class="collapse show tree-line-nested" id="masterNested">
-                            <a href="/inventory-budget/Material_Master/a1.html" class="tree-link">Material Master</a>
-                            <a href="/inventory-budget/Service_Master/a1.html" class="tree-link">Service Master</a>
-                        </div>
-                    </div>
+               
 
                     <div class="operations-group">
                         <a href="/inventory-budget/Inward_Inventory/a1.html" class="tree-link">Inward - Inventory</a>
