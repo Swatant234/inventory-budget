@@ -60,27 +60,32 @@
           <i class="bi bi-funnel me-2"></i>Filters:
         </div>
 
-        <div class="col-md-4">
-          <label class="form-label small fw-bold text-muted">Global Search</label>
-          <div class="input-group">
-            <span class="input-group-text bg-white border-end-0"><i class="bi bi-search text-muted"></i></span>
-            <input type="text" class="form-control border-start-0" placeholder="Search Code, Description, Batch, ..." />
-          </div>
+        <div class="col-md-2">
+          <label class="form-label small fw-bold text-muted">Put Away ID</label>
+          <input type="text" class="form-control" placeholder="Enter Put Away ID" />
         </div>
 
         <div class="col-md-2">
-          <label class="form-label small fw-bold text-muted">Put Away Status</label>
-          <select class="form-select">
-            <option value="Pending Put Away Items">Awaiting Putaway</option>
-          </select>
+          <label class="form-label small fw-bold text-muted">Material Code</label>
+          <input type="text" class="form-control" placeholder="Enter Material Code" />
         </div>
+
+        <div class="col-md-2">
+          <label class="form-label small fw-bold text-muted">Description</label>
+          <input type="text" class="form-control" placeholder="Enter Description" />
+        </div>
+
+        <div class="col-md-2">
+          <label class="form-label small fw-bold text-muted">Batch</label>
+          <input type="text" class="form-control" placeholder="Enter Batch" />
+        </div>
+
 
         <div class="col-md-2">
           <label class="form-label small fw-bold text-muted">Approval Status</label>
           <select class="form-select">
             <option value="Pending">Pending</option>
             <option value="Approved">Approved</option>
-            <option value="Reverted">Reverted</option>
             <option value="Rejected">Rejected</option>
           </select>
         </div>
@@ -111,35 +116,35 @@
       <table class="table table-hover mb-0">
         <thead>
           <tr>
-            <th><i class="bi bi-hash me-2"></i>Material Code</th>
+            <th><i class="bi bi-hash me-2"></i>Put Away ID</th>
+            <th>Material Code</th>
             <th>Description</th>
             <th>Batch</th>
             <th>Quantity</th>
-            <th>Put Away Status</th>
             <th>Approval Status</th>
           </tr>
         </thead>
         <tbody>
           <tr class="row-alert-warning">
             <td class="fw-bold text-dark">
-              <a data-bs-toggle="modal" data-bs-target="#masterModal" class="ms-2" style="cursor: pointer"> MAT-BRG-001
+              <a data-bs-toggle="modal" data-bs-target="#masterModal" class="ms-2" style="cursor: pointer"> PA-2026-0001
               </a>
             </td>
+            <td>LC00000113</td>
             <td>Ball Bearing - Stainless Steel (SKF Type 6205)</td>
             <td>BT-2026-APR-001</td>
             <td>1000 Units</td>
-            <td>Awaiting Putaway</td>
             <td><span class="status pending">Pending</span></td>
           </tr>
           <tr class="row-alert-warning">
             <td class="fw-bold text-dark">
-              <a data-bs-toggle="modal" data-bs-target="#masterModal" class="ms-2"
-                style="cursor: pointer">MAT-BRG-002</a>
+              <a data-bs-toggle="modal" data-bs-target="#masterModal" class="ms-2" style="cursor: pointer">
+                PA-2026-0001</a>
             </td>
+            <td>LC00000114</td>
             <td>Ball Bearing - High Load (SKF Type 6306)</td>
             <td>BT-2026-APR-002</td>
             <td>500 Units</td>
-            <td>Awaiting Putaway</td>
             <td><span class="status pending">Pending</span></td>
           </tr>
         </tbody>

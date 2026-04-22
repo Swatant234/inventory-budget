@@ -44,23 +44,59 @@
         <div class="fw-bold text-dark">
           <i class="bi bi-funnel me-2"></i>Filters:
         </div>
-        <div class="col-md-4">
+        <div class="col-md-2">
           <label class="form-label small fw-bold text-muted">Inward ID</label>
-          <input type="text" class="form-control border-start-0"
-            placeholder="Search Inward ID, Description, Material Group, Purchase Group, UOM, Vendor, Manufacturer, ..." />
+          <input type="text" class="form-control" placeholder="Enter Inward ID" />
         </div>
 
         <div class="col-md-2">
-          <label class="form-label small fw-bold text-muted">Description</label>
-          <input type="text" class="form-control border-start-0"
-            placeholder="Search Inward ID, Description, Material Group, Purchase Group, UOM, Vendor, Manufacturer, ..." />
+          <label class="form-label small fw-bold text-muted">GI No.</label>
+          <input type="text" class="form-control" placeholder="Enter GI No." />
         </div>
 
         <div class="col-md-2">
-          <label class="form-label small fw-bold text-muted">Description</label>
-          <input type="text" class="form-control border-start-0"
-            placeholder="Search Inward ID, Description, Material Group, Purchase Group, UOM, Vendor, Manufacturer, ..." />
+          <label class="form-label small fw-bold text-muted">Gate No.</label>
+          <select class="form-select">
+            <option value="Select Gate No.">Select Gate No.</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+          </select>
         </div>
+
+        <div class="col-md-2">
+          <label class="form-label small fw-bold text-muted">Financial Year</label>
+          <select class="form-select">
+            <option value="Select Financial Year">Select Financial Year</option>
+            <option value="2025-26">2025-26</option>
+            <option value="2026-27">2026-27</option>
+          </select>
+        </div>
+
+        <div class="col-md-2">
+          <label class="form-label small fw-bold text-muted">GI Type</label>
+          <select class="form-select">
+            <option value="Select GI Type">Select GI Type</option>
+            <option value="With PO">With PO</option>
+            <option value="Without PO">Without PO</option>
+          </select>
+        </div>
+
+        <div class="col-md-2">
+          <label class="form-label small fw-bold text-muted">PO Number</label>
+          <input type="text" class="form-control" placeholder="Enter PO Number" />
+        </div>
+
+        <div class="col-md-2">
+          <label class="form-label small fw-bold text-muted">Delivery Mode</label>
+          <select class="form-select">
+            <option value="Select Delivery Mode">Select Delivery Mode </option>
+            <option value="Vehicle">Vehicle</option>
+            <option value="In Person">In Person</option>
+            <option value="Courier">Courier</option>
+          </select>
+        </div>
+
+
 
 
         <div class="col-md-2">
@@ -68,7 +104,6 @@
           <select class="form-select">
             <option value="Pending">Pending</option>
             <option value="Approved">Approved</option>
-            <option value="Reverted">Reverted</option>
             <option value="Rejected">Rejected</option>
           </select>
         </div>
@@ -203,7 +238,7 @@
             <td>Stores Executor (000037)</td>
             <td>21/04/2025, 12:13 PM</td>
           </tr>
-           <tr class="row-alert-warning">
+          <tr class="row-alert-warning">
             <td class="fw-bold text-dark">
               <div class="dropdown d-flex align-items-center">
                 <button class="btn btn-sm btn-light" data-bs-toggle="dropdown">

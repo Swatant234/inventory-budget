@@ -42,18 +42,13 @@
                     <i class="bi bi-funnel me-2"></i>Filters:
                 </div>
 
-                <div class="col-md-4">
-                    <label class="form-label small fw-bold text-muted">Global Search</label>
-                    <div class="input-group">
-                        <span class="input-group-text bg-white border-end-0"><i
-                                class="bi bi-search text-muted"></i></span>
-                        <input type="text" class="form-control border-start-0"
-                            placeholder="Search Return ID, Orig Req ID, ..." />
-                    </div>
+                <div class="col-md-2">
+                    <label class="form-label small fw-bold text-muted">Return ID</label>
+                    <input type="text" class="form-control" placeholder="Enter Return ID" />
                 </div>
 
 
-                <div class="col-md-2">
+                <!-- <div class="col-md-2">
                     <label class="form-label">Department</label>
                     <select class="form-select">
                         <option>Stores</option>
@@ -65,16 +60,18 @@
                 <div class="col-md-3">
                     <label class="form-label">User</label>
                     <input type="text" class="form-control" value="Search User..." />
+                </div> -->
+                <div class="col-md-2">
+                    <label class="form-label small fw-bold text-muted">Orig. Request ID</label>
+                    <input type="text" class="form-control" placeholder="Enter Orig. Request ID" />
                 </div>
-
 
 
 
                 <div class="col-md-2">
                     <label class="form-label small fw-bold text-muted">Return Status</label>
                     <select class="form-select">
-                        <option value="Draft">Draft</option>
-                        <option value="Submitted">Submitted</option>
+                        <!-- <option value="Draft">Draft</option> -->
                         <option value="Pending">Pending</option>
                         <option value="Approved">Approved</option>
                         <option value="Rejected">Rejected</option>
@@ -1012,7 +1009,7 @@
                             data-bs-dismiss="modal">
                             Discard Changes
                         </button>
-                        <button type="button" class="btn btn-premium">Confirm and Complete Issuance</button>
+                        <button type="button" class="btn btn-premium">Submit</button>
                     </div>
                 </div>
             </div>
