@@ -1430,3 +1430,53 @@ label {
 .text-primary {
   color: var(--brand-primary) !important;
 }
+
+   .grand-total-box {
+            margin-right: 40px;
+            text-align: right;
+        }
+
+        .budget-label {
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #6b7280;
+    letter-spacing: 0.05em;
+}
+
+  .stat-pill {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 0.4rem 1.25rem;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 50px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .stat-group {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.5rem;
+            font-weight: 700;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .stat-count {
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: #1e293b;
+        }
+
+        .stat-divider {
+            width: 1px;
+            height: 14px;
+            background-color: #e2e8f0;
+        }

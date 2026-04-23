@@ -283,18 +283,96 @@
                                                 <div class="section-header">
                                                     <div class="d-flex align-items-center">
                                                         <div class="">
-                                                            <span class="section-tag">Section B: Material Details
+                                                            <span class="section-tag">Section B: Material Requirements
                                                             </span>
                                                         </div>
                                                     </div>
-                                                    <button type="button"
-                                                        class="btn btn-sm btn-outline-primary rounded-pill fw-bold"
-                                                        onclick="addRow()">
-                                                        <i class="bi bi-plus-circle me-1"></i> Add Line Item
-                                                    </button>
+                                                    <div class="d-flex gap-3 align-items-center">
+
+                                                        <div class="stat-pill">
+                                                            <div class="stat-group">
+                                                                <span class="stat-label">Total Available:</span>
+                                                                <span class="stat-count">₹14,000.00</span>
+                                                            </div>
+                                                            <div class="stat-divider"></div>
+                                                            <div class="stat-group">
+                                                                <span class="stat-label">Remaining:</span>
+                                                                <span class="stat-count text-primary">₹12,750.00</span>
+                                                            </div>
+                                                        </div>
+
+                                                        <button type="button"
+                                                            class="btn btn-sm btn-outline-primary rounded-pill fw-bold"
+                                                            onclick="addRow()">
+                                                            <i class="bi bi-plus-circle me-1"></i> Add Line Item
+                                                        </button>
+                                                    </div>
+
                                                 </div>
                                                 <div class="line-item-row">
-                                                    <div class="row g-3">
+                                                    <div class="table-responsive">
+                                                        <table class="table align-middle">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th style="width: 15%;">Item Code</th>
+                                                                    <th style="width: 25%;">Material / Description</th>
+                                                                    <th style="width: 12%;">Budget</th>
+                                                                    <th style="width: 10%;">Qty</th>
+                                                                    <th style="width: 10%;">UOM</th>
+                                                                    <th style="width: 14%;">Unit Price</th>
+                                                                    <th style="width: 12%;">Total Amount</th>
+                                                                    <th style="width: 5%; text-align: center;">Action
+                                                                    </th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody id="prTableBody">
+                                                                <tr>
+                                                                    <td>
+                                                                        <input type="text"
+                                                                            class="form-control form-control-sm"
+                                                                            value="9000-XYZ">
+                                                                    </td>
+                                                                    <td>
+                                                                        <input type="text"
+                                                                            class="form-control fw-bold mb-2"
+                                                                            value="Industrial Precision Bearing">
+                                                                        <textarea class="form-control table-input mt-1"
+                                                                            rows="2"
+                                                                            placeholder="Technical details..."></textarea>
+                                                                    </td>
+                                                                    <td>
+                                                                        <select
+                                                                            class="form-select form-select-sm border-0 bg-light">
+                                                                            <option>OPEX</option>
+                                                                            <option>CAPEX</option>
+                                                                        </select>
+                                                                    </td>
+                                                                    <td><input type="number"
+                                                                            class="form-control form-control-sm"
+                                                                            value="10"></td>
+                                                                    <td><input type="text"
+                                                                            class="form-control form-control-sm bg-light"
+                                                                            value="EA" readonly></td>
+                                                                    <td>
+                                                                        <div class="input-group input-group-sm">
+                                                                            <span
+                                                                                class="input-group-text bg-light border-end-0">₹</span>
+                                                                            <input type="number"
+                                                                                class="form-control form-control-minimal border-start-0"
+                                                                                value="125.00">
+                                                                        </div>
+                                                                    </td>
+                                                                    <td class="line-total text-center">₹1,250.00</td>
+                                                                    <td class="text-center">
+                                                                        <button
+                                                                            class="btn btn-outline-danger btn-sm border-0"><i
+                                                                                class="bi bi-trash3"></i></button>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <!-- <div class="row g-3">
                                                         <div class="col-md-3">
                                                             <label class="form-label small fw-bold text-muted">Budget
                                                                 Selection</label>
@@ -325,7 +403,6 @@
                                                         </div>
                                                     </div>
 
-                                                    <hr class="my-4 opacity-10">
 
                                                     <div class="row g-3">
                                                         <div class="col-md-5">
@@ -388,7 +465,7 @@
                                                                 class="btn btn-outline-danger btn-sm rounded-pill"><i
                                                                     class="bi bi-trash3"></i></button>
                                                         </div>
-                                                    </div>
+                                                    </div> -->
                                                 </div>
                                             </div>
 
@@ -609,8 +686,12 @@
 
 
 
-                <div class="modal-footer justify-content-end">
-
+                <div class="modal-footer justify-content-between">
+                    <div class="grand-total-box">
+                        <div class="budget-label">Grand Total
+                        </div>
+                        <div class="h5 fw-bold mb-0 text-primary">₹1,250.00</div>
+                    </div>
                     <div class="d-flex">
                         <button type="button" class="btn btn-light px-4 py-2 fw-bold text-secondary"
                             data-bs-dismiss="modal">
