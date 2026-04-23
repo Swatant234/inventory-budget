@@ -54,6 +54,21 @@ const sidebarHTML = `
         </div>
     </div>
 </div>
+                           <div class="nav-item">
+    <a href="#budgetCollapse" class="nav-link" data-bs-toggle="collapse" aria-expanded="true">
+        <i class="bi bi-wallet2"></i> 
+        <span>BUDGET</span>
+        <i class="bi bi-chevron-down ms-auto arrow-icon"></i>
+    </a>
+        <div class="collapse show" id="budgetCollapse">
+        <div class="sub-menu-tree">
+            <div class="operations-group">
+                <a href="/inventory-budget/Budget/budget_entry.html" class="tree-link">
+                    Budget Entry
+                </a>
+            </div>
+        </div>
+    </div>
 
 
 </div>
