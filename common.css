@@ -18,6 +18,8 @@
   --sap-readonly: #f8fafc;
   --brand-danger: #ef4444;
   --brand-success: #10b981;
+  --brand-primary: #0076a8;
+  --danger-accent: #f02b59;
 }
 
 body {

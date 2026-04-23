@@ -269,8 +269,7 @@
 
                                                     <div class="col-md-2">
                                                         <label class="form-label">Purchase Group</label>
-                                                        <input type="text" class="form-control"
-                                                            placeholder="" />
+                                                        <input type="text" class="form-control" placeholder="" />
                                                     </div>
 
                                                     <div class="col-md-12">
@@ -320,9 +319,9 @@
                                                         <table class="table align-middle">
                                                             <thead>
                                                                 <tr>
-                                                                    <th style="width: 15%;">Item Code</th>
-                                                                    <th style="width: 25%;">Material / Description</th>
                                                                     <th style="width: 12%;">Budget</th>
+                                                                    <th style="width: 15%;">Item Code / Service Code</th>
+                                                                    <th style="width: 25%;">Material - Description</th>
                                                                     <th style="width: 10%;">Qty</th>
                                                                     <th style="width: 10%;">UOM</th>
                                                                     <th style="width: 14%;">Unit Price</th>
@@ -333,6 +332,13 @@
                                                             </thead>
                                                             <tbody id="prTableBody">
                                                                 <tr>
+                                                                    <td>
+                                                                        <select
+                                                                            class="form-select form-select-sm border-0 bg-light">
+                                                                            <option>OPEX</option>
+                                                                            <option>CAPEX</option>
+                                                                        </select>
+                                                                    </td>
                                                                     <td>
                                                                         <input type="text"
                                                                             class="form-control form-control-sm"
@@ -346,13 +352,7 @@
                                                                             rows="2"
                                                                             placeholder="Technical details..."></textarea>
                                                                     </td>
-                                                                    <td>
-                                                                        <select
-                                                                            class="form-select form-select-sm border-0 bg-light">
-                                                                            <option>OPEX</option>
-                                                                            <option>CAPEX</option>
-                                                                        </select>
-                                                                    </td>
+
                                                                     <td><input type="number"
                                                                             class="form-control form-control-sm"
                                                                             value="10"></td>
@@ -699,7 +699,7 @@
                         <div class="h5 fw-bold mb-0 text-primary">₹1,250.00</div>
                     </div>
                     <div class="d-flex">
-                        <button type="button" class="btn btn-light px-4 py-2 fw-bold text-secondary"
+                        <button type="button" class="btn btn-light px-4 py-2 me-2 fw-bold text-secondary"
                             data-bs-dismiss="modal">
                             Discard Changes
                         </button>
