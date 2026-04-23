@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eConnect | Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../common.css">
+    <link rel="stylesheet" href="../styles.css">
+
+</head>
+
+<body>
+    <div id="sidebar-placeholder"></div>
+    <div id="header-placeholder"></div>
+    <main id="main-wrapper">
+        <div class="sticky-header px-3 py-2 mb-3">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <h6 class="fw-bold mb-1">Purchase Request</h6>
+                    <p class="navp mb-0">Initiate and track material or service procurement requests within the system.
+                    </p>
+                </div>
+
+                <div class="d-flex gap-3">
+                    <button class="btn btn-white shadow-sm border-0 py-2 px-3" style="border-radius: 12px">
+                        <i class="bi bi-download me-2 text-primary"></i>Export
+                    </button>
+                    <button class="btn btn-premium px-4" data-bs-toggle="modal" data-bs-target="#workOrderModal">
+                        <i class="bi bi-plus-lg me-2"></i>New Purchase Request
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="dcard mb-3">
+            <div class="row g-3">
+                <div class="fw-bold text-dark">
+                    <i class="bi bi-funnel me-2"></i>Filters:
+                </div>
+
+                <div class="col-md-2">
+                    <label class="form-label small fw-bold text-muted">PR Number</label>
+                    <input type="text" class="form-control" placeholder="Enter PR Number" />
+                </div>
+
+
+
+                <div class="col-md-2">
+                    <label class="form-label small fw-bold text-muted">Purchase Type</label>
+                    <select class="form-select">
+                        <option>All Types</option>
+                        <option>Asset</option>
+                        <option>Material</option>
+                        <option>Service</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2">
+                    <label class="form-label small fw-bold text-muted">Approval Status</label>
+                    <select class="form-select">
+                        <option value="Pending">Pending</option>
+                        <option value="Approved">Approved</option>
+                        <option value="Posted to SAP">Posted to SAP</option>
+                        <option value="Rejected">Rejected</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2">
+                    <label class="form-label small fw-bold text-muted">From Date</label>
+                    <input type="date" class="form-control" />
+                </div>
+                <div class="col-md-2">
+                    <label class="form-label small fw-bold text-muted">To Date</label>
+                    <input type="date" class="form-control" />
+                </div>
+                <div class="col-md-12 d-flex justify-content-end gap-2">
+                    <button class="btn btn-light shadow-sm px-3 py-2 rounded-3">
+                        <i class="bi bi-arrow-clockwise me-2 text-secondary"></i>
+                        Clear
+                    </button>
+
+                    <button class="btn btn-premium px-4 py-2 rounded-3">
+                        <i class="bi bi-funnel-fill me-2"></i>
+                        Filter
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table class="table table-hover mb-0">
+                <thead>
+                    <tr>
+                        <th><i class="bi bi-hash me-2"></i>PR Number</th>
+
+                        <th>Primary Item</th>
+                        <th>Purchase Type</th>
+                        <th>Total Value</th>
+                        <th>Approval Status</th>
+                        <th>Requested By</th>
+                        <th>Requested On</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="row-alert-warning">
+                        <td class="fw-bold text-dark">
+                            <div class="dropdown d-flex align-items-center">
+                                <button class="btn btn-sm btn-light" data-bs-toggle="dropdown">
+                                    <i class="bi bi-three-dots-vertical"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+                                    <!-- VIEW -->
+                                    <li>
+                                        <span class="d-inline-block w-100" data-bs-toggle="tooltip"
+                                            data-bs-placement="right" title="View">
+                                            <a class="dropdown-item d-flex align-items-center gap-2">
+                                                <i class="bi bi-eye text-primary"></i> View
+                                            </a>
+                                        </span>
+                                    </li>
+
+                                    <!-- REVIEW / APPROVE -->
+                                    <li>
+                                        <span class="d-inline-block w-100" data-bs-toggle="tooltip"
+                                            data-bs-placement="right" title="Edit">
+                                            <a class="dropdown-item d-flex align-items-center gap-2"
+                                                data-bs-toggle="modal" data-bs-target="#workOrderModal">
+                                                <i class="bi bi-pencil-square text-secondary"></i>
+                                                Edit
+                                            </a>
+                                        </span>
+                                    </li>
+
+
+                                </ul>
+
+                                <span class="ms-2">PR-2026-0042</span>
+                            </div>
+                        </td>
+
+                        <td>Cisco Catalyst 9200L Switch</td>
+                        <td>Asset</td>
+                        <td>
+                            <div class="fw-bold text-primary">₹4,500.00</div>
+                        </td>
+                        <td><span class="status pending">Pending</span></td>
+                        <td>Stores Executor (000037)</td>
+                        <td>14/04/2025, 12:13 PM</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="p-4 bg-light bg-opacity-50 border-top d-flex justify-content-between align-items-center">
+                <span class="small text-muted">Showing 1 to 10 of 1,284 entries</span>
+                <nav>
+                    <ul class="pagination pagination-sm m-0">
+                        <li class="page-item disabled">
+                            <a class="page-link border-0 rounded-3" href="#">Prev</a>
+                        </li>
+                        <li class="page-item active">
+                            <a class="page-link border-0 rounded-3 mx-1" href="#">1</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link border-0 rounded-3 mx-1" href="#">2</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link border-0 rounded-3" href="#">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </main>
+
+
+    <div class="modal fade" id="workOrderModal" tabindex="-1">
+        <div class="modal-dialog modal-xl modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header p-3">
+                    <div class="d-flex align-items-center">
+                        <h4 class="modal-title fw-bold">New Purchase Request</h4>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="wo-content">
+                        <div class="sticky-tabs-container">
+                            <!-- MAIN TABS -->
+                            <ul class="nav nav-tabs mb-2 custom-tabs">
+                                <li class="nav-item">
+                                    <button class="nav-link active" data-bs-toggle="tab"
+                                        data-bs-target="#detailsWorkOrder" title="Details">
+                                        <i class="fas fa-clipboard-list"></i>
+                                        <span class="tab-label">Details</span>
+                                    </button>
+                                </li>
+
+                                <li class="nav-item">
+                                    <button class="nav-link" data-bs-toggle="pill" data-bs-target="#filesWorkOrder"
+                                        title="Attachments">
+                                        <i class="fa-solid fa-paperclip"></i>
+                                        <span class="tab-label">Attachments</span>
+                                    </button>
+                                </li>
+
+                                <li class="nav-item">
+                                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#approversWorkOrder"
+                                        title="Approvers">
+                                        <i class="fa fa-users"></i>
+                                        <span class="tab-label">Approvers</span>
+                                    </button>
+                                </li>
+
+                                <li class="nav-item">
+                                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#auditWorkOrder"
+                                        title="Audit Log">
+                                        <i class="fa-solid fa-clock-rotate-left"></i>
+                                        <span class="tab-label">Audit Log</span>
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-content">
+                            <!-- REQUEST -->
+                            <div class="tab-pane fade show active" id="detailsWorkOrder">
+                                <div class="">
+                                    <div class="row g-3">
+                                        <div class="col-12">
+                                            <div class="dcard">
+                                                <!-- <div class="section-header">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="icon-box-primary">
+                                                            <i class="bi bi-hdd-network-fill"></i>
+                                                        </div>
+                                                        <h6 class="section-title text-primary mb-0">Section A: Basic
+                                                            Information</h6>
+                                                    </div>
+                                                </div> -->
+                                                <div class="mb-3">
+                                                    <span class="section-tag">Section A: Header Information</span>
+                                                </div>
+                                                <div class="row g-3">
+                                                    <div class="col-md-2">
+                                                        <label class="form-label">Plant</label>
+                                                        <input type="text" class="form-control sap-input" value="ML11"
+                                                            readonly />
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label class="form-label">Department</label>
+                                                        <select class="form-select">
+                                                            <option>Stores</option>
+                                                            <option>EHS</option>
+                                                            <option>IT</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label class="form-label">Type of Purchase</label>
+                                                        <select class="form-select">
+                                                            <option>Asset</option>
+                                                            <option>Material</option>
+                                                            <option>Service</option>
+                                                        </select>
+                                                    </div>
+
+
+                                                    <div class="col-md-2">
+                                                        <label class="form-label">Purchase Group</label>
+                                                        <input type="text" class="form-control"
+                                                            placeholder="Stores Executor" />
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <div class="dcard">
+                                                <div class="section-header">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="">
+                                                            <span class="section-tag">Section B: Material Details
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <button type="button"
+                                                        class="btn btn-sm btn-outline-primary rounded-pill fw-bold"
+                                                        onclick="addRow()">
+                                                        <i class="bi bi-plus-circle me-1"></i> Add Line Item
+                                                    </button>
+                                                </div>
+                                                <div class="line-item-row">
+                                                    <div class="row g-3">
+                                                        <div class="col-md-3">
+                                                            <label class="form-label small fw-bold text-muted">Budget
+                                                                Selection</label>
+                                                            <select class="form-select">
+                                                                <option>OPERATIONAL-MAINT-2026</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <label class="form-label small fw-bold text-muted">Item
+                                                                Code</label>
+                                                            <input type="text" class="form-control" value="9000-XYZ">
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <label class="form-label small fw-bold text-muted">Master
+                                                                Description</label>
+                                                            <input type="text" class="form-control"
+                                                                value="Industrial Precision Bearing - Type 4">
+                                                        </div>
+                                                        <div class="col-md-1">
+                                                            <label
+                                                                class="form-label small fw-bold text-muted">UOM</label>
+                                                            <input type="text" class="form-control" value="EA">
+                                                        </div>
+                                                        <div class="col-md-2 text-end">
+                                                            <label class="form-label small fw-bold text-muted">Line
+                                                                Total</label>
+                                                            <div class="h5 fw-bold text-primary">₹1,250.00</div>
+                                                        </div>
+                                                    </div>
+
+                                                    <hr class="my-4 opacity-10">
+
+                                                    <div class="row g-3">
+                                                        <div class="col-md-5">
+                                                            <label class="form-label small fw-bold text-muted">Detailed
+                                                                Requirement</label>
+                                                            <textarea class="form-control" rows="1"
+                                                                placeholder="Specify technical dimensions..."></textarea>
+                                                        </div>
+                                                        <div class="col-md-1">
+                                                            <label
+                                                                class="form-label small fw-bold text-muted">Qty</label>
+                                                            <input type="number" class="form-control" value="10">
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <label class="form-label small fw-bold text-muted">Approx
+                                                                Price</label>
+                                                            <input type="number" class="form-control" value="125.00">
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <label class="form-label small fw-bold text-muted">Available
+                                                                Budget</label>
+                                                            <div class="small fw-bold text-success">₹14,000.00</div>
+                                                            <div class="progress mt-1" style="height: 4px;">
+                                                                <div class="progress-bar bg-success" style="width: 70%">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <label class="form-label small fw-bold text-muted">Balance
+                                                                Budget</label>
+                                                            <div class="small fw-bold text-primary">₹12,750.00</div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row g-3 mt-2 align-items-center">
+                                                        <div class="col-md-2">
+                                                            <label class="form-label small fw-bold text-muted">Required
+                                                                By Date</label>
+                                                            <input type="date" class="form-control">
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <label class="form-label small fw-bold text-muted">Employee
+                                                                #</label>
+                                                            <input type="text" class="form-control" value="E-1044">
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <label
+                                                                class="form-label small fw-bold text-muted">Department</label>
+                                                            <input type="text" class="form-control" value="Stores">
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <label
+                                                                class="form-label small fw-bold text-muted">Recommended
+                                                                Vendor</label>
+                                                            <input type="text" class="form-control"
+                                                                placeholder="Preferred Vendor">
+                                                        </div>
+                                                        <div class="col-md-3 text-end pt-3">
+                                                            <button
+                                                                class="btn btn-outline-danger btn-sm rounded-pill"><i
+                                                                    class="bi bi-trash3"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="filesWorkOrder">
+                                <div class="card-box">
+                                    <div class="card-header">Attachments</div>
+                                    <div class="card-body">
+                                        <div class="row g-2 align-items-end">
+                                            <!-- Attachment Type -->
+                                            <div class="col-lg-3 col-md-6">
+                                                <label class="form-label small text-muted">Attachment Type</label>
+                                                <select class="form-select">
+                                                    <option selected disabled>Select type</option>
+                                                    <option>📄 Document</option>
+                                                    <option>🖼️ Image</option>
+                                                    <option>🔗 URL</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- Description -->
+                                            <div class="col-lg-3 col-md-6">
+                                                <label class="form-label small text-muted">Description</label>
+                                                <input type="text" class="form-control"
+                                                    placeholder="Max 100 characters" />
+                                            </div>
+
+                                            <!-- File / URL -->
+                                            <div class="col-lg-5 col-md-8">
+                                                <label class="form-label small text-muted">File / URL</label>
+                                                <input type="file" class="form-control" />
+                                            </div>
+
+                                            <!-- Add Button -->
+                                            <div class="col-lg-1 col-md-4 text-end">
+                                                <button class="btn btn-primary btn-sm w-100">
+                                                    <i class="bi bi-plus-circle"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <small class="text-muted d-block mt-2">
+                                            <i class="bi bi-info-circle me-1"></i>
+                                            Maximum total upload size: 25 MB
+                                        </small>
+
+                                        <div class="table-responsive mt-3">
+                                            <table class="table table-bordered align-middle">
+                                                <thead class="table-light">
+                                                    <tr>
+                                                        <th width="20%">Type</th>
+                                                        <th width="25%">Description</th>
+                                                        <th width="35%">File / URL</th>
+                                                        <th width="10%">Size</th>
+                                                        <th width="10%" class="text-center">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <!-- Document -->
+                                                    <tr>
+                                                        <td>
+                                                            <i class="bi bi-file-earmark-text text-primary"></i>
+                                                            Document
+                                                        </td>
+                                                        <td class="text-truncate" title="Maintenance SOP document">
+                                                            Maintenance SOP document
+                                                        </td>
+                                                        <td>
+                                                            <a href="#" class="text-decoration-none">
+                                                                <i class="bi bi-file-earmark-pdf text-danger me-1"></i>
+                                                                SOP_Maintenance.pdf
+                                                            </a>
+                                                        </td>
+                                                        <td class="text-center">1.2 MB</td>
+                                                        <td class="text-center">
+                                                            <button class="btn btn-sm btn-outline-danger">
+                                                                <i class="bi bi-trash"></i>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+
+                                                    <!-- Image -->
+                                                    <tr>
+                                                        <td>
+                                                            <i class="bi bi-image text-success"></i> Image
+                                                        </td>
+                                                        <td>Equipment condition photo</td>
+                                                        <td>
+                                                            <a href="#">
+                                                                <i class="bi bi-image me-1"></i>
+                                                                motor_photo.jpg
+                                                            </a>
+                                                        </td>
+                                                        <td class="text-center">450 KB</td>
+                                                        <td class="text-center">
+                                                            <button class="btn btn-sm btn-outline-danger">
+                                                                <i class="bi bi-trash"></i>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+
+                                                    <!-- URL -->
+                                                    <tr>
+                                                        <td>
+                                                            <i class="bi bi-link-45deg text-secondary"></i>
+                                                            URL
+                                                        </td>
+                                                        <td>External safety SOP</td>
+                                                        <td>
+                                                            <a href="https://example.com" target="_blank"
+                                                                class="text-decoration-none">
+                                                                <i class="bi bi-box-arrow-up-right me-1"></i>
+                                                                https://example.com
+                                                            </a>
+                                                        </td>
+                                                        <td class="text-center">NA</td>
+                                                        <td class="text-center">
+                                                            <button class="btn btn-sm btn-outline-danger">
+                                                                <i class="bi bi-trash"></i>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="approversWorkOrder">
+                                <table class="table table-sm">
+                                    <tr>
+                                        <th>Approval Level</th>
+                                        <th>Department</th>
+                                        <th>Team Name</th>
+                                        <th>Team Member</th>
+                                    </tr>
+
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Engineering</td>
+                                        <td>Engineering Review Team</td>
+                                        <td>Vikram (000007)</td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div class="tab-pane fade" id="auditWorkOrder">
+                                <table class="table table-hover table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th rowspan="2" style="width: 10%">Action</th>
+                                            <th rowspan="2" style="width: 10%; cursor: pointer">
+                                                Done By
+                                            </th>
+                                            <th rowspan="2" style="width: 10%; cursor: pointer">
+                                                Date & Time
+                                            </th>
+                                            <th colspan="3" class="bg-secondary text-white" style="width: 50%">
+                                                Changes
+                                            </th>
+                                            <th rowspan="2" style="width: 10%">Reason</th>
+                                            <th rowspan="2" style="width: 10%">Status</th>
+                                        </tr>
+                                        <tr class="table-secondary">
+                                            <th style="width: 10%">Field</th>
+                                            <th style="width: 15%">Old Value</th>
+                                            <th style="width: 25%">New Value</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- Example Row with Changes -->
+                                        <tr>
+                                            <td rowspan="2">Update</td>
+                                            <td rowspan="2">John Doe</td>
+                                            <td rowspan="2">2025-12-27 10:00 AM</td>
+                                            <td>Username</td>
+                                            <td>OldUser</td>
+                                            <td>NewUser</td>
+                                            <td rowspan="2">Corrected typo</td>
+                                            <td rowspan="2">
+                                                <span class="badge-status approved">
+                                                    <i class="bi bi-check-circle"></i> Approved
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Email</td>
+                                            <td>old@example.com</td>
+                                            <td>new@example.com</td>
+                                        </tr>
+
+                                        <!-- Example Row with No Changes -->
+                                        <tr>
+                                            <td>Created</td>
+                                            <td>Jane Smith</td>
+                                            <td>2025-12-26 09:30 AM</td>
+                                            <td>NA</td>
+                                            <td>NA</td>
+                                            <td>NA</td>
+                                            <td>Initial creation</td>
+                                            <td>
+                                                <span class="badge-status pending">
+                                                    <i class="bi bi-hourglass-split"></i> Pending
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="modal-footer justify-content-end">
+
+                    <div class="d-flex">
+                        <button type="button" class="btn btn-light px-4 py-2 fw-bold text-secondary"
+                            data-bs-dismiss="modal">
+                            Discard Changes
+                        </button>
+                        <button type="button" class="btn btn-premium">Submit</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../sidebar.js"></script>
+    <script src="../header.js"></script>
+</body>
+
+</html>

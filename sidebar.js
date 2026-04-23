@@ -21,9 +21,7 @@ const sidebarHTML = `
             </a>
 
             <div class="collapse show" id="inventoryCollapse">
-                <div class="sub-menu-tree">
-               
-
+                <div class="sub-menu-tree">            
                     <div class="operations-group">
                         <a href="/inventory-budget/Inward_Inventory/a1.html" class="tree-link">Inward - Inventory</a>
                         <a href="/inventory-budget/Put_Away/a1.html" class="tree-link">Put Away</a>
