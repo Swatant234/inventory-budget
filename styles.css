@@ -95,7 +95,7 @@
 }
 
 .modal-xl {
-      max-width: 98% !important;
+  max-width: 98% !important;
 }
 
 .tab-scroll {
@@ -395,8 +395,6 @@
   padding-top: 5px;
 }
 
-
-
 .nav-tabs .nav-link.active,
 .nav-pills .nav-link.active {
   color: #038fcd !important;
@@ -547,7 +545,6 @@
 .modal-dialog .modal-body {
   padding-top: 0;
 }
-
 
 .breadcrumb h5 {
   font-size: 14px;
@@ -896,4 +893,29 @@
 
 .amountStat {
   font-family: "JetBrains Mono", monospace;
+}
+
+.source-badge {
+  background-color: #f1f3f5;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+
+.form-label-custom {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #495057;
+}
+
+.small, small {
+    font-size: .65rem !important;
+}
+
+.fw-medium {
+    font-weight: 500 !important;
+        font-size: 0.75rem;
+        color: #000;
+
 }
