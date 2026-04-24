@@ -240,9 +240,14 @@
                                                             Information</h6>
                                                     </div>
                                                 </div> -->
-                                                <div class="mb-2">
+                                                <!-- <div class="mb-2">
                                                     <span class="section-tag">Section A: Basic Information</span>
+                                                </div> -->
+                                                <div class="section-tag-line">
+                                                    <span class="section-label">Section A: Basic Details</span>
+                                                    <div class="section-hr"></div>
                                                 </div>
+
                                                 <div class="row g-3">
                                                     <div class="col-md-2">
                                                         <label class="form-label">Plant</label>
@@ -267,8 +272,7 @@
                                                     </div>
                                                     <div class="col-md-3">
                                                         <label class="form-label small fw-bold">Budget Type</label>
-                                                        <select class="form-select"
-                                                            id="budgetType" >
+                                                        <select class="form-select" id="budgetType">
                                                             <option value="CAPEX">CAPEX</option>
                                                             <option value="OPEX">OPEX</option>
                                                         </select>
@@ -277,7 +281,17 @@
 
                                                     <div class="col-md-2">
                                                         <label class="form-label">Purchase Group</label>
-                                                        <input type="text" class="form-control" placeholder="" />
+                                                        <select class="form-select">
+                                                            <option value="PG-01">PG-01</option>
+                                                            <option value="PG-02">PG-02</option>
+                                                            <option value="PG-03">PG-03</option>
+                                                            <option value="PG-04">PG-04</option>
+                                                            <option value="PG-05">PG-05</option>
+                                                            <option value="PG-06">PG-06</option>
+                                                            <option value="PG-07">PG-07</option>
+                                                            <option value="PG-08">PG-08</option>
+
+                                                        </select>
                                                     </div>
 
                                                     <div class="col-md-12">
@@ -293,12 +307,36 @@
 
                                         <div class="col-md-12">
                                             <div class="dcard">
-                                                <div class="section-header">
+                                                <div class="section-tag-line">
+                                                    <span class="section-label">Section B: Material Requirements</span>
+                                                    <div class="section-hr"></div>
+                                                    <div class="stat-pill">
+                                                        <div class="stat-group">
+                                                            <span class="stat-label">Total Available:</span>
+                                                            <span class="stat-count"
+                                                                id="totalAvailable">₹14,000.00</span>
+                                                        </div>
+                                                        <div class="stat-divider"></div>
+                                                        <div class="stat-group">
+                                                            <span class="stat-label">Remaining:</span>
+                                                            <span class="stat-count text-primary"
+                                                                id="totalRemaining">₹12,750.00</span>
+                                                        </div>
+                                                    </div>
+                                                    <button type="button"
+                                                        class="btn btn-sm btn-outline-primary rounded-pill fw-bold"
+                                                        onclick="addRow()">
+                                                        <i class="bi bi-plus-circle me-1"></i> Add New Item
+                                                    </button>
+                                                </div>
+                                                <!-- <div class="section-header">
                                                     <div class="d-flex align-items-center">
                                                         <div class="">
                                                             <span class="section-tag">Section B: Material Requirements
                                                             </span>
                                                         </div>
+
+                                                        
                                                     </div>
                                                     <div class="d-flex gap-3 align-items-center">
 
@@ -323,7 +361,7 @@
                                                         </button>
                                                     </div>
 
-                                                </div>
+                                                </div> -->
                                                 <div class="line-item-row">
                                                     <div class="table-responsive">
                                                         <table class="table align-middle">
@@ -331,52 +369,53 @@
                                                                 <tr>
                                                                     <th style="width: 15%;">Item Code / Service Code
                                                                     </th>
-                                                                    <th style="width: 25%;">Material - Description</th>
-                                                                    <th style="width: 10%;">Qty</th>
+                                                                    <th style="width: 20%;">Material</th>
+                                                                    <th style="width: 25%;">Description</th>
+                                                                    <th style="width: 5%;">Qty</th>
                                                                     <th style="width: 10%;">UOM</th>
-                                                                    <th style="width: 14%;">Unit Price</th>
-                                                                    <th style="width: 12%;">Total Amount</th>
+                                                                    <th style="width: 15%;">Unit Price</th>
+                                                                    <th style="width: 5%;">Total Amount</th>
                                                                     <th style="width: 5%; text-align: center;">Action
                                                                     </th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody id="prTableBody">
                                                                 <tr>
-
-                                                                    <td>
-                                                                        <input type="text"
+                                                                    <td><input type="text"
                                                                             class="form-control form-control-sm"
-                                                                            value="9000-XYZ">
-                                                                    </td>
-                                                                    <td>
-                                                                        <input type="text"
-                                                                            class="form-control fw-bold mb-2"
-                                                                            value="Cisco Catalyst 9200L Switch">
-                                                                        <textarea class="form-control table-input mt-1"
-                                                                            rows="2"
-                                                                            placeholder="Technical details..."></textarea>
+                                                                            value="9000-XYZ"></td>
+                                                                    <td><input type="text" class="form-control fw-bold"
+                                                                            value="Cisco Catalyst 9200L Switch"></td>
+                                                                    <td><textarea class="form-control mt-1" rows="2"
+                                                                            placeholder="Provide model no., dimensions..."></textarea>
                                                                     </td>
 
                                                                     <td><input type="number"
-                                                                            class="form-control form-control-sm"
+                                                                            class="form-control form-control-sm qty-input"
                                                                             value="10"></td>
+
                                                                     <td><input type="text"
                                                                             class="form-control form-control-sm bg-light"
-                                                                            value="EA" readonly></td>
+                                                                            value="Units" readonly></td>
+
                                                                     <td>
                                                                         <div class="input-group input-group-sm">
                                                                             <span
-                                                                                class="input-group-text bg-light border-end-0">₹</span>
+                                                                                class="input-group-text bg-light">₹</span>
                                                                             <input type="number"
-                                                                                class="form-control form-control-minimal border-start-0"
+                                                                                class="form-control price-input"
                                                                                 value="125.00">
                                                                         </div>
                                                                     </td>
-                                                                    <td class="line-total text-center">₹1,250.00</td>
+
+                                                                    <td class="fw-bold text-primary line-total-text">
+                                                                        ₹1,250.00</td>
+
                                                                     <td class="text-center">
-                                                                        <button
-                                                                            class="btn btn-outline-danger btn-sm border-0"><i
-                                                                                class="bi bi-trash3"></i></button>
+                                                                        <button type="button"
+                                                                            class="btn btn-outline-danger btn-sm border-0 remove-row">
+                                                                            <i class="bi bi-trash3"></i>
+                                                                        </button>
                                                                     </td>
                                                                 </tr>
                                                             </tbody>
@@ -698,16 +737,16 @@
 
                 <div class="modal-footer justify-content-between">
                     <div class="grand-total-box">
-                        <div class="budget-label">Grand Total
-                        </div>
-                        <div class="h5 fw-bold mb-0 text-primary">₹1,250.00</div>
+                        <div class="budget-label">Grand Total</div>
+                        <div class="h5 fw-bold mb-0 text-primary" id="grandTotalDisplay">₹1250.00</div>
                     </div>
                     <div class="d-flex">
                         <button type="button" class="btn btn-light px-4 py-2 me-2 fw-bold text-secondary"
                             data-bs-dismiss="modal">
                             Discard Changes
                         </button>
-                        <button type="button" class="btn btn-premium">Submit</button>
+                        <button type="button" class="btn btn-premium">Submit Request <i
+                                class="bi bi-send-fill ms-2"></i></button>
                     </div>
 
                 </div>
@@ -718,36 +757,135 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function () {
-            // Data mapping for budgets
-            const budgetData = {
-                'OPEX': { available: '₹14,000.00', remaining: '₹12,750.00' },
-                'CAPEX': { available: '₹5,00,000.00', remaining: '₹4,50,000.00' }
+            const budgetLimits = {
+                'CAPEX': 500000.00,
+                'OPEX': 14000.00
             };
 
-            function updateBudgetStats(type) {
-                const stats = budgetData[type];
-                $('#totalAvailable').text(stats.available);
-                $('#totalRemaining').text(stats.remaining);
+            const formatINR = (val) => {
+                return '₹' + parseFloat(val).toLocaleString('en-IN', {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2
+                });
+            };
+
+            function updateAllCalculations() {
+                let runningGrandTotal = 0;
+                const currentBudgetType = $('#budgetType').val();
+                const allocatedAmount = budgetLimits[currentBudgetType] || 0;
+
+                // Loop through rows to calculate line totals
+                $('#prTableBody tr').each(function () {
+                    const qty = parseFloat($(this).find('.qty-input').val()) || 0;
+                    const price = parseFloat($(this).find('.price-input').val()) || 0;
+                    const rowTotal = qty * price;
+
+                    $(this).find('.line-total-text').text(formatINR(rowTotal));
+                    runningGrandTotal += rowTotal;
+                });
+
+                // 1. Update the Grand Total Div
+                $('#grandTotalDisplay').text(formatINR(runningGrandTotal));
+
+                // 2. Update Header/Section Stats
+                const remaining = allocatedAmount - runningGrandTotal;
+                $('#totalAvailable').text(formatINR(allocatedAmount));
+                $('#totalRemaining').text(formatINR(remaining));
+
+                // 3. UX: Change color if over budget
+                if (remaining < 0) {
+                    $('#totalRemaining').addClass('text-danger').removeClass('text-primary');
+                    $('#grandTotalDisplay').addClass('text-danger').removeClass('text-primary');
+                } else {
+                    $('#totalRemaining').addClass('text-primary').removeClass('text-danger');
+                    $('#grandTotalDisplay').addClass('text-primary').removeClass('text-danger');
+                }
             }
 
-            // 1. Change Logic: Purchase Type -> Budget Type
+            // Purchase Type Logic: Sets Budget Type automatically
             $('#purchaseType').on('change', function () {
-                const pType = $(this).val();
-
-                if (pType === 'Asset') {
-                    $('#budgetType').val('CAPEX');
+                if ($(this).val() === "Asset") {
+                    $('#budgetType').val('CAPEX').trigger('change');
                 } else {
-                    $('#budgetType').val('OPEX');
+                    $('#budgetType').val('OPEX').trigger('change');
                 }
-
-                // Update stats based on the new auto-selection
-                updateBudgetStats($('#budgetType').val());
             });
 
-            // 2. Change Logic: Manual Budget Change
-            $('#budgetType').on('change', function () {
-                updateBudgetStats($(this).val());
+            // Row Addition
+            window.addRow = function () {
+                const rowHtml = `
+        <tr>
+            <td><input type="text" class="form-control form-control-sm" placeholder="Code"></td>
+            <td><input type="text" class="form-control fw-bold" placeholder="Material"></td>
+            <td><textarea class="form-control" rows="2" placeholder="Provide model no., dimensions ..."></textarea></td>
+            <td><input type="number" class="form-control form-control-sm qty-input" value="1"></td>
+            <td><input type="text" class="form-control form-control-sm bg-light" value="EA" readonly></td>
+            <td>
+                <div class="input-group input-group-sm">
+                    <span class="input-group-text">₹</span>
+                    <input type="number" class="form-control price-input" value="0.00">
+                </div>
+            </td>
+            <td class="fw-bold text-primary line-total-text">₹0.00</td>
+            <td class="text-center">
+                <button type="button" class="btn btn-outline-danger btn-sm border-0 remove-row"><i class="bi bi-trash3"></i></button>
+            </td>
+        </tr>`;
+
+                $('#prTableBody').append(rowHtml);
+                updateAllCalculations();
+            };
+
+            // Listeners
+            $(document).on('input', '.qty-input, .price-input', updateAllCalculations);
+            $('#budgetType').on('change', updateAllCalculations);
+            $(document).on('click', '.remove-row', function () {
+                $(this).closest('tr').remove();
+                updateAllCalculations();
             });
+
+            // Run on Page Load
+            updateAllCalculations();
+        });
+
+        $(document).ready(function () {
+
+            // Function to handle the calculation
+            function updateGrandTotal() {
+                let total = 0;
+
+                // Loop through every row in the table body
+                $('#prTableBody tr').each(function () {
+                    // Find qty and price in the current row
+                    const qty = parseFloat($(this).find('.qty-input').val()) || 0;
+                    const price = parseFloat($(this).find('.price-input').val()) || 0;
+
+                    const lineTotal = qty * price;
+
+                    // Update the line total display in THIS row
+                    $(this).find('.line-total-text').text('₹' + lineTotal.toLocaleString('en-IN', { minimumFractionDigits: 2 }));
+
+                    // Add to the grand total
+                    total += lineTotal;
+                });
+
+                // Update the main Grand Total box
+                $('#grandTotalDisplay').text('₹' + total.toLocaleString('en-IN', { minimumFractionDigits: 2 }));
+            }
+
+            // Trigger calculation when typing in any row
+            $(document).on('input', '.qty-input, .price-input', function () {
+                updateGrandTotal();
+            });
+
+            // Handle row removal
+            $(document).on('click', '.remove-row', function () {
+                $(this).closest('tr').remove();
+                updateGrandTotal();
+            });
+
+            // IMPORTANT: Run this once when the page loads so the 1250 appears immediately
+            updateGrandTotal();
         });
     </script>
 
