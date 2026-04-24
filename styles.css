@@ -395,9 +395,7 @@
   padding-top: 5px;
 }
 
-.sticky-tabs-container {
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
-}
+
 
 .nav-tabs .nav-link.active,
 .nav-pills .nav-link.active {
