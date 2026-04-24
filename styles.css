@@ -95,7 +95,7 @@
 }
 
 .modal-xl {
-  max-width: 98% !important;
+      max-width: 98% !important;
 }
 
 .tab-scroll {
@@ -383,7 +383,7 @@
 
 .wo-content {
   position: relative;
-  padding: 0 10px;
+  /* padding: 0 10px; */
   width: 100%;
 }
 
@@ -547,6 +547,7 @@
 .modal-dialog .modal-body {
   padding-top: 0;
 }
+
 
 .breadcrumb h5 {
   font-size: 14px;
