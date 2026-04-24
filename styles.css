@@ -894,3 +894,7 @@
   height: 1px;
   background: #e2e8f0;
 }
+
+.amountStat {
+  font-family: "JetBrains Mono", monospace;
+}
