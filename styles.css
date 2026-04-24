@@ -71,23 +71,14 @@
   background: var(--brand-primary);
   color: white;
   border: none;
-  border-radius: 12px;
-  padding: 10px 24px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0, 82, 204, 0.2);
-  font-size: 12px;
 }
 
-.btn-premium:hover {
-  color: white;
+.btn-premium:hover,
+.btn-premium:focus {
+  color: white !important;
+  background: var(--brand-primary) !important;
   transform: translateY(-2px);
   box-shadow: 0 6px 15px rgba(0, 82, 204, 0.3);
-  background: var(--brand-primary);
-}
-
-.btn-white {
-  font-size: 12px;
 }
 
 .btn-light {
@@ -101,6 +92,10 @@
 
 .modal-title {
   font-size: 16px;
+}
+
+.modal-xl {
+  max-width: 98% !important;
 }
 
 .sap-lock {
@@ -206,21 +201,6 @@
   background: #ecfdf5;
   color: #065f46;
   border: 1px solid #d1fae5;
-}
-
-.btn-store {
-  background: var(--brand-primary);
-  color: white;
-  border: none;
-  padding: 12px 25px;
-  border-radius: 14px;
-  font-weight: 700;
-  transition: 0.3s;
-}
-
-.btn-store:hover {
-  background: #003a54;
-  transform: translateY(-2px);
 }
 
 .verification-card {
@@ -545,8 +525,6 @@
   box-shadow: 0 0 0 4px rgba(0, 118, 168, 0.1);
 }
 
-
-
 .modal-dialog .modal-body {
   padding-top: 0;
 }
@@ -572,41 +550,17 @@
   color: rgba(33, 37, 41, 0.75);
 }
 
-/* .header-box {
-  padding: 20px;
-  border-bottom: 1px solid rgb(216, 216, 216);
-} */
-
-.btn-outline-primary {
-  color: #0076a8;
-  border-color: #0076a8;
-}
-
-.btn-outline-primary:hover {
-  background-color: #0076a8;
-  color: #fff;
-  border-color: #0076a8;
-}
-
-.btn {
-  font-size: 10px;
-}
-
-
-/* Custom dropdown styling */
 .form-select-brand {
   border-color: #dee2e6;
   color: #333;
 }
 
-/* Change border and glow to brand color on focus */
 .form-select-brand:focus {
   border-color: var(--brand-primary);
   outline: 0;
   box-shadow: 0 0 0 0.25rem rgba(0, 118, 168, 0.15);
 }
 
-/* Style for the headers and icons to match brand */
 .section-header i {
   color: var(--brand-primary);
 }
@@ -620,7 +574,6 @@
   background-color: var(--brand-primary);
   color: white;
 }
-
 
 .section-title {
   font-weight: 600;
@@ -638,13 +591,13 @@
 .label {
   color: #6c757d;
   font-weight: 500;
-  font-size: 10px  !important;
+  font-size: 10px !important;
 }
 
 .form-label {
   color: #6c757d;
   font-weight: 500;
-  font-size: 10px  !important;
+  font-size: 10px !important;
 }
 
 .value {
@@ -673,7 +626,6 @@
   font-size: 10px;
 }
 
-
 .btn-premium-pr {
   background: #fff1f2;
   color: var(--danger-accent);
@@ -686,6 +638,36 @@
 .btn-premium-pr:hover {
   background: var(--danger-accent);
   color: white;
+}
+
+.btn {
+  font-size: 10px;
+}
+
+.btn-outline-primary {
+  color: #0076a8;
+  border-color: #0076a8;
+}
+
+.btn-outline-primary:hover {
+  background-color: #0076a8;
+  color: #fff;
+  border-color: #0076a8;
+}
+
+.btn-store {
+  background: var(--brand-primary);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 14px;
+  font-weight: 700;
+  transition: 0.3s;
+}
+
+.btn-store:hover {
+  background: #003a54;
+  transform: translateY(-2px);
 }
 
 .qty-input {
@@ -859,4 +841,8 @@
   width: 1px;
   height: 14px;
   background-color: #e2e8f0;
+}
+
+.input-group-sm>.btn, .input-group-sm>.form-control, .input-group-sm>.form-select, .input-group-sm>.input-group-text{
+  font-size: 0.75rem !important;
 }
