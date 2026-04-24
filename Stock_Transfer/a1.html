@@ -28,7 +28,7 @@
                     <button class="btn btn-light">
                         <i class="bi bi-download me-2 text-primary"></i>Export
                     </button>
-                    <button class="btn btn-premium px-4" data-bs-toggle="modal" data-bs-target="#masterModal">
+                    <button class="btn btn-premium px-4" data-bs-toggle="modal" data-bs-target="#createModal">
                         <i class="fas fa-exchange-alt me-2"></i>Create Stock Transfer
                     </button>
                 </div>
@@ -264,6 +264,505 @@
                                                         <label class="form-label">Total Stock</label>
                                                         <input type="text" class="form-control sap-input"
                                                             value="1000 Units" readonly />
+                                                    </div>
+
+                                                </div>
+                                                <div class="source-badge mt-3">
+                                                    <label class="form-label-custom text-secondary d-block mb-2">
+                                                        <i class="bi bi-geo-alt-fill me-1"></i>Current Storage
+                                                        Location
+                                                    </label>
+                                                    <div class="row g-2">
+                                                        <div class="col-3">
+                                                            <small class="text-muted d-block">Area</small>
+                                                            <span class="fw-medium">Raw Material WH</span>
+                                                        </div>
+                                                        <div class="col-3">
+                                                            <small class="text-muted d-block">Room</small>
+                                                            <span class="fw-medium">Zone A-01</span>
+                                                        </div>
+                                                        <div class="col-3">
+                                                            <small class="text-muted d-block">Rack</small>
+                                                            <span class="fw-medium">RACK-05</span>
+                                                        </div>
+                                                        <div class="col-3">
+                                                            <small class="text-muted d-block">Bin</small>
+                                                            <span class="fw-medium">BIN-102</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="dcard">
+                                                <!-- <div class="section-header">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="icon-box-primary">
+                                                            <i class="bi bi-hdd-network-fill"></i>
+                                                        </div>
+                                                        <h6 class="section-title text-primary mb-0">Section A: Basic
+                                                            Information</h6>
+                                                    </div>
+                                                </div> -->
+
+                                                <div class="row g-3">
+                                                    <!-- <div class="flow-box">
+                              <div class="flow-step">
+                                <label>Area</label>
+                                <select class="form-select">
+                                  <option>Select Area</option>
+                                  <option>Area A</option>
+                                </select>
+                              </div>
+
+                              <div class="flow-arrow">→</div>
+
+                              <div class="flow-step">
+                                <label>Room</label>
+                                <select class="form-select">
+                                  <option>Select Room</option>
+                                </select>
+                              </div>
+
+                              <div class="flow-arrow">→</div>
+
+                              <div class="flow-step">
+                                <label>Rack</label>
+                                <select class="form-select">
+                                  <option>Select Rack</option>
+                                </select>
+                              </div>
+
+                              <div class="flow-arrow">→</div>
+
+                              <div class="flow-step">
+                                <label>Bin</label>
+                                <select class="form-select">
+                                  <option>Select Bin</option>
+                                </select>
+                              </div>
+                            </div> -->
+
+                                                    <div class="col-md-12">
+                                                        <div
+                                                            class="d-flex align-items-center justify-content-between mb-2">
+
+                                                            <!-- LEFT -->
+                                                            <span class="section-tag">Section B: Transfer Destinations
+                                                                </span>
+
+                                                            <!-- RIGHT GROUP -->
+                                                            <div class="d-flex align-items-center gap-3">
+
+                                                                <!-- Remaining -->
+                                                                <div class="remaining-box text-center px-3 py-1">
+                                                                    Unallocated Balance : <span id="remainingQty">1000</span>
+                                                                </div>
+
+                                                                <!-- Button -->
+                                                                <button
+                                                                    class="btn btn-sm btn-outline-primary rounded-pill px-3 fw-bold"
+                                                                    onclick="addRow()">
+                                                                    + Add Destination
+                                                                </button>
+
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="table-responsive">
+                                                            <table
+                                                                class="table table-bordered align-middle split-table">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th width="12%">Quantity to Move</th>
+                                                                        <th>Target Area</th>
+                                                                        <th>Target Room</th>
+                                                                        <th>Target Rack</th>
+                                                                        <th>Target Bin</th>
+                                                                        <th width="5%"></th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody id="splitBody">
+                                                                    <tr>
+                                                                        <td>
+                                                                            <input type="number"
+                                                                                class="form-control qty-input" value="0"
+                                                                                oninput="calculateRemaining()" />
+                                                                        </td>
+
+                                                                        <td>
+                                                                            <select class="form-select">
+                                                                                <option>Production Floor</option>
+                                                                                <option>Quarantine Area</option>
+                                                                            </select>
+                                                                        </td>
+
+                                                                        <td>
+                                                                            <select class="form-select">
+                                                                                <option>Room 101</option>
+                                                                                <option>Room 201</option>
+                                                                            </select>
+                                                                        </td>
+
+                                                                        <td>
+                                                                            <select class="form-select">
+                                                                                <option>R-A1</option>
+                                                                                <option>R-A2</option>
+                                                                            </select>
+                                                                        </td>
+
+                                                                        <td>
+                                                                            <select class="form-select">
+                                                                                <option>B-001</option>
+                                                                                <option>B-002</option>
+                                                                            </select>
+                                                                        </td>
+
+                                                                        <td>
+
+
+                                                                            <button type="button"
+                                                                                class="btn btn-sm text-danger"
+                                                                                onclick="removeRow(this)">
+                                                                                <i class="bi bi-trash"></i>
+                                                                            </button>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="files">
+                                <div class="card-box">
+                                    <div class="card-header">Attachments</div>
+                                    <div class="card-body">
+                                        <div class="row g-2 align-items-end">
+                                            <!-- Attachment Type -->
+                                            <div class="col-lg-3 col-md-6">
+                                                <label class="form-label small text-muted">Attachment Type</label>
+                                                <select class="form-select">
+                                                    <option selected disabled>Select type</option>
+                                                    <option>📄 Document</option>
+                                                    <option>🖼️ Image</option>
+                                                    <option>🔗 URL</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- Description -->
+                                            <div class="col-lg-3 col-md-6">
+                                                <label class="form-label small text-muted">Description</label>
+                                                <input type="text" class="form-control"
+                                                    placeholder="Max 100 characters" />
+                                            </div>
+
+                                            <!-- File / URL -->
+                                            <div class="col-lg-5 col-md-8">
+                                                <label class="form-label small text-muted">File / URL</label>
+                                                <input type="file" class="form-control" />
+                                            </div>
+
+                                            <!-- Add Button -->
+                                            <div class="col-lg-1 col-md-4 text-end">
+                                                <button class="btn btn-premium btn-sm w-100">
+                                                    <i class="bi bi-plus-circle"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <small class="text-muted d-block mt-2">
+                                            <i class="bi bi-info-circle me-1"></i>
+                                            Maximum total upload size: 25 MB
+                                        </small>
+
+                                        <div class="table-responsive mt-3">
+                                            <table class="table table-bordered align-middle">
+                                                <thead class="table-light">
+                                                    <tr>
+                                                        <th width="20%">Type</th>
+                                                        <th width="25%">Description</th>
+                                                        <th width="35%">File / URL</th>
+                                                        <th width="10%">Size</th>
+                                                        <th width="10%" class="text-center">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <!-- Document -->
+                                                    <tr>
+                                                        <td>
+                                                            <i class="bi bi-file-earmark-text text-primary"></i>
+                                                            Document
+                                                        </td>
+                                                        <td class="text-truncate" title="Maintenance SOP document">
+                                                            Maintenance SOP document
+                                                        </td>
+                                                        <td>
+                                                            <a href="#" class="text-decoration-none">
+                                                                <i class="bi bi-file-earmark-pdf text-danger me-1"></i>
+                                                                SOP_Maintenance.pdf
+                                                            </a>
+                                                        </td>
+                                                        <td class="text-center">1.2 MB</td>
+                                                        <td class="text-center">
+                                                            <button class="btn btn-sm btn-outline-danger">
+                                                                <i class="bi bi-trash"></i>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+
+                                                    <!-- Image -->
+                                                    <tr>
+                                                        <td>
+                                                            <i class="bi bi-image text-success"></i> Image
+                                                        </td>
+                                                        <td>Equipment condition photo</td>
+                                                        <td>
+                                                            <a href="#">
+                                                                <i class="bi bi-image me-1"></i>
+                                                                motor_photo.jpg
+                                                            </a>
+                                                        </td>
+                                                        <td class="text-center">450 KB</td>
+                                                        <td class="text-center">
+                                                            <button class="btn btn-sm btn-outline-danger">
+                                                                <i class="bi bi-trash"></i>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+
+                                                    <!-- URL -->
+                                                    <tr>
+                                                        <td>
+                                                            <i class="bi bi-link-45deg text-secondary"></i>
+                                                            URL
+                                                        </td>
+                                                        <td>External safety SOP</td>
+                                                        <td>
+                                                            <a href="https://example.com" target="_blank"
+                                                                class="text-decoration-none">
+                                                                <i class="bi bi-box-arrow-up-right me-1"></i>
+                                                                https://example.com
+                                                            </a>
+                                                        </td>
+                                                        <td class="text-center">NA</td>
+                                                        <td class="text-center">
+                                                            <button class="btn btn-sm btn-outline-danger">
+                                                                <i class="bi bi-trash"></i>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="approvers">
+                                <table class="table table-sm">
+                                    <tr>
+                                        <th>Approval Level</th>
+                                        <th>Department</th>
+                                        <th>Team Name</th>
+                                        <th>Team Member</th>
+                                    </tr>
+
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Engineering</td>
+                                        <td>Engineering Review Team</td>
+                                        <td>Vikram (000007)</td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div class="tab-pane fade" id="audit">
+                                <table class="table table-hover table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th rowspan="2" style="width: 10%">Action</th>
+                                            <th rowspan="2" style="width: 10%; cursor: pointer">
+                                                Done By
+                                            </th>
+                                            <th rowspan="2" style="width: 10%; cursor: pointer">
+                                                Date & Time
+                                            </th>
+                                            <th colspan="3" class="bg-secondary text-white" style="width: 50%">
+                                                Changes
+                                            </th>
+                                            <th rowspan="2" style="width: 10%">Reason</th>
+                                            <th rowspan="2" style="width: 10%">Status</th>
+                                        </tr>
+                                        <tr class="table-secondary">
+                                            <th style="width: 10%">Field</th>
+                                            <th style="width: 15%">Old Value</th>
+                                            <th style="width: 25%">New Value</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- Example Row with Changes -->
+                                        <tr>
+                                            <td rowspan="2">Update</td>
+                                            <td rowspan="2">John Doe</td>
+                                            <td rowspan="2">2025-12-27 10:00 AM</td>
+                                            <td>Username</td>
+                                            <td>OldUser</td>
+                                            <td>NewUser</td>
+                                            <td rowspan="2">Corrected typo</td>
+                                            <td rowspan="2">
+                                                <span class="badge-status approved">
+                                                    <i class="bi bi-check-circle"></i> Approved
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Email</td>
+                                            <td>old@example.com</td>
+                                            <td>new@example.com</td>
+                                        </tr>
+
+                                        <!-- Example Row with No Changes -->
+                                        <tr>
+                                            <td>Created</td>
+                                            <td>Jane Smith</td>
+                                            <td>2025-12-26 09:30 AM</td>
+                                            <td>NA</td>
+                                            <td>NA</td>
+                                            <td>NA</td>
+                                            <td>Initial creation</td>
+                                            <td>
+                                                <span class="badge-status pending">
+                                                    <i class="bi bi-hourglass-split"></i> Pending
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-light px-4 py-2 fw-bold text-secondary"
+                        data-bs-dismiss="modal">
+                        Discard Changes
+                    </button>
+                    <!-- <button type="button" class="btn btn-premium">Update</button> -->
+                    <button class="btn btn-store" onclick="
+                this.innerHTML =
+                  '<i class=\'bi bi-check-circle-fill me-2\'></i>Transfered';
+                this.classList.remove('btn-store');
+                this.classList.add('status-stored');
+              ">
+                        Transfer
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="createModal" tabindex="-1">
+        <div class="modal-dialog modal-xl modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header p-3">
+                    <div class="d-flex align-items-center">
+                        <h4 class="modal-title fw-bold">Stock Transfer</h4>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="wo-content">
+                        <div class="sticky-tabs-container">
+                            <!-- MAIN TABS -->
+                            <ul class="nav nav-tabs mb-2 custom-tabs">
+                                <li class="nav-item">
+                                    <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#details"
+                                        title="Details">
+                                        <i class="fas fa-clipboard-list"></i>
+                                        <span class="tab-label">Details</span>
+                                    </button>
+                                </li>
+                                <!-- 
+                  <li class="nav-item">
+                    <button
+                      class="nav-link"
+                      data-bs-toggle="pill"
+                      data-bs-target="#files"
+                      title="Attachments"
+                    >
+                      <i class="fa-solid fa-paperclip"></i>
+                      <span class="tab-label">Attachments</span>
+                    </button>
+                  </li> -->
+
+                                <li class="nav-item">
+                                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#approvers"
+                                        title="Approvers">
+                                        <i class="fa fa-users"></i>
+                                        <span class="tab-label">Approvers</span>
+                                    </button>
+                                </li>
+
+                                <li class="nav-item">
+                                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#audit"
+                                        title="Audit Log">
+                                        <i class="fa-solid fa-clock-rotate-left"></i>
+                                        <span class="tab-label">Audit Log</span>
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-content">
+                            <!-- REQUEST -->
+                            <div class="tab-pane fade show active" id="details">
+                                <div class="">
+                                    <div class="row g-3">
+                                        <div class="col-12">
+                                            <div class="dcard">
+                                                <!-- <div class="section-header">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="icon-box-primary">
+                                                            <i class="bi bi-hdd-network-fill"></i>
+                                                        </div>
+                                                        <h6 class="section-title text-primary mb-0">Section A: Basic
+                                                            Information</h6>
+                                                    </div>
+                                                </div> -->
+                                                <div class="mb-2">
+                                                    <span class="section-tag">Section A: Source Material</span>
+                                                </div>
+                                                <div class="row g-3">
+                                                    <div class="col-md-3">
+                                                        <label class="form-label">Material Code</label>
+
+                                                        <input type="text" class="form-control"
+                                                            value="" placeholder="Enter Material Code" />
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label class="form-label">Description</label>
+                                                        <input type="text" class="form-control" placeholder="auto"
+                                                            value=""
+                                                             />
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label class="form-label">Batch</label>
+                                                        <input type="text" class="form-control" placeholder="Enter Batch"
+                                                             />
+                                                    </div>
+
+                    
+                                                    <div class="col-md-2">
+                                                        <label class="form-label">Total Stock</label>
+                                                        <input type="text" class="form-control"
+                                                            value="Enter Qty" readonly />
                                                     </div>
 
                                                 </div>
