@@ -12,13 +12,14 @@
   font-weight: 800;
   text-transform: uppercase;
   color: #64748b;
+  border: 1px solid #f1f5f9;
 }
 
 .table tbody td {
   padding: 16px 20px;
   font-size: 10px;
   vertical-align: middle;
-  border-bottom: 1px solid #f1f5f9;
+  border: 1px solid #f1f5f9;
 }
 
 .row-alert-danger {
@@ -682,10 +683,10 @@
   transition: 0.3s;
 }
 
-.btn-store:hover {
+/* .btn-store:hover {
   background: #003a54;
   transform: translateY(-2px);
-}
+} */
 
 .qty-input {
   width: 80px;
@@ -902,20 +903,126 @@
   padding: 12px;
 }
 
-
 .form-label-custom {
-    font-size: 0.7rem;
-    font-weight: 600;
-    color: #495057;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #495057;
 }
 
-.small, small {
-    font-size: .65rem !important;
+.small,
+small {
+  font-size: 0.65rem !important;
 }
 
 .fw-medium {
-    font-weight: 500 !important;
-        font-size: 0.75rem;
-        color: #000;
+  font-weight: 500 !important;
+  font-size: 0.75rem;
+  color: #000;
+}
 
+.btn-edit-action {
+  background-color: #f0f7ff;
+  color: var(--brand-primary);
+  border: none;
+  border-radius: 6px;
+  padding: 2px 4px;
+  transition: all 0.2s ease-in-out;
+  font-size: 11px;
+}
+
+.btn-edit-action:hover {
+  background-color: var(--brand-primary);
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(13, 110, 253, 0.15);
+}
+
+.custom-tooltip .tooltip-inner {
+  font-size: 10px;
+  background-color: #212529; /* Darker professional grey */
+}
+
+/* checklist */
+
+.instruction-text {
+  font-weight: 600;
+  color: #1e293b;
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.8rem;
+}
+.sub-instruction {
+  font-size: 0.6rem;
+  color: #64748b;
+  line-height: 1.4;
+}
+
+/* Custom Light Shaded Palette */
+.badge-soft-internal {
+  background-color: #e0e7ff; /* Soft Indigo */
+  color: #4338ca;
+  border: 1px solid #c7d2fe;
+}
+
+.badge-soft-external {
+  background-color: #fef3c7; /* Soft Amber */
+  color: #b45309;
+  border: 1px solid #fde68a;
+}
+
+.badge-soft-hybrid {
+  background-color: #dcfce7; /* Soft Emerald */
+  color: #15803d;
+  border: 1px solid #bbf7d0;
+}
+
+/* Minimalistic Styling */
+.badge-minimal {
+  font-weight: 600;
+  font-size: 0.5rem;
+  padding: 0.45em 0.85em;
+  border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.photo-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  transition: 0.2s;
+}
+
+.pill-yes {
+  background-color: #fff1f2; /* Lightest Rose */
+  color: #e11d48; /* Rose Red */
+  /* No border for ultra-minimal look */
+}
+
+.pill-no {
+  background-color: #f8fafc;
+  color: #cbd5e1;
+}
+
+.accordion-button {
+  font-size: 0.85rem;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #f0f7ff;
+  color: #005eb8;
+  box-shadow: none;
+}
+.accordion-item {
+  border-radius: 8px !important;
+  overflow: hidden;
+  margin-bottom: 15px;
+  border: 1px solid #e2e8f0;
 }

@@ -1,820 +1,1458 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>eConnect | Dashboard</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../common.css">
-    <link rel="stylesheet" href="../styles.css">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../common.css" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
 
-</head>
-
-<body>
+  <body>
     <div id="sidebar-placeholder"></div>
     <div id="header-placeholder"></div>
     <main id="main-wrapper">
-        <div class="sticky-header px-3 py-2 mb-2">
-            <div class="d-flex justify-content-between align-items-center">
-                <div>
-                    <h6 class="fw-bold mb-1">Purchase Request</h6>
-                    <p class="navp mb-0">Initiate and track material or service procurement requests within the system.
-                    </p>
-                </div>
+      <div class="sticky-header px-3 py-2 mb-2">
+        <div class="d-flex justify-content-between align-items-center">
+          <div>
+            <h6 class="fw-bold mb-1">Purchase Request</h6>
+            <p class="navp mb-0">
+              Initiate and track material or service procurement requests within
+              the system.
+            </p>
+          </div>
 
-                <div class="d-flex gap-3">
-                    <button class="btn btn-light">
-                        <i class="bi bi-download me-2 text-primary"></i>Export
-                    </button>
-                    <button class="btn btn-premium px-4" data-bs-toggle="modal" data-bs-target="#workOrderModal">
-                        <i class="bi bi-plus-lg me-2"></i>New PR
-                    </button>
-                </div>
-            </div>
+          <div class="d-flex gap-3">
+            <button class="btn btn-light">
+              <i class="bi bi-download me-2 text-primary"></i>Export
+            </button>
+            <button
+              class="btn btn-premium px-4"
+              data-bs-toggle="modal"
+              data-bs-target="#workOrderModal"
+            >
+              <i class="bi bi-plus-lg me-2"></i>New PR
+            </button>
+          </div>
         </div>
+      </div>
 
-        <div class="dcard mb-2">
-            <div class="row g-3">
-                <div class="fw-bold text-dark">
-                    <i class="bi bi-funnel me-2"></i>Filters:
-                </div>
+      <div class="dcard mb-2">
+        <div class="row g-3">
+          <div class="fw-bold text-dark">
+            <i class="bi bi-funnel me-2"></i>Filters:
+          </div>
 
-                <div class="col-md-2">
-                    <label class="form-label small fw-bold text-muted">PR Number</label>
-                    <input type="text" class="form-control" placeholder="Enter PR Number" />
-                </div>
+          <div class="col-md-2">
+            <label class="form-label small fw-bold text-muted">PR Number</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Enter PR Number"
+            />
+          </div>
 
+          <div class="col-md-2">
+            <label class="form-label small fw-bold text-muted"
+              >Purchase Type</label
+            >
+            <select class="form-select">
+              <option>All Types</option>
+              <option>Asset</option>
+              <option>Material</option>
+              <option>Service</option>
+            </select>
+          </div>
 
+          <div class="col-md-2">
+            <label class="form-label small fw-bold text-muted"
+              >Approval Status</label
+            >
+            <select class="form-select">
+              <option value="Pending">Pending</option>
+              <option value="Approved">Approved</option>
+              <option value="Posted to SAP">Posted to SAP</option>
+              <option value="Rejected">Rejected</option>
+            </select>
+          </div>
 
-                <div class="col-md-2">
-                    <label class="form-label small fw-bold text-muted">Purchase Type</label>
-                    <select class="form-select">
-                        <option>All Types</option>
-                        <option>Asset</option>
-                        <option>Material</option>
-                        <option>Service</option>
-                    </select>
-                </div>
+          <div class="col-md-2">
+            <label class="form-label small fw-bold text-muted">From Date</label>
+            <input type="date" class="form-control" />
+          </div>
+          <div class="col-md-2">
+            <label class="form-label small fw-bold text-muted">To Date</label>
+            <input type="date" class="form-control" />
+          </div>
+          <div class="col-md-12 d-flex justify-content-end gap-2">
+            <button class="btn btn-light">
+              <i class="bi bi-arrow-clockwise me-2 text-secondary"></i>
+              Clear
+            </button>
 
-                <div class="col-md-2">
-                    <label class="form-label small fw-bold text-muted">Approval Status</label>
-                    <select class="form-select">
-                        <option value="Pending">Pending</option>
-                        <option value="Approved">Approved</option>
-                        <option value="Posted to SAP">Posted to SAP</option>
-                        <option value="Rejected">Rejected</option>
-                    </select>
-                </div>
-
-                <div class="col-md-2">
-                    <label class="form-label small fw-bold text-muted">From Date</label>
-                    <input type="date" class="form-control" />
-                </div>
-                <div class="col-md-2">
-                    <label class="form-label small fw-bold text-muted">To Date</label>
-                    <input type="date" class="form-control" />
-                </div>
-                <div class="col-md-12 d-flex justify-content-end gap-2">
-                    <button class="btn btn-light">
-                        <i class="bi bi-arrow-clockwise me-2 text-secondary"></i>
-                        Clear
-                    </button>
-
-                    <button class="btn btn-premium">
-                        <i class="bi bi-funnel-fill me-2"></i>
-                        Filter
-                    </button>
-                </div>
-            </div>
+            <button class="btn btn-premium">
+              <i class="bi bi-funnel-fill me-2"></i>
+              Filter
+            </button>
+          </div>
         </div>
+      </div>
 
-        <div class="table-container">
-            <table class="table table-hover mb-0">
-                <thead>
-                    <tr>
-                        <th><i class="bi bi-hash me-2"></i>PR Number</th>
+      <div class="table-container">
+        <table class="table table-hover mb-0">
+          <thead>
+            <tr>
+              <th><i class="bi bi-hash me-2"></i>PR Number</th>
 
-                        <th>Primary Item</th>
-                        <th>Purchase Type</th>
-                        <th>Total Value</th>
-                        <th>Approval Status</th>
-                        <th>Requested By</th>
-                        <th>Requested On</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="row-alert-warning">
-                        <td class="fw-bold text-dark">
-                            <div class="dropdown d-flex align-items-center">
-                                <button class="btn btn-sm btn-light" data-bs-toggle="dropdown">
-                                    <i class="bi bi-three-dots-vertical"></i>
-                                </button>
-                                <ul class="dropdown-menu dropdown-menu-end shadow-sm">
-                                    <!-- VIEW -->
-                                    <li>
-                                        <span class="d-inline-block w-100" data-bs-toggle="tooltip"
-                                            data-bs-placement="right" title="View">
-                                            <a class="dropdown-item d-flex align-items-center gap-2">
-                                                <i class="bi bi-eye text-primary"></i> View
-                                            </a>
-                                        </span>
-                                    </li>
+              <th>Primary Item</th>
+              <th>Purchase Type</th>
+              <th>Total Value</th>
+              <th>Approval Status</th>
+              <th>Requested By</th>
+              <th>Requested On</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="row-alert-warning">
+              <td class="fw-bold text-dark">
+                <div class="dropdown d-flex align-items-center">
+                  <button
+                    class="btn btn-sm btn-light"
+                    data-bs-toggle="dropdown"
+                  >
+                    <i class="bi bi-three-dots-vertical"></i>
+                  </button>
+                  <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+                    <!-- VIEW -->
+                    <li>
+                      <span
+                        class="d-inline-block w-100"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="right"
+                        title="View"
+                      >
+                        <a
+                          class="dropdown-item d-flex align-items-center gap-2"
+                        >
+                          <i class="bi bi-eye text-primary"></i> View
+                        </a>
+                      </span>
+                    </li>
 
-                                    <!-- REVIEW / APPROVE -->
-                                    <li>
-                                        <span class="d-inline-block w-100" data-bs-toggle="tooltip"
-                                            data-bs-placement="right" title="Edit">
-                                            <a class="dropdown-item d-flex align-items-center gap-2"
-                                                data-bs-toggle="modal" data-bs-target="#workOrderModal">
-                                                <i class="bi bi-pencil-square text-secondary"></i>
-                                                Edit
-                                            </a>
-                                        </span>
-                                    </li>
+                    <!-- REVIEW / APPROVE -->
+                    <li>
+                      <span
+                        class="d-inline-block w-100"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="right"
+                        title="Edit"
+                      >
+                        <a
+                          class="dropdown-item d-flex align-items-center gap-2"
+                          data-bs-toggle="modal"
+                          data-bs-target="#workOrderModal"
+                        >
+                          <i class="bi bi-pencil-square text-secondary"></i>
+                          Edit
+                        </a>
+                      </span>
+                    </li>
+                  </ul>
 
+                  <span class="ms-2">PR-2026-0042</span>
+                </div>
+              </td>
 
-                                </ul>
-
-                                <span class="ms-2">PR-2026-0042</span>
-                            </div>
-                        </td>
-
-                        <td>Cisco Catalyst 9200L Switch</td>
-                        <td>Asset</td>
-                        <td>
-                            <div class="fw-bold text-primary">₹4,500.00</div>
-                        </td>
-                        <td><span class="status pending">Pending</span></td>
-                        <td>Stores Executor (000037)</td>
-                        <td>14/04/2025, 12:13 PM</td>
-                    </tr>
-                </tbody>
-            </table>
-            <div class="p-4 bg-light bg-opacity-50 border-top d-flex justify-content-between align-items-center">
-                <span class="small text-muted">Showing 1 to 10 of 1,284 entries</span>
-                <nav>
-                    <ul class="pagination pagination-sm m-0">
-                        <li class="page-item disabled">
-                            <a class="page-link border-0 rounded-3" href="#">Prev</a>
-                        </li>
-                        <li class="page-item active">
-                            <a class="page-link border-0 rounded-3 mx-1" href="#">1</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link border-0 rounded-3 mx-1" href="#">2</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link border-0 rounded-3" href="#">Next</a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
+              <td>Cisco Catalyst 9200L Switch</td>
+              <td>Asset</td>
+              <td>
+                <div class="fw-bold text-primary">₹4,500.00</div>
+              </td>
+              <td><span class="status pending">Pending</span></td>
+              <td>Stores Executor (000037)</td>
+              <td>14/04/2025, 12:13 PM</td>
+            </tr>
+          </tbody>
+        </table>
+        <div
+          class="p-4 bg-light bg-opacity-50 border-top d-flex justify-content-between align-items-center"
+        >
+          <span class="small text-muted">Showing 1 to 10 of 1,284 entries</span>
+          <nav>
+            <ul class="pagination pagination-sm m-0">
+              <li class="page-item disabled">
+                <a class="page-link border-0 rounded-3" href="#">Prev</a>
+              </li>
+              <li class="page-item active">
+                <a class="page-link border-0 rounded-3 mx-1" href="#">1</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link border-0 rounded-3 mx-1" href="#">2</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link border-0 rounded-3" href="#">Next</a>
+              </li>
+            </ul>
+          </nav>
         </div>
+      </div>
     </main>
 
-
     <div class="modal fade" id="workOrderModal" tabindex="-1">
-        <div class="modal-dialog modal-xl modal-dialog-scrollable modal-full-height">
-            <div class="modal-content">
-                <div class="modal-header p-3">
-                    <div class="d-flex align-items-center">
-                        <h4 class="modal-title fw-bold">New Purchase Request</h4>
-                    </div>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
+      <div
+        class="modal-dialog modal-xl modal-dialog-scrollable modal-full-height"
+      >
+        <div class="modal-content">
+          <div class="modal-header p-3">
+            <div class="d-flex align-items-center">
+              <h4 class="modal-title fw-bold">New Purchase Request</h4>
+            </div>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
 
-                <div class="modal-body">
-                    <div class="wo-content">
-                        <div class="sticky-tabs-container">
-                            <!-- MAIN TABS -->
-                            <ul class="nav nav-tabs mb-2 custom-tabs">
-                                <li class="nav-item">
+          <div class="modal-body">
+            <div class="wo-content">
+              <div class="sticky-tabs-container">
+                <!-- MAIN TABS -->
+                <ul class="nav nav-tabs mb-2 custom-tabs">
+                  <!-- <li class="nav-item">
                                     <button class="nav-link active" data-bs-toggle="tab"
                                         data-bs-target="#detailsWorkOrder" title="Details">
                                         <i class="fas fa-clipboard-list"></i>
                                         <span class="tab-label">Details</span>
                                     </button>
-                                </li>
+                                </li> -->
 
-                                <li class="nav-item">
-                                    <button class="nav-link" data-bs-toggle="pill" data-bs-target="#filesWorkOrder"
-                                        title="Attachments">
-                                        <i class="fa-solid fa-paperclip"></i>
-                                        <span class="tab-label">Attachments</span>
-                                    </button>
-                                </li>
+                  <li class="nav-item">
+                    <button
+                      class="nav-link active"
+                      data-bs-toggle="tab"
+                      data-bs-target="#headerDetailsWorkOrder"
+                      title="Header Details"
+                    >
+                      <i class="fas fa-file-alt"></i>
+                      <span class="tab-label">Header Details</span>
+                    </button>
+                  </li>
 
-                                <li class="nav-item">
-                                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#approversWorkOrder"
-                                        title="Approvers">
-                                        <i class="fa fa-users"></i>
-                                        <span class="tab-label">Approvers</span>
-                                    </button>
-                                </li>
+                  <!-- ITEM DETAILS -->
+                  <li class="nav-item">
+                    <button
+                      class="nav-link"
+                      data-bs-toggle="tab"
+                      data-bs-target="#itemDetailsWorkOrder"
+                      title="Item Details"
+                    >
+                      <i class="fas fa-list"></i>
+                      <span class="tab-label">Item Details</span>
+                    </button>
+                  </li>
 
-                                <li class="nav-item">
-                                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#auditWorkOrder"
-                                        title="Audit Log">
-                                        <i class="fa-solid fa-clock-rotate-left"></i>
-                                        <span class="tab-label">Audit Log</span>
-                                    </button>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="tab-content">
-                            <!-- REQUEST -->
-                            <div class="tab-pane fade show active" id="detailsWorkOrder">
-                                <div class="">
-                                    <div class="row g-3">
-                                        <div class="col-12">
-                                            <div class="dcard">
-                                                <!-- <div class="section-header">
-                                                    <div class="d-flex align-items-center">
-                                                        <div class="icon-box-primary">
-                                                            <i class="bi bi-hdd-network-fill"></i>
-                                                        </div>
-                                                        <h6 class="section-title text-primary mb-0">Section A: Basic
-                                                            Information</h6>
-                                                    </div>
-                                                </div> -->
-                                                <!-- <div class="mb-2">
-                                                    <span class="section-tag">Section A: Basic Information</span>
-                                                </div> -->
-                                                <div class="section-tag-line">
-                                                    <span class="section-label">Section A: Basic Details</span>
-                                                    <div class="section-hr"></div>
-                                                </div>
+                  <li class="nav-item">
+                    <button
+                      class="nav-link"
+                      data-bs-toggle="pill"
+                      data-bs-target="#filesWorkOrder"
+                      title="Attachments"
+                    >
+                      <i class="fa-solid fa-paperclip"></i>
+                      <span class="tab-label">Attachments</span>
+                    </button>
+                  </li>
 
-                                                <div class="row g-3">
-                                                    <div class="col-md-2">
-                                                        <label class="form-label">Plant</label>
-                                                        <input type="text" class="form-control sap-input" value="ML11"
-                                                            readonly />
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <label class="form-label">Department</label>
-                                                        <select class="form-select">
-                                                            <option>Stores</option>
-                                                            <option>EHS</option>
-                                                            <option>IT</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="col-md-3">
-                                                        <label class="form-label small fw-bold">Type of Purchase</label>
-                                                        <select class="form-select" id="purchaseType">
-                                                            <option value="Asset">Asset</option>
-                                                            <option value="Material">Material</option>
-                                                            <option value="Service">Service</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="col-md-3">
-                                                        <label class="form-label small fw-bold">Budget Type</label>
-                                                        <select class="form-select" id="budgetType">
-                                                            <option value="CAPEX">CAPEX</option>
-                                                            <option value="OPEX">OPEX</option>
-                                                        </select>
-                                                    </div>
+                  <li class="nav-item">
+                    <button
+                      class="nav-link"
+                      data-bs-toggle="tab"
+                      data-bs-target="#approversWorkOrder"
+                      title="Approvers"
+                    >
+                      <i class="fa fa-users"></i>
+                      <span class="tab-label">Approvers</span>
+                    </button>
+                  </li>
 
+                  <li class="nav-item">
+                    <button
+                      class="nav-link"
+                      data-bs-toggle="tab"
+                      data-bs-target="#auditWorkOrder"
+                      title="Audit Log"
+                    >
+                      <i class="fa-solid fa-clock-rotate-left"></i>
+                      <span class="tab-label">Audit Log</span>
+                    </button>
+                  </li>
+                </ul>
+              </div>
+              <div class="tab-content">
+                <!-- REQUEST -->
+                <div
+                  class="tab-pane fade show active"
+                  id="headerDetailsWorkOrder"
+                >
+                  <div class="">
+                    <div class="row g-3">
+                      <div class="col-12">
+                        <div class="dcard">
+                          <div class="section-tag-line">
+                            <span class="section-label"
+                              >Section A: Header Details</span
+                            >
+                            <div class="section-hr"></div>
+                          </div>
 
-                                                    <div class="col-md-2">
-                                                        <label class="form-label">Purchase Group</label>
-                                                        <select class="form-select">
-                                                            <option value="PG-01">PG-01</option>
-                                                            <option value="PG-02">PG-02</option>
-                                                            <option value="PG-03">PG-03</option>
-                                                            <option value="PG-04">PG-04</option>
-                                                            <option value="PG-05">PG-05</option>
-                                                            <option value="PG-06">PG-06</option>
-                                                            <option value="PG-07">PG-07</option>
-                                                            <option value="PG-08">PG-08</option>
-
-                                                        </select>
-                                                    </div>
-
-                                                    <div class="col-md-12">
-                                                        <label class="form-label">Justification
-                                                        </label>
-                                                        <textarea type="text" class="form-control"
-                                                            placeholder="Enter justification (e.g., stock shortage, new requirement, replacement, project need)"></textarea>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-12">
-                                            <div class="dcard">
-                                                <div class="section-tag-line">
-                                                    <span class="section-label">Section B: Material Requirements</span>
-                                                    <div class="section-hr"></div>
-                                                    <div class="stat-pill">
-                                                        <div class="stat-group">
-                                                            <span class="stat-label">Total Available:</span>
-                                                            <span class="stat-count"
-                                                                id="totalAvailable">₹14,000.00</span>
-                                                        </div>
-                                                        <div class="stat-divider"></div>
-                                                        <div class="stat-group">
-                                                            <span class="stat-label">Remaining:</span>
-                                                            <span class="stat-count text-primary"
-                                                                id="totalRemaining">₹12,750.00</span>
-                                                        </div>
-                                                    </div>
-                                                    <button type="button"
-                                                        class="btn btn-sm btn-outline-primary rounded-pill fw-bold"
-                                                        onclick="addRow()">
-                                                        <i class="bi bi-plus-circle me-1"></i> Add New Item
-                                                    </button>
-                                                </div>
-                                                <!-- <div class="section-header">
-                                                    <div class="d-flex align-items-center">
-                                                        <div class="">
-                                                            <span class="section-tag">Section B: Material Requirements
-                                                            </span>
-                                                        </div>
-
-                                                        
-                                                    </div>
-                                                    <div class="d-flex gap-3 align-items-center">
-
-                                                        <div class="stat-pill">
-                                                            <div class="stat-group">
-                                                                <span class="stat-label">Total Available:</span>
-                                                                <span class="stat-count"
-                                                                    id="totalAvailable">₹14,000.00</span>
-                                                            </div>
-                                                            <div class="stat-divider"></div>
-                                                            <div class="stat-group">
-                                                                <span class="stat-label">Remaining:</span>
-                                                                <span class="stat-count text-primary"
-                                                                    id="totalRemaining">₹12,750.00</span>
-                                                            </div>
-                                                        </div>
-
-                                                        <button type="button"
-                                                            class="btn btn-sm btn-outline-primary rounded-pill fw-bold"
-                                                            onclick="addRow()">
-                                                            <i class="bi bi-plus-circle me-1"></i> Add Line Item
-                                                        </button>
-                                                    </div>
-
-                                                </div> -->
-                                                <div class="line-item-row">
-                                                    <div class="table-responsive">
-                                                        <table class="table align-middle">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th style="width: 15%;">Item Code / Service Code
-                                                                    </th>
-                                                                    <th style="width: 20%;">Material</th>
-                                                                    <th style="width: 25%;">Description</th>
-                                                                    <th style="width: 5%;">Qty</th>
-                                                                    <th style="width: 10%;">UOM</th>
-                                                                    <th style="width: 15%;">Unit Price</th>
-                                                                    <th style="width: 5%;">Total Amount</th>
-                                                                    <th style="width: 5%; text-align: center;">Action
-                                                                    </th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody id="prTableBody">
-                                                                <tr>
-                                                                    <td><input type="text"
-                                                                            class="form-control form-control-sm"
-                                                                            value="9000-XYZ"></td>
-                                                                    <td><input type="text" class="form-control fw-bold"
-                                                                            value="Cisco Catalyst 9200L Switch"></td>
-                                                                    <td><textarea class="form-control mt-1" rows="2"
-                                                                            placeholder="Provide model no., dimensions..."></textarea>
-                                                                    </td>
-
-                                                                    <td><input type="number"
-                                                                            class="form-control form-control-sm qty-input"
-                                                                            value="10"></td>
-
-                                                                    <td><input type="text"
-                                                                            class="form-control form-control-sm bg-light"
-                                                                            value="Units" readonly></td>
-
-                                                                    <td>
-                                                                        <div class="input-group input-group-sm">
-                                                                            <span
-                                                                                class="input-group-text bg-light">₹</span>
-                                                                            <input type="number"
-                                                                                class="form-control price-input"
-                                                                                value="125.00">
-                                                                        </div>
-                                                                    </td>
-
-                                                                    <td class="fw-bold text-primary amountStat">
-                                                                        ₹1,250.00</td>
-
-                                                                    <td class="text-center">
-                                                                        <button type="button"
-                                                                            class="btn btn-outline-danger btn-sm border-0 remove-row">
-                                                                            <i class="bi bi-trash3"></i>
-                                                                        </button>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                    <!-- <div class="row g-3">
-                                                        <div class="col-md-3">
-                                                            <label class="form-label small fw-bold text-muted">Budget
-                                                                Selection</label>
-                                                            <select class="form-select">
-                                                                <option>OPERATIONAL-MAINT-2026</option>
-                                                            </select>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <label class="form-label small fw-bold text-muted">Item
-                                                                Code</label>
-                                                            <input type="text" class="form-control" value="9000-XYZ">
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <label class="form-label small fw-bold text-muted">Master
-                                                                Description</label>
-                                                            <input type="text" class="form-control"
-                                                                value="Industrial Precision Bearing - Type 4">
-                                                        </div>
-                                                        <div class="col-md-1">
-                                                            <label
-                                                                class="form-label small fw-bold text-muted">UOM</label>
-                                                            <input type="text" class="form-control" value="EA">
-                                                        </div>
-                                                        <div class="col-md-2 text-end">
-                                                            <label class="form-label small fw-bold text-muted">Line
-                                                                Total</label>
-                                                            <div class="h5 fw-bold text-primary">₹1,250.00</div>
-                                                        </div>
-                                                    </div>
-
-
-                                                    <div class="row g-3">
-                                                        <div class="col-md-5">
-                                                            <label class="form-label small fw-bold text-muted">Detailed
-                                                                Requirement</label>
-                                                            <textarea class="form-control" rows="1"
-                                                                placeholder="Specify technical dimensions..."></textarea>
-                                                        </div>
-                                                        <div class="col-md-1">
-                                                            <label
-                                                                class="form-label small fw-bold text-muted">Qty</label>
-                                                            <input type="number" class="form-control" value="10">
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <label class="form-label small fw-bold text-muted">Approx
-                                                                Price</label>
-                                                            <input type="number" class="form-control" value="125.00">
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <label class="form-label small fw-bold text-muted">Available
-                                                                Budget</label>
-                                                            <div class="small fw-bold text-success">₹14,000.00</div>
-                                                            <div class="progress mt-1" style="height: 4px;">
-                                                                <div class="progress-bar bg-success" style="width: 70%">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <label class="form-label small fw-bold text-muted">Balance
-                                                                Budget</label>
-                                                            <div class="small fw-bold text-primary">₹12,750.00</div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="row g-3 mt-2 align-items-center">
-                                                        <div class="col-md-2">
-                                                            <label class="form-label small fw-bold text-muted">Required
-                                                                By Date</label>
-                                                            <input type="date" class="form-control">
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <label class="form-label small fw-bold text-muted">Employee
-                                                                #</label>
-                                                            <input type="text" class="form-control" value="E-1044">
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <label
-                                                                class="form-label small fw-bold text-muted">Department</label>
-                                                            <input type="text" class="form-control" value="Stores">
-                                                        </div>
-                                                        <div class="col-md-3">
-                                                            <label
-                                                                class="form-label small fw-bold text-muted">Recommended
-                                                                Vendor</label>
-                                                            <input type="text" class="form-control"
-                                                                placeholder="Preferred Vendor">
-                                                        </div>
-                                                        <div class="col-md-3 text-end pt-3">
-                                                            <button
-                                                                class="btn btn-outline-danger btn-sm rounded-pill"><i
-                                                                    class="bi bi-trash3"></i></button>
-                                                        </div>
-                                                    </div> -->
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
+                          <div class="row g-3">
+                            <div class="col-md-2">
+                              <label class="form-label small fw-bold"
+                                >Plant</label
+                              >
+                              <input
+                                type="text"
+                                class="form-control sap-input"
+                                value="ML11"
+                                readonly
+                              />
+                            </div>
+                            <div class="col-md-2">
+                              <label class="form-label small fw-bold"
+                                >Department</label
+                              >
+                              <select class="form-select">
+                                <option>Stores</option>
+                                <option>EHS</option>
+                                <option>IT</option>
+                              </select>
+                            </div>
+                            <div class="col-md-2">
+                              <label class="form-label small fw-bold"
+                                >Purchase Type</label
+                              >
+                              <select class="form-select" id="purchaseType">
+                                <option value="Asset">Asset</option>
+                                <option value="Material">Material</option>
+                                <option value="Service">Service</option>
+                              </select>
+                            </div>
+                            <div class="col-md-2">
+                              <label class="form-label small fw-bold"
+                                >Budget Type</label
+                              >
+                              <select class="form-select" id="budgetType">
+                                <option value="CAPEX">CAPEX</option>
+                                <option value="OPEX">OPEX</option>
+                              </select>
                             </div>
 
-                            <div class="tab-pane fade" id="filesWorkOrder">
-                                <div class="card-box">
-                                    <div class="card-header">Attachments</div>
-                                    <div class="card-body">
-                                        <div class="row g-2 align-items-end">
-                                            <!-- Attachment Type -->
-                                            <div class="col-lg-3 col-md-6">
-                                                <label class="form-label small text-muted">Attachment Type</label>
-                                                <select class="form-select">
-                                                    <option selected disabled>Select type</option>
-                                                    <option>📄 Document</option>
-                                                    <option>🖼️ Image</option>
-                                                    <option>🔗 URL</option>
+                            <div class="col-md-2">
+                              <label class="form-label small fw-bold"
+                                >Purchase Group</label
+                              >
+                              <select class="form-select">
+                                <option value="PG-01">PG-01</option>
+                                <option value="PG-02">PG-02</option>
+                                <option value="PG-03">PG-03</option>
+                                <option value="PG-04">PG-04</option>
+                                <option value="PG-05">PG-05</option>
+                                <option value="PG-06">PG-06</option>
+                                <option value="PG-07">PG-07</option>
+                                <option value="PG-08">PG-08</option>
+                              </select>
+                            </div>
+
+                            <div class="col-md-12">
+                              <label class="form-label small fw-bold"
+                                >Justification
+                              </label>
+                              <textarea
+                                type="text"
+                                class="form-control"
+                                placeholder="Enter justification (e.g., stock shortage, new requirement, replacement, project need)"
+                              ></textarea>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="dcard mt-3">
+                          <div class="section-tag-line">
+                            <span class="section-label"
+                              >Section B: Checklist Details</span
+                            >
+                            <div class="section-hr"></div>
+                          </div>
+
+                          <div class="row g-3">
+                            <div class="col-md-3">
+                              <label class="form-label small fw-bold"
+                                >Checklist Type</label
+                              >
+                              <select class="form-select">
+                                <option value="Purchase Group">
+                                  Purchase Group
+                                </option>
+                              </select>
+                            </div>
+
+                            <div class="col-md-4">
+                              <label class="form-label small fw-bold"
+                                >Checklist Name</label
+                              >
+                              <select class="form-select">
+                                <option
+                                  value="Quality & Procurement Compliance Verification"
+                                >
+                                  Quality & Procurement Compliance Verification
+                                </option>
+                                <option
+                                  value="Purchase Requisition Compliance Checklist"
+                                >
+                                  Purchase Requisition Compliance Checklist
+                                </option>
+                              </select>
+                            </div>
+
+                            <div class="col-md-2 mt-5">
+                              <button class="btn btn-premium px-4">
+                                <i class="bi bi-plus-lg me-2"></i>Add
+                              </button>
+                            </div>
+
+                            <div class="col-md-12">
+                              <label class="form-label small fw-bold"
+                                >Selected Checklists</label
+                              >
+                              <div class="accordion" id="purchaseAccordion">
+                                <div class="accordion-item shadow-sm">
+                                  <h2 class="accordion-header" id="headingOne">
+                                    <button
+                                      class="accordion-button fw-bold"
+                                      type="button"
+                                      data-bs-toggle="collapse"
+                                      data-bs-target="#collapseOne"
+                                    >
+                                      <i class="bi bi-clipboard-check me-2"></i>
+                                      Purchase Verification Checklist
+                                    </button>
+                                  </h2>
+                                  <div
+                                    id="collapseOne"
+                                    class="accordion-collapse collapse show"
+                                    data-bs-parent="#purchaseAccordion"
+                                  >
+                                    <div class="accordion-body p-0">
+                                      <div class="table-responsive">
+                                        <table class="table table-main">
+                                          <thead>
+                                            <tr>
+                                              <th style="width: 5%">S.No</th>
+                                              <th style="width: 30%">
+                                                Task / Instruction
+                                              </th>
+                                              <th style="width: 5%">
+                                                Is Photo Required?
+                                              </th>
+                                              <th style="width: 25%">
+                                                Observation
+                                              </th>
+                                              <th style="width: 15%">
+                                                Execution Team
+                                              </th>
+                                              <th style="width: 30%">
+                                                Executed By
+                                              </th>
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                            <tr>
+                                              <td class="text-center fw-bold">
+                                                1
+                                              </td>
+                                              <td>
+                                                <span class="instruction-text"
+                                                  >Unique Asset
+                                                  Identification</span
+                                                >
+                                                <span class="sub-instruction"
+                                                  >Mention the legacy Tag ID if
+                                                  this is a replacement
+                                                  purchase.</span
+                                                >
+                                              </td>
+                                              <td class="text-center">
+                                                <span
+                                                  class="photo-pill pill-yes"
+                                                  ><i class="bi bi-camera"></i>
+                                                </span>
+                                              </td>
+                                              <td>
+                                                <input
+                                                  type="text"
+                                                  class="form-control form-control-sm"
+                                                  placeholder="e.g. ASSET/2026/IT/045"
+                                                />
+                                              </td>
+                                              <td>
+                                                <span
+                                                  class="badge badge-minimal badge-soft-internal"
+                                                >
+                                                  <i
+                                                    class="bi bi-person-workspace"
+                                                  ></i>
+                                                  Internal
+                                                </span>
+                                              </td>
+                                              <td>
+                                                <select
+                                                  class="form-select form-select-sm"
+                                                >
+                                                  <option value="">
+                                                    --Select Teams --
+                                                  </option>
+                                                  <option value="">
+                                                    Stores Executor
+                                                  </option>
+                                                  <option value="">
+                                                    Stores Reviewer
+                                                  </option>
+                                                  <option value="">
+                                                    Stores HOD
+                                                  </option>
                                                 </select>
-                                            </div>
+                                              </td>
+                                            </tr>
 
-                                            <!-- Description -->
-                                            <div class="col-lg-3 col-md-6">
-                                                <label class="form-label small text-muted">Description</label>
-                                                <input type="text" class="form-control"
-                                                    placeholder="Max 100 characters" />
-                                            </div>
+                                            <tr>
+                                              <td class="text-center fw-bold">
+                                                2
+                                              </td>
+                                              <td>
+                                                <span class="instruction-text"
+                                                  >Validation Impact
+                                                  Analysis</span
+                                                >
+                                                <span class="sub-instruction"
+                                                  >Identify the GxP criticality
+                                                  of the
+                                                  equipment/service.</span
+                                                >
+                                              </td>
+                                              <td class="text-center">
+                                                <span class="photo-pill pill-no"
+                                                  >NO</span
+                                                >
+                                              </td>
+                                              <td>
+                                                <select
+                                                  class="form-select form-select-sm"
+                                                >
+                                                  <option value="">
+                                                    -- Select Impact Level --
+                                                  </option>
+                                                  <option value="critical">
+                                                    Critical (Direct Impact on
+                                                    Product Quality)
+                                                  </option>
+                                                  <option value="non-critical">
+                                                    Non-Critical (Indirect
+                                                    Impact)
+                                                  </option>
+                                                  <option value="business">
+                                                    Business Critical Only
+                                                  </option>
+                                                </select>
+                                              </td>
+                                              <td>
+                                                <span
+                                                  class="badge badge-minimal badge-soft-external"
+                                                >
+                                                  <i class="bi bi-globe"></i>
+                                                  External
+                                                </span>
+                                              </td>
 
-                                            <!-- File / URL -->
-                                            <div class="col-lg-5 col-md-8">
-                                                <label class="form-label small text-muted">File / URL</label>
-                                                <input type="file" class="form-control" />
-                                            </div>
+                                              <td>
+                                                <select
+                                                  class="form-select form-select-sm"
+                                                >
+                                                  <option value="">
+                                                    --Select Vendor --
+                                                  </option>
+                                                </select>
+                                              </td>
+                                            </tr>
 
-                                            <!-- Add Button -->
-                                            <div class="col-lg-1 col-md-4 text-end">
-                                                <button class="btn btn-premium btn-sm w-100">
-                                                    <i class="bi bi-plus-circle"></i>
-                                                </button>
-                                            </div>
-                                        </div>
+                                            <tr>
+                                              <td class="text-center fw-bold">
+                                                3
+                                              </td>
+                                              <td>
+                                                <span class="instruction-text"
+                                                  >Vendor Conflict
+                                                  Interest</span
+                                                >
+                                                <span class="sub-instruction"
+                                                  >Does the user have any direct
+                                                  relationship with the
+                                                  vendor?</span
+                                                >
+                                              </td>
+                                              <td class="text-center">
+                                                <span class="photo-pill pill-no"
+                                                  >NO</span
+                                                >
+                                              </td>
+                                              <td>
+                                                <div class="d-flex gap-3 mt-1">
+                                                  <div class="form-check">
+                                                    <input
+                                                      class="form-check-input"
+                                                      type="radio"
+                                                      name="r3"
+                                                      id="r3a"
+                                                    />
+                                                    <label
+                                                      class="form-check-label small"
+                                                      for="r3a"
+                                                      >Yes, Declared</label
+                                                    >
+                                                  </div>
+                                                  <div class="form-check">
+                                                    <input
+                                                      class="form-check-input"
+                                                      type="radio"
+                                                      name="r3"
+                                                      id="r3b"
+                                                      checked
+                                                    />
+                                                    <label
+                                                      class="form-check-label small"
+                                                      for="r3b"
+                                                      >No Conflict</label
+                                                    >
+                                                  </div>
+                                                </div>
+                                              </td>
+                                              <td>
+                                                <span
+                                                  class="badge badge-minimal badge-soft-hybrid"
+                                                >
+                                                  <i class="bi bi-people"></i>
+                                                  Internal + External Support
+                                                </span>
+                                              </td>
 
-                                        <small class="text-muted d-block mt-2">
-                                            <i class="bi bi-info-circle me-1"></i>
-                                            Maximum total upload size: 25 MB
-                                        </small>
+                                              <td>
+                                                <select
+                                                  class="form-select form-select-sm"
+                                                >
+                                                  <option value="">
+                                                    --Select Teams --
+                                                  </option>
+                                                  <option value="">
+                                                    Stores Executor
+                                                  </option>
+                                                  <option value="">
+                                                    Stores Reviewer
+                                                  </option>
+                                                  <option value="">
+                                                    Stores HOD
+                                                  </option>
+                                                </select>
+                                                <select
+                                                  class="form-select form-select-sm mt-1"
+                                                >
+                                                  <option value="">
+                                                    --Select Vendor --
+                                                  </option>
+                                                </select>
+                                              </td>
+                                            </tr>
 
-                                        <div class="table-responsive mt-3">
-                                            <table class="table table-bordered align-middle">
-                                                <thead class="table-light">
-                                                    <tr>
-                                                        <th width="20%">Type</th>
-                                                        <th width="25%">Description</th>
-                                                        <th width="35%">File / URL</th>
-                                                        <th width="10%">Size</th>
-                                                        <th width="10%" class="text-center">Action</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <!-- Document -->
-                                                    <tr>
-                                                        <td>
-                                                            <i class="bi bi-file-earmark-text text-primary"></i>
-                                                            Document
-                                                        </td>
-                                                        <td class="text-truncate" title="Maintenance SOP document">
-                                                            Maintenance SOP document
-                                                        </td>
-                                                        <td>
-                                                            <a href="#" class="text-decoration-none">
-                                                                <i class="bi bi-file-earmark-pdf text-danger me-1"></i>
-                                                                SOP_Maintenance.pdf
-                                                            </a>
-                                                        </td>
-                                                        <td class="text-center">1.2 MB</td>
-                                                        <td class="text-center">
-                                                            <button class="btn btn-sm btn-outline-danger">
-                                                                <i class="bi bi-trash"></i>
-                                                            </button>
-                                                        </td>
-                                                    </tr>
+                                            <tr>
+                                              <td class="text-center fw-bold">
+                                                4
+                                              </td>
+                                              <td>
+                                                <span class="instruction-text"
+                                                  >Pre-Installation
+                                                  Readiness</span
+                                                >
+                                                <span class="sub-instruction"
+                                                  >Confirm site is ready for
+                                                  delivery/installation.</span
+                                                >
+                                              </td>
+                                              <td class="text-center">
+                                                <span
+                                                  class="photo-pill pill-yes"
+                                                >
+                                                  <i class="bi bi-camera"></i>
+                                                </span>
+                                              </td>
+                                              <td>
+                                                <div class="form-check">
+                                                  <input
+                                                    class="form-check-input"
+                                                    type="checkbox"
+                                                    id="c4"
+                                                  />
+                                                  <label
+                                                    class="form-check-label small text-muted"
+                                                    for="c4"
+                                                    >Power, Space, and Network
+                                                    points are verified.</label
+                                                  >
+                                                </div>
+                                              </td>
+                                              <td>
+                                                <span
+                                                  class="badge badge-minimal badge-soft-internal"
+                                                >
+                                                  <i
+                                                    class="bi bi-person-workspace"
+                                                  ></i>
+                                                  Internal
+                                                </span>
+                                              </td>
+                                              <td>
+                                                <select
+                                                  class="form-select form-select-sm"
+                                                >
+                                                  <option value="">
+                                                    --Select Teams --
+                                                  </option>
+                                                  <option value="">
+                                                    Stores Executor
+                                                  </option>
+                                                  <option value="">
+                                                    Stores Reviewer
+                                                  </option>
+                                                  <option value="">
+                                                    Stores HOD
+                                                  </option>
+                                                </select>
+                                              </td>
+                                            </tr>
 
-                                                    <!-- Image -->
-                                                    <tr>
-                                                        <td>
-                                                            <i class="bi bi-image text-success"></i> Image
-                                                        </td>
-                                                        <td>Equipment condition photo</td>
-                                                        <td>
-                                                            <a href="#">
-                                                                <i class="bi bi-image me-1"></i>
-                                                                motor_photo.jpg
-                                                            </a>
-                                                        </td>
-                                                        <td class="text-center">450 KB</td>
-                                                        <td class="text-center">
-                                                            <button class="btn btn-sm btn-outline-danger">
-                                                                <i class="bi bi-trash"></i>
-                                                            </button>
-                                                        </td>
-                                                    </tr>
+                                            <tr>
+                                              <td class="text-center fw-bold">
+                                                5
+                                              </td>
+                                              <td>
+                                                <span class="instruction-text"
+                                                  >Factory Acceptance Test
+                                                  (FAT)</span
+                                                >
+                                                <span class="sub-instruction"
+                                                  >Planned date for vendor
+                                                  factory inspection.</span
+                                                >
+                                              </td>
+                                              <td class="text-center">
+                                                <span class="photo-pill pill-no"
+                                                  >NO</span
+                                                >
+                                              </td>
+                                              <td>
+                                                <input
+                                                  type="date"
+                                                  class="form-control form-control-sm"
+                                                  value="2026-05-15"
+                                                />
+                                              </td>
+                                              <td>
+                                                <span
+                                                  class="badge badge-minimal badge-soft-internal"
+                                                >
+                                                  <i
+                                                    class="bi bi-person-workspace"
+                                                  ></i>
+                                                  Internal
+                                                </span>
+                                              </td>
+                                              <td>
+                                                <select
+                                                  class="form-select form-select-sm"
+                                                >
+                                                  <option value="">
+                                                    --Select Teams --
+                                                  </option>
+                                                  <option value="">
+                                                    Stores Executor
+                                                  </option>
+                                                  <option value="">
+                                                    Stores Reviewer
+                                                  </option>
+                                                  <option value="">
+                                                    Stores HOD
+                                                  </option>
+                                                </select>
+                                              </td>
+                                            </tr>
 
-                                                    <!-- URL -->
-                                                    <tr>
-                                                        <td>
-                                                            <i class="bi bi-link-45deg text-secondary"></i>
-                                                            URL
-                                                        </td>
-                                                        <td>External safety SOP</td>
-                                                        <td>
-                                                            <a href="https://example.com" target="_blank"
-                                                                class="text-decoration-none">
-                                                                <i class="bi bi-box-arrow-up-right me-1"></i>
-                                                                https://example.com
-                                                            </a>
-                                                        </td>
-                                                        <td class="text-center">NA</td>
-                                                        <td class="text-center">
-                                                            <button class="btn btn-sm btn-outline-danger">
-                                                                <i class="bi bi-trash"></i>
-                                                            </button>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
+                                            <tr>
+                                              <td class="text-center fw-bold">
+                                                6
+                                              </td>
+                                              <td>
+                                                <span class="instruction-text"
+                                                  >Quotation Comparison
+                                                  Sheet</span
+                                                >
+                                                <span class="sub-instruction"
+                                                  >Mandatory for all purchases
+                                                  above ₹50,000.</span
+                                                >
+                                              </td>
+                                              <td class="text-center">
+                                                <span class="photo-pill pill-no"
+                                                  >NO</span
+                                                >
+                                              </td>
+                                              <td>
+                                                <input
+                                                  type="file"
+                                                  class="form-control form-control-sm"
+                                                />
+                                              </td>
+                                              <td>
+                                                <span
+                                                  class="badge badge-minimal badge-soft-external"
+                                                >
+                                                  <i class="bi bi-globe"></i>
+                                                  External
+                                                </span>
+                                              </td>
+
+                                              <td>
+                                                <select
+                                                  class="form-select form-select-sm"
+                                                >
+                                                  <option value="">
+                                                    --Select Vendor --
+                                                  </option>
+                                                </select>
+                                              </td>
+                                            </tr>
+
+                                            <tr>
+                                              <td class="text-center fw-bold">
+                                                7
+                                              </td>
+                                              <td>
+                                                <span class="instruction-text"
+                                                  >Warranty Period
+                                                  (Months)</span
+                                                >
+                                                <span class="sub-instruction"
+                                                  >Enter the standard warranty
+                                                  offered by vendor.</span
+                                                >
+                                              </td>
+                                              <td class="text-center">
+                                                <span class="photo-pill pill-no"
+                                                  >NO</span
+                                                >
+                                              </td>
+                                              <td>
+                                                <input
+                                                  type="number"
+                                                  class="form-control"
+                                                  placeholder="Enter Value"
+                                                  min="0"
+                                                />
+                                              </td>
+                                              <td>
+                                                <span
+                                                  class="badge badge-minimal badge-soft-external"
+                                                >
+                                                  <i class="bi bi-globe"></i>
+                                                  External
+                                                </span>
+                                              </td>
+
+                                              <td>
+                                                <select
+                                                  class="form-select form-select-sm"
+                                                >
+                                                  <option value="">
+                                                    --Select Vendor --
+                                                  </option>
+                                                </select>
+                                              </td>
+                                            </tr>
+
+                                            <tr>
+                                              <td class="text-center fw-bold">
+                                                8
+                                              </td>
+                                              <td>
+                                                <span class="instruction-text"
+                                                  >Spare Parts / Consumables
+                                                  List</span
+                                                >
+                                                <span class="sub-instruction"
+                                                  >List items included in the
+                                                  initial BOM.</span
+                                                >
+                                              </td>
+                                              <td class="text-center">
+                                                <span
+                                                  class="photo-pill pill-yes"
+                                                  ><i class="bi bi-camera"></i>
+                                                </span>
+                                              </td>
+                                              <td>table</td>
+                                              <td>
+                                                <span
+                                                  class="badge badge-minimal badge-soft-hybrid"
+                                                >
+                                                  <i class="bi bi-people"></i>
+                                                  Internal + External Support
+                                                </span>
+                                              </td>
+
+                                              <td>
+                                                <select
+                                                  class="form-select form-select-sm"
+                                                >
+                                                  <option value="">
+                                                    --Select Teams --
+                                                  </option>
+                                                  <option value="">
+                                                    Stores Executor
+                                                  </option>
+                                                  <option value="">
+                                                    Stores Reviewer
+                                                  </option>
+                                                  <option value="">
+                                                    Stores HOD
+                                                  </option>
+                                                </select>
+                                                <select
+                                                  class="form-select form-select-sm mt-1"
+                                                >
+                                                  <option value="">
+                                                    --Select Vendor --
+                                                  </option>
+                                                </select>
+                                              </td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </div>
                                     </div>
+                                  </div>
                                 </div>
+                              </div>
                             </div>
-
-                            <div class="tab-pane fade" id="approversWorkOrder">
-                                <table class="table table-sm">
-                                    <tr>
-                                        <th>Approval Level</th>
-                                        <th>Department</th>
-                                        <th>Team Name</th>
-                                        <th>Team Member</th>
-                                    </tr>
-
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Engineering</td>
-                                        <td>Engineering Review Team</td>
-                                        <td>Vikram (000007)</td>
-                                    </tr>
-                                </table>
-                            </div>
-
-                            <div class="tab-pane fade" id="auditWorkOrder">
-                                <table class="table table-hover table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th rowspan="2" style="width: 10%">Action</th>
-                                            <th rowspan="2" style="width: 10%; cursor: pointer">
-                                                Done By
-                                            </th>
-                                            <th rowspan="2" style="width: 10%; cursor: pointer">
-                                                Date & Time
-                                            </th>
-                                            <th colspan="3" class="bg-secondary text-white" style="width: 50%">
-                                                Changes
-                                            </th>
-                                            <th rowspan="2" style="width: 10%">Reason</th>
-                                            <th rowspan="2" style="width: 10%">Status</th>
-                                        </tr>
-                                        <tr class="table-secondary">
-                                            <th style="width: 10%">Field</th>
-                                            <th style="width: 15%">Old Value</th>
-                                            <th style="width: 25%">New Value</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <!-- Example Row with Changes -->
-                                        <tr>
-                                            <td rowspan="2">Update</td>
-                                            <td rowspan="2">John Doe</td>
-                                            <td rowspan="2">2025-12-27 10:00 AM</td>
-                                            <td>Username</td>
-                                            <td>OldUser</td>
-                                            <td>NewUser</td>
-                                            <td rowspan="2">Corrected typo</td>
-                                            <td rowspan="2">
-                                                <span class="badge-status approved">
-                                                    <i class="bi bi-check-circle"></i> Approved
-                                                </span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Email</td>
-                                            <td>old@example.com</td>
-                                            <td>new@example.com</td>
-                                        </tr>
-
-                                        <!-- Example Row with No Changes -->
-                                        <tr>
-                                            <td>Created</td>
-                                            <td>Jane Smith</td>
-                                            <td>2025-12-26 09:30 AM</td>
-                                            <td>NA</td>
-                                            <td>NA</td>
-                                            <td>NA</td>
-                                            <td>Initial creation</td>
-                                            <td>
-                                                <span class="badge-status pending">
-                                                    <i class="bi bi-hourglass-split"></i> Pending
-                                                </span>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                          </div>
                         </div>
+                      </div>
                     </div>
+                  </div>
                 </div>
 
+                <div class="tab-pane fade" id="itemDetailsWorkOrder">
+                  <div class="">
+                    <div class="row g-3">
+                      <div class="col-md-12">
+                        <div class="dcard">
+                          <div class="section-tag-line">
+                            <span class="section-label"
+                              >Section C: Item Details</span
+                            >
+                            <div class="section-hr"></div>
+                            <div class="stat-pill">
+                              <div class="stat-group">
+                                <span class="stat-label">Total Available:</span>
+                                <span class="stat-count" id="totalAvailable"
+                                  >₹14,000.00</span
+                                >
+                              </div>
+                              <div class="stat-divider"></div>
+                              <div class="stat-group">
+                                <span class="stat-label">Remaining:</span>
+                                <span
+                                  class="stat-count text-primary"
+                                  id="totalRemaining"
+                                  >₹12,750.00</span
+                                >
+                              </div>
+                            </div>
+                            <button
+                              type="button"
+                              class="btn btn-sm btn-outline-primary rounded-pill fw-bold"
+                              onclick="addRow()"
+                            >
+                              <i class="bi bi-plus-circle me-1"></i> Add New
+                              Item
+                            </button>
+                          </div>
 
+                          <div class="line-item-row">
+                            <div class="table-responsive">
+                              <table class="table align-middle">
+                                <thead>
+                                  <tr>
+                                    <th style="width: 10%">Budget Code</th>
+                                    <th style="width: 10%">
+                                      Item Code / Service Code
+                                    </th>
+                                    <th style="width: 15%">Material</th>
+                                    <th style="width: 25%">Description</th>
+                                    <th style="width: 5%">Qty</th>
+                                    <th style="width: 10%">UOM</th>
+                                    <th style="width: 15%">Unit Price</th>
+                                    <th style="width: 5%">Total Amount</th>
+                                    <th style="width: 5%; text-align: center">
+                                      Action
+                                    </th>
+                                  </tr>
+                                </thead>
+                                <tbody id="prTableBody">
+                                  <tr>
+                                    <td>
+                                      <select
+                                        class="form-select"
+                                        id="budgetType"
+                                      >
+                                        <option value="PL11-113">
+                                          PL11-113
+                                        </option>
+                                        <option value="PL11-126">
+                                          PL11-126
+                                        </option>
+                                      </select>
+                                    </td>
+                                    <td>
+                                      <input
+                                        type="text"
+                                        class="form-control form-control-sm"
+                                        value="9000-XYZ"
+                                      />
+                                    </td>
+                                    <td>
+                                      <input
+                                        type="text"
+                                        class="form-control fw-bold"
+                                        value="Cisco Catalyst 9200L Switch"
+                                      />
+                                    </td>
+                                    <td>
+                                      <textarea
+                                        class="form-control mt-1"
+                                        rows="2"
+                                        placeholder="Provide model no., dimensions..."
+                                      ></textarea>
+                                    </td>
 
-                <div class="modal-footer justify-content-between">
-                    <div class="grand-total-box">
-                        <div class="budget-label">Grand Total</div>
-                        <div class="h5 fw-bold mb-0 text-primary amountStat" id="grandTotalDisplay">₹1250.00</div>
+                                    <td>
+                                      <input
+                                        type="number"
+                                        class="form-control form-control-sm qty-input"
+                                        value="10"
+                                      />
+                                    </td>
+
+                                    <td>
+                                      <input
+                                        type="text"
+                                        class="form-control form-control-sm bg-light"
+                                        value="Units"
+                                        readonly
+                                      />
+                                    </td>
+
+                                    <td>
+                                      <div class="input-group input-group-sm">
+                                        <span class="input-group-text bg-light"
+                                          >₹</span
+                                        >
+                                        <input
+                                          type="number"
+                                          class="form-control price-input"
+                                          value="125.00"
+                                        />
+                                      </div>
+                                    </td>
+
+                                    <td class="fw-bold text-primary amountStat">
+                                      ₹1,250.00
+                                    </td>
+
+                                    <td class="text-center">
+                                      <button
+                                        type="button"
+                                        class="btn btn-outline-danger btn-sm border-0 remove-row"
+                                      >
+                                        <i class="bi bi-trash3"></i>
+                                      </button>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <div class="d-flex">
-                        <button type="button" class="btn btn-light px-4 py-2 me-2 fw-bold text-secondary"
-                            data-bs-dismiss="modal">
-                            Discard Changes
-                        </button>
-                        <button type="button" class="btn btn-premium">Submit Request <i
-                                class="bi bi-send-fill ms-2"></i></button>
-                    </div>
-
+                  </div>
                 </div>
+
+                <div class="tab-pane fade" id="filesWorkOrder">
+                  <div class="card-box">
+                    <div class="card-header">Attachments</div>
+                    <div class="card-body">
+                      <div class="row g-2 align-items-end">
+                        <!-- Attachment Type -->
+                        <div class="col-lg-3 col-md-6">
+                          <label class="form-label small text-muted"
+                            >Attachment Type</label
+                          >
+                          <select class="form-select">
+                            <option selected disabled>Select type</option>
+                            <option>📄 Document</option>
+                            <option>🖼️ Image</option>
+                            <option>🔗 URL</option>
+                          </select>
+                        </div>
+
+                        <!-- Description -->
+                        <div class="col-lg-3 col-md-6">
+                          <label class="form-label small text-muted"
+                            >Description</label
+                          >
+                          <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Max 100 characters"
+                          />
+                        </div>
+
+                        <!-- File / URL -->
+                        <div class="col-lg-5 col-md-8">
+                          <label class="form-label small text-muted"
+                            >File / URL</label
+                          >
+                          <input type="file" class="form-control" />
+                        </div>
+
+                        <!-- Add Button -->
+                        <div class="col-lg-1 col-md-4 text-end">
+                          <button class="btn btn-premium btn-sm w-100">
+                            <i class="bi bi-plus-circle"></i>
+                          </button>
+                        </div>
+                      </div>
+
+                      <small class="text-muted d-block mt-2">
+                        <i class="bi bi-info-circle me-1"></i>
+                        Maximum total upload size: 25 MB
+                      </small>
+
+                      <div class="table-responsive mt-3">
+                        <table class="table table-bordered align-middle">
+                          <thead class="table-light">
+                            <tr>
+                              <th width="20%">Type</th>
+                              <th width="25%">Description</th>
+                              <th width="35%">File / URL</th>
+                              <th width="10%">Size</th>
+                              <th width="10%" class="text-center">Action</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <!-- Document -->
+                            <tr>
+                              <td>
+                                <i
+                                  class="bi bi-file-earmark-text text-primary"
+                                ></i>
+                                Document
+                              </td>
+                              <td
+                                class="text-truncate"
+                                title="Maintenance SOP document"
+                              >
+                                Maintenance SOP document
+                              </td>
+                              <td>
+                                <a href="#" class="text-decoration-none">
+                                  <i
+                                    class="bi bi-file-earmark-pdf text-danger me-1"
+                                  ></i>
+                                  SOP_Maintenance.pdf
+                                </a>
+                              </td>
+                              <td class="text-center">1.2 MB</td>
+                              <td class="text-center">
+                                <button class="btn btn-sm btn-outline-danger">
+                                  <i class="bi bi-trash"></i>
+                                </button>
+                              </td>
+                            </tr>
+
+                            <!-- Image -->
+                            <tr>
+                              <td>
+                                <i class="bi bi-image text-success"></i> Image
+                              </td>
+                              <td>Equipment condition photo</td>
+                              <td>
+                                <a href="#">
+                                  <i class="bi bi-image me-1"></i>
+                                  motor_photo.jpg
+                                </a>
+                              </td>
+                              <td class="text-center">450 KB</td>
+                              <td class="text-center">
+                                <button class="btn btn-sm btn-outline-danger">
+                                  <i class="bi bi-trash"></i>
+                                </button>
+                              </td>
+                            </tr>
+
+                            <!-- URL -->
+                            <tr>
+                              <td>
+                                <i class="bi bi-link-45deg text-secondary"></i>
+                                URL
+                              </td>
+                              <td>External safety SOP</td>
+                              <td>
+                                <a
+                                  href="https://example.com"
+                                  target="_blank"
+                                  class="text-decoration-none"
+                                >
+                                  <i class="bi bi-box-arrow-up-right me-1"></i>
+                                  https://example.com
+                                </a>
+                              </td>
+                              <td class="text-center">NA</td>
+                              <td class="text-center">
+                                <button class="btn btn-sm btn-outline-danger">
+                                  <i class="bi bi-trash"></i>
+                                </button>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="tab-pane fade" id="approversWorkOrder">
+                  <table class="table table-sm">
+                    <tr>
+                      <th>Approval Level</th>
+                      <th>Department</th>
+                      <th>Team Name</th>
+                      <th>Team Member</th>
+                    </tr>
+
+                    <tr>
+                      <td>1</td>
+                      <td>Engineering</td>
+                      <td>Engineering Review Team</td>
+                      <td>Vikram (000007)</td>
+                    </tr>
+                  </table>
+                </div>
+
+                <div class="tab-pane fade" id="auditWorkOrder">
+                  <table class="table table-hover table-bordered">
+                    <thead>
+                      <tr>
+                        <th rowspan="2" style="width: 10%">Action</th>
+                        <th rowspan="2" style="width: 10%; cursor: pointer">
+                          Done By
+                        </th>
+                        <th rowspan="2" style="width: 10%; cursor: pointer">
+                          Date & Time
+                        </th>
+                        <th
+                          colspan="3"
+                          class="bg-secondary text-white"
+                          style="width: 50%"
+                        >
+                          Changes
+                        </th>
+                        <th rowspan="2" style="width: 10%">Reason</th>
+                        <th rowspan="2" style="width: 10%">Status</th>
+                      </tr>
+                      <tr class="table-secondary">
+                        <th style="width: 10%">Field</th>
+                        <th style="width: 15%">Old Value</th>
+                        <th style="width: 25%">New Value</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <!-- Example Row with Changes -->
+                      <tr>
+                        <td rowspan="2">Update</td>
+                        <td rowspan="2">John Doe</td>
+                        <td rowspan="2">2025-12-27 10:00 AM</td>
+                        <td>Username</td>
+                        <td>OldUser</td>
+                        <td>NewUser</td>
+                        <td rowspan="2">Corrected typo</td>
+                        <td rowspan="2">
+                          <span class="badge-status approved">
+                            <i class="bi bi-check-circle"></i> Approved
+                          </span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Email</td>
+                        <td>old@example.com</td>
+                        <td>new@example.com</td>
+                      </tr>
+
+                      <!-- Example Row with No Changes -->
+                      <tr>
+                        <td>Created</td>
+                        <td>Jane Smith</td>
+                        <td>2025-12-26 09:30 AM</td>
+                        <td>NA</td>
+                        <td>NA</td>
+                        <td>NA</td>
+                        <td>Initial creation</td>
+                        <td>
+                          <span class="badge-status pending">
+                            <i class="bi bi-hourglass-split"></i> Pending
+                          </span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             </div>
+          </div>
+
+          <div class="modal-footer justify-content-between">
+            <div class="grand-total-box">
+              <div class="budget-label">Grand Total</div>
+              <div
+                class="h5 fw-bold mb-0 text-primary amountStat"
+                id="grandTotalDisplay"
+              >
+                ₹1250.00
+              </div>
+            </div>
+            <div class="d-flex">
+              <button
+                type="button"
+                class="btn btn-light px-4 py-2 me-2 fw-bold text-secondary"
+                data-bs-dismiss="modal"
+              >
+                Discard Changes
+              </button>
+              <button type="button" class="btn btn-premium">
+                Submit Request <i class="bi bi-send-fill ms-2"></i>
+              </button>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        $(document).ready(function () {
-            const budgetLimits = {
-                'CAPEX': 500000.00,
-                'OPEX': 14000.00
-            };
+      $(document).ready(function () {
+        const budgetLimits = {
+          CAPEX: 500000.0,
+          OPEX: 14000.0,
+        };
 
-            const formatINR = (val) => {
-                return '₹' + parseFloat(val).toLocaleString('en-IN', {
-                    minimumFractionDigits: 2,
-                    maximumFractionDigits: 2
-                });
-            };
+        const formatINR = (val) => {
+          return (
+            "₹" +
+            parseFloat(val).toLocaleString("en-IN", {
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2,
+            })
+          );
+        };
 
-            function updateAllCalculations() {
-                let runningGrandTotal = 0;
-                const currentBudgetType = $('#budgetType').val();
-                const allocatedAmount = budgetLimits[currentBudgetType] || 0;
+        function updateAllCalculations() {
+          let runningGrandTotal = 0;
+          const currentBudgetType = $("#budgetType").val();
+          const allocatedAmount = budgetLimits[currentBudgetType] || 0;
 
-                // Loop through rows to calculate line totals
-                $('#prTableBody tr').each(function () {
-                    const qty = parseFloat($(this).find('.qty-input').val()) || 0;
-                    const price = parseFloat($(this).find('.price-input').val()) || 0;
-                    const rowTotal = qty * price;
+          // Loop through rows to calculate line totals
+          $("#prTableBody tr").each(function () {
+            const qty = parseFloat($(this).find(".qty-input").val()) || 0;
+            const price = parseFloat($(this).find(".price-input").val()) || 0;
+            const rowTotal = qty * price;
 
-                    $(this).find('.amountStat').text(formatINR(rowTotal));
-                    runningGrandTotal += rowTotal;
-                });
+            $(this).find(".amountStat").text(formatINR(rowTotal));
+            runningGrandTotal += rowTotal;
+          });
 
-                // 1. Update the Grand Total Div
-                $('#grandTotalDisplay').text(formatINR(runningGrandTotal));
+          // 1. Update the Grand Total Div
+          $("#grandTotalDisplay").text(formatINR(runningGrandTotal));
 
-                // 2. Update Header/Section Stats
-                const remaining = allocatedAmount - runningGrandTotal;
-                $('#totalAvailable').text(formatINR(allocatedAmount));
-                $('#totalRemaining').text(formatINR(remaining));
+          // 2. Update Header/Section Stats
+          const remaining = allocatedAmount - runningGrandTotal;
+          $("#totalAvailable").text(formatINR(allocatedAmount));
+          $("#totalRemaining").text(formatINR(remaining));
 
-                // 3. UX: Change color if over budget
-                if (remaining < 0) {
-                    $('#totalRemaining').addClass('text-danger').removeClass('text-primary');
-                    $('#grandTotalDisplay').addClass('text-danger').removeClass('text-primary');
-                } else {
-                    $('#totalRemaining').addClass('text-primary').removeClass('text-danger');
-                    $('#grandTotalDisplay').addClass('text-primary').removeClass('text-danger');
-                }
-            }
+          // 3. UX: Change color if over budget
+          if (remaining < 0) {
+            $("#totalRemaining")
+              .addClass("text-danger")
+              .removeClass("text-primary");
+            $("#grandTotalDisplay")
+              .addClass("text-danger")
+              .removeClass("text-primary");
+          } else {
+            $("#totalRemaining")
+              .addClass("text-primary")
+              .removeClass("text-danger");
+            $("#grandTotalDisplay")
+              .addClass("text-primary")
+              .removeClass("text-danger");
+          }
+        }
 
-            // Purchase Type Logic: Sets Budget Type automatically
-            $('#purchaseType').on('change', function () {
-                if ($(this).val() === "Asset") {
-                    $('#budgetType').val('CAPEX').trigger('change');
-                } else {
-                    $('#budgetType').val('OPEX').trigger('change');
-                }
-            });
+        // Purchase Type Logic: Sets Budget Type automatically
+        $("#purchaseType").on("change", function () {
+          if ($(this).val() === "Asset") {
+            $("#budgetType").val("CAPEX").trigger("change");
+          } else {
+            $("#budgetType").val("OPEX").trigger("change");
+          }
+        });
 
-            // Row Addition
-            window.addRow = function () {
-                const rowHtml = `
+        // Row Addition
+        window.addRow = function () {
+          const rowHtml = `
         <tr>
+            <td>
+                                                                        <select class="form-select" id="budgetType">
+                                                                            <option>--Select Budget Type--</option>
+                                                                        </select>
+                                                                    </td>
             <td><input type="text" class="form-control form-control-sm" placeholder="Code"></td>
             <td><input type="text" class="form-control fw-bold" placeholder="Material"></td>
             <td><textarea class="form-control" rows="2" placeholder="Provide model no., dimensions ..."></textarea></td>
@@ -832,67 +1470,77 @@
             </td>
         </tr>`;
 
-                $('#prTableBody').append(rowHtml);
-                updateAllCalculations();
-            };
+          $("#prTableBody").append(rowHtml);
+          updateAllCalculations();
+        };
 
-            // Listeners
-            $(document).on('input', '.qty-input, .price-input', updateAllCalculations);
-            $('#budgetType').on('change', updateAllCalculations);
-            $(document).on('click', '.remove-row', function () {
-                $(this).closest('tr').remove();
-                updateAllCalculations();
-            });
-
-            // Run on Page Load
-            updateAllCalculations();
+        // Listeners
+        $(document).on(
+          "input",
+          ".qty-input, .price-input",
+          updateAllCalculations,
+        );
+        $("#budgetType").on("change", updateAllCalculations);
+        $(document).on("click", ".remove-row", function () {
+          $(this).closest("tr").remove();
+          updateAllCalculations();
         });
 
-        $(document).ready(function () {
+        // Run on Page Load
+        updateAllCalculations();
+      });
 
-            // Function to handle the calculation
-            function updateGrandTotal() {
-                let total = 0;
+      $(document).ready(function () {
+        // Function to handle the calculation
+        function updateGrandTotal() {
+          let total = 0;
 
-                // Loop through every row in the table body
-                $('#prTableBody tr').each(function () {
-                    // Find qty and price in the current row
-                    const qty = parseFloat($(this).find('.qty-input').val()) || 0;
-                    const price = parseFloat($(this).find('.price-input').val()) || 0;
+          // Loop through every row in the table body
+          $("#prTableBody tr").each(function () {
+            // Find qty and price in the current row
+            const qty = parseFloat($(this).find(".qty-input").val()) || 0;
+            const price = parseFloat($(this).find(".price-input").val()) || 0;
 
-                    const lineTotal = qty * price;
+            const lineTotal = qty * price;
 
-                    // Update the line total display in THIS row
-                    $(this).find('.line-total-text').text('₹' + lineTotal.toLocaleString('en-IN', { minimumFractionDigits: 2 }));
+            // Update the line total display in THIS row
+            $(this)
+              .find(".line-total-text")
+              .text(
+                "₹" +
+                  lineTotal.toLocaleString("en-IN", {
+                    minimumFractionDigits: 2,
+                  }),
+              );
 
-                    // Add to the grand total
-                    total += lineTotal;
-                });
+            // Add to the grand total
+            total += lineTotal;
+          });
 
-                // Update the main Grand Total box
-                $('#grandTotalDisplay').text('₹' + total.toLocaleString('en-IN', { minimumFractionDigits: 2 }));
-            }
+          // Update the main Grand Total box
+          $("#grandTotalDisplay").text(
+            "₹" + total.toLocaleString("en-IN", { minimumFractionDigits: 2 }),
+          );
+        }
 
-            // Trigger calculation when typing in any row
-            $(document).on('input', '.qty-input, .price-input', function () {
-                updateGrandTotal();
-            });
-
-            // Handle row removal
-            $(document).on('click', '.remove-row', function () {
-                $(this).closest('tr').remove();
-                updateGrandTotal();
-            });
-
-            // IMPORTANT: Run this once when the page loads so the 1250 appears immediately
-            updateGrandTotal();
+        // Trigger calculation when typing in any row
+        $(document).on("input", ".qty-input, .price-input", function () {
+          updateGrandTotal();
         });
+
+        // Handle row removal
+        $(document).on("click", ".remove-row", function () {
+          $(this).closest("tr").remove();
+          updateGrandTotal();
+        });
+
+        // IMPORTANT: Run this once when the page loads so the 1250 appears immediately
+        updateGrandTotal();
+      });
     </script>
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../sidebar.js"></script>
     <script src="../header.js"></script>
-</body>
-
+  </body>
 </html>
