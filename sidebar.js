@@ -13,6 +13,7 @@ const sidebarHTML = `
     <div class="sidebar-body">
 
     <nav class="nav flex-column">
+    
         <div class="nav-item">
             <a href="#inventoryCollapse" class="nav-link" data-bs-toggle="collapse" aria-expanded="true">
                 <i class="bi bi-box-seam"></i> 
@@ -21,8 +22,20 @@ const sidebarHTML = `
             </a>
 
             <div class="collapse show" id="inventoryCollapse">
+            
                 <div class="sub-menu-tree">            
                     <div class="operations-group">
+                     <div class="nested-item">
+                        <div class="nested-header" data-bs-toggle="collapse" data-bs-target="#masterNested" aria-expanded="true">
+                            <span>Master</span>
+                            <i class="bi bi-chevron-down arrow-icon small"></i>
+                        </div>
+                        
+                        <div class="collapse show tree-line-nested" id="masterNested">
+                            <a href="/inventory-budget/Material_Master/a1.html" class="tree-link">Material Master</a>
+                            <a href="/inventory-budget/Service_Master/a1.html" class="tree-link">Service Master</a>
+                        </div>
+                    </div>
                         <a href="/inventory-budget/Inward_Inventory/a1.html" class="tree-link">Inward - Inventory</a>
                         <a href="/inventory-budget/Put_Away/a1.html" class="tree-link">Put Away</a>
                         <a href="/inventory-budget/Stock_Transfer/a1.html" class="tree-link">Stock Transfer</a>
